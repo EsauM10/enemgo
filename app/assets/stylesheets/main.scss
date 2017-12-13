@@ -1,11 +1,12 @@
 @import "mixins";
 @import "vars";
+@import "bootstrap";
 
 @import "defaults/buttons";
 @import "defaults/colors";
 @import "defaults/links";
+@import "defaults/navbar";
+@import "defaults/border";
 
 @import "base/globals";
 @import "styles/home";
-
-@import "bootstrap";

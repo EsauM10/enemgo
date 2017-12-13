@@ -1,0 +1,50 @@
+.navbar-default {
+  .navbar-brand {
+    color: $purple;
+
+    @include hover-focus {
+      color: $purple;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: $purple;
+
+      @include hover-focus {
+        color: $primary;
+      }
+
+      &.disabled {
+        color: $navbar-light-disabled-color;
+      }
+    }
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      color: $primary;
+    }
+  }
+
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
+  }
+
+  .navbar-toggler-icon {
+    background-image: $navbar-light-toggler-icon-bg;
+  }
+
+  .navbar-text {
+    color: $purple;
+    a {
+      color: $primary;
+
+      @include hover-focus {
+        color: $primary;
+      }
+    }
+  }
+}

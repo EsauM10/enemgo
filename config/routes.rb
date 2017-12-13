@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
+  devise_for :users, skip: [:sessions, :registrations]
+  as :user do
+    get 'login',      to: 'devise/sessions#new',        as: :new_user_session
+    post 'login',     to: 'devise/sessions#create',     as: :user_session
+    delete 'logout',  to: 'devise/sessions#destroy',    as: :destroy_user_session
+
+    get 'cadastro',   to: 'devise/registrations#new',     as: :new_user_registration
+    get 'cancel',     to: 'devise/registrations#cancel',  as: :cancel_user_registration
+    post 'cadastro',  to: 'devise/registrations#create'
+    patch 'cadastro', to: 'devise/registrations#update', as: :user_registration
+
+  end
+
+  namespace :admin do
+    root 'dashboard#index'
+  end
+  # get 'dashboard', to: 'dashboard#index'
+
   resources :answer_lists
   resources :simulation_answers
   resources :tickets
@@ -13,9 +33,4 @@ Rails.application.routes.draw do
   resources :questions
   resources :exams
   resources :plans
-  root 'home#index'
-
-  devise_for :users
-
-  get 'dashboard', to: 'dashboard#index'
 end

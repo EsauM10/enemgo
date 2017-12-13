@@ -41,8 +41,8 @@ $clr-text-placeholder: #c9ccce !default;
 $clr-text-disable:     #a5b3c7 !default;
 
 // defaults
-$primary:          #3afad5  !default;
-$secondary:        #ff3975  !default;
+$primary:          #ff3975  !default;
+$secondary:        #3afad5  !default;
 $success:          $green   !default;
 $info:             $blue    !default;
 $warning:          $orange  !default;
@@ -74,7 +74,8 @@ $grays: map-merge((
   "900": $gray-900
 ), $grays);
 
-$colors: (
+$colors: () !default;
+$colors: map-merge((
   'primary':   $primary,
   'secondary': $secondary,
   'success':   $success,
@@ -88,7 +89,7 @@ $colors: (
   'yellow':    $yellow,
   'gray':      $gray,
   'dark':      $dark,
-);
+), $colors);
 
 $social-colors: (
   'facebook':    $facebook,
@@ -101,5 +102,6 @@ $social-colors: (
   'vimeo':       $vimeo,
   'youtube':     $youtube,
   'instagram':   $instagram,
-
 );
+
+$enable-hover-media-query:  false !default;

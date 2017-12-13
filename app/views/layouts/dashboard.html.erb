@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Enemgo</title>
+    <meta charset="utf-8">
+    <title></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
-  </head>
 
+  </head>
   <body>
-    <%= render 'shared/navbar' %>
     <main>
-      <%= yield %>
+      <%= render 'shared/dashboard/navbar' %>
+      <div class="container pt-5">
+        <%= yield %>
+      </div>
+      <%= render 'shared/dashboard/footer' %>
     </main>
-    <%= render 'shared/footer' %>
   </body>
 </html>

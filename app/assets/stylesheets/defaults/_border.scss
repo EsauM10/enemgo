@@ -1,0 +1,17 @@
+$border-sizes: 0 1 2 3;
+@each $size in $border-sizes {
+  .brd-#{$size}  { border:        #{$size}px solid $gray-400 !important; }
+  .brd-t-#{$size} { border-top:    #{$size}px solid $gray-400 !important; }
+  .brd-r-#{$size} { border-right:  #{$size}px solid $gray-400 !important; }
+  .brd-b-#{$size} { border-bottom: #{$size}px solid $gray-400 !important; }
+  .brd-l-#{$size} { border-left:   #{$size}px solid $gray-400 !important; }
+
+  .brd-x-#{$size} {
+    border-right:  #{$size}px solid $gray-400 !important;
+    border-left:   #{$size}px solid $gray-400 !important;
+  }
+  .brd-y-#{$size} {
+    border-top:    #{$size}px solid $gray-400 !important;
+    border-bottom: #{$size}px solid $gray-400 !important;
+  }
+}

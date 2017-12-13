@@ -1,3 +1,11 @@
+// Bg with extra colors
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color !important;
+    // color: #fff;
+  }
+}
+
 // Text colors
 @each $name, $color in $colors {
   .text-#{$name} {
