@@ -1,33 +1,59 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light main-navbar top-fixed brd-b-1">
-    <div class="container">
-      <a class="navbar-brand smooth-scr" href="#"><strong>EnemGO</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto font-weight-bold">
+<header class="navbar navbar-expand-lg navbar-light bg-white main-navbar brd-b-1">
 
-        </ul>
-        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center mb-0">
+  <div class="container">
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <div class="img-rounded profile-img"></div>
-              <%= current_user.email %> <span class="caret"></span>
-            </a>
-            <div class="dropdown-menu">
-              <a class="nav-item dropdown-item" href="#">Perfil</a>
-              <a class="dropdown-item" href="#">Configurações</a>
-              <a class="dropdown-item" href="#">Link</a>
-              <div class="dropdown-divider"></div>
-              <%= link_to 'Sair', destroy_user_session_path, class: 'dropdown-item', method: :delete %>
+    <ul class="navbar-nav mr-auto font-weight-bold">
+      <li class="nav-item">
+        <button href="#" id="btn-preview" class="btn btn-primary">
+          <i class="ti-menu"></i>
+        </button>
+      </li>
+    </ul>
+
+    <ul class="nav-menu navbar-nav list-unstyled d-flex flex-md-row align-items-md-center mb-0">
+      <!--  example -->
+      <li class="nav-item dropdown">
+        <a id="notifications" rel="nofollow" data-target="#" href="#"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">
+          <i class="ti-bell"></i>
+          <span class="badge badge-primary" style="border-radius: 100%">N</span>
+        </a>
+        <div aria-labelledby="notifications" class="dropdown-menu dropdown-menu-right"
+            style="position: absolute; top: 45px; left: -300px; will-change: top, left;"
+        >
+          <a rel="nofollow" href="#" class="media" style="width: 350px; font-size: 12px">
+            <img class="align-self-center mr-3" src="..." alt="...">
+            <div class="media-body">
+              <p>Lorem Ipsum</p>
+              <time datetime="2017-07-14 20:00">Just now</time>
+
             </div>
-          </li>
-        </ul>
+          </a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <div class="img-rounded profile-img"></div>
+          <%= current_user.email %> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu">
+          <a class="nav-item dropdown-item" href="#">
+            <i class="ti-user"></i>
+            Perfil
+          </a>
+          <%= link_to "#", class: "dropdown-item" do %>
+          <i class="ti-settings"></i> Configurações
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to destroy_user_session_path, class: 'dropdown-item', method: :delete  do %>
+          <i class="ti-power-off"></i> Sair
+          <% end %>
+        </div>
+      </li>
+    </ul>
+
+  </div>
 
 
-      </div>
-    </div>
-  </nav>
 </header>

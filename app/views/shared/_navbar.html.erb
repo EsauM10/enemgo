@@ -1,27 +1,36 @@
 <header>
-  <nav id="nav-home" class="navbar navbar-expand-lg navbar-dark main-navbar animated">
+  <nav id="nav-home" class="navbar navbar-expand-lg navbar-dark main-navbar">
     <div class="container">
-      <a class="navbar-brand smooth-scr" href="#"><strong>EnemGO</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <%= link_to nil, class: "navbar-brand", data: { action: 'scroll-landing'} do %>
+        <strong>EnemGO</strong>
+      <% end %>
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false"
+              aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto font-weight-bold">
           <li class="nav-item p-2">
-            <a class="nav-link smooth-scr" href="#about">O que é</a>
+            <%= link_to "O que é", "#about", class: "nav-link",
+                data: { action: 'scroll-landing' } %>
           </li>
           <li class="nav-item p-2">
-            <a class="nav-link smooth-scr" href="#">Porque o EnemGO?</a>
+            <a class="nav-link" href="#why-enemgo" data-action="scroll-landing">
+              Porque o EnemGO?
+            </a>
           </li>
           <li class="nav-item p-2">
-            <a class="nav-link smooth-scr" href="#planos">Planos</a>
+            <a class="nav-link" href="#plans" data-action="scroll-landing">Planos</a>
           </li>
           <li class="nav-item p-2">
-            <a class="nav-link smooth-scr" href="#contato">Contato</a>
+            <a class="nav-link" href="#contact">Contato</a>
           </li>
         </ul>
         <div>
-          <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary" %>
+          <%= link_to "Login", student_root_path, class: "btn btn-outline-primary" %>
           <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-primary" %>
         </div>
       </div>

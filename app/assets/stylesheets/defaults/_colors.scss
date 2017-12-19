@@ -6,6 +6,13 @@
   }
 }
 
+@each $name, $pale-color in $pale-colors {
+  .bg-p-#{$name} {
+    background-color: $pale-color !important;
+    // color: #fff;
+  }
+}
+
 // Text colors
 @each $name, $color in $colors {
   .text-#{$name} {

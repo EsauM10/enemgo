@@ -10,9 +10,10 @@
 
   </head>
   <body>
+    <%= render 'shared/dashboard/sidebar' %>
+    <%= render 'shared/dashboard/navbar' %>
     <main>
-      <%= render 'shared/dashboard/navbar' %>
-      <div class="container pt-5">
+      <div class="page-content">        
         <%= yield %>
       </div>
       <%= render 'shared/dashboard/footer' %>

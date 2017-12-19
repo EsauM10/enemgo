@@ -5,6 +5,6 @@ class Admin::BaseController < ApplicationController
   private
 
   def authorize_admin!
-    redirect_to root_path if current_user.is_student?
+    redirect_to root_path if current_user.student?
   end
 end

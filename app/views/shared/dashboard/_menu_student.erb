@@ -1,0 +1,32 @@
+
+<li class="nav-item">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="icon ti-receipt"></i>
+    <span class="title-label">Simulado</span>
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="icon ti-shortcode"></i>
+    <span class="title-label">Planos</span>
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to "#", class: "nav-link", data: { toggle: 'submenu' } do %>
+    <i class="icon ti-briefcase"></i>
+    <span class="title-label">Dropdown</span>
+    <span class="arrow"></span>
+  <% end %>
+
+  <ul class="sidebar-submenu collapse" id="sidebar-submenu">
+    <li class="nav-item active">
+      <%= link_to "#", class: "nav-link" do %>
+        <span class="title-label">
+          Example 1
+        </span>
+        <span class="dot"></span>
+
+      <% end %>
+    </li>
+  </ul>
+</li>

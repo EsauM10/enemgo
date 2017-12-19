@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboard#index'
   end
-  # get 'dashboard', to: 'dashboard#index'
+
+  namespace :student do
+    root 'dashboard#index'
+  end
 
   resources :answer_lists
   resources :simulation_answers

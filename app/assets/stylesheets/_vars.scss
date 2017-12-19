@@ -1,5 +1,5 @@
 // Fonts
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "PT Sans",
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Catamaran",
                         "Segoe UI", Arial, sans-serif !default;
 
 // Colors
@@ -17,7 +17,7 @@ $black:    #000 !default;
 
 $blue:             #3991ff !default;
 $indigo:           #6610f2 !default;
-$purple:           #7B1FA2 !default;
+$purple:           #84139e !default; //#7B1FA2
 $pink:             #e93268 !default;
 $red:              #db2828 !default;
 $orange:           #f2711c !default;
@@ -26,13 +26,27 @@ $green:            #21ba45 !default;
 $teal:             #33cabb !default;
 $cyan:             #57c7d4 !default;
 $brown:            #8d6658 !default;
-$dark:             $gray-900 !default;
+$dark:             #465161 !default;
 
 $gray:             $gray-600 !default;
 $light:            $gray-100 !default;
 
+$pale-primary:     #fce4ec !default;
+$pale-secondary:   #ecf9fa !default;
+$pale-success:     #e7faf2 !default;
+$pale-info:        #e8f1f8 !default;
+$pale-warning:     #ffeaea !default;
+$pale-danger:      #fce3e3 !default;
+$pale-purple:      #f6f2ff !default;
+$pale-pink:        #fce3ec !default;
+$pale-cyan:        #e3fafc !default;
+$pale-yellow:      #fcf8e3 !default;
+$pale-brown:       #eddcd5 !default;
+$pale-dark:        #c8c8c8 !default;
+$pale-gray:        #f2f2f2 !default;
+
 // Text
-$clr-title:            $purple !default;
+$clr-title:            #37404d !default;
 $clr-subtitle:         #999999 !default;
 $clr-text:             #616a78 !default;
 $clr-text-light:       #788394 !default;
@@ -75,6 +89,7 @@ $grays: map-merge((
 ), $grays);
 
 $colors: () !default;
+
 $colors: map-merge((
   'primary':   $primary,
   'secondary': $secondary,
@@ -91,6 +106,25 @@ $colors: map-merge((
   'dark':      $dark,
 ), $colors);
 
+$pale-colors: () !default;
+
+$pale-colors: map-merge((
+  'primary':   $pale-primary,
+  'secondary': $pale-secondary,
+  'success':   $pale-success,
+  'info':      $pale-info,
+  'warning':   $pale-warning,
+  'danger':    $pale-danger,
+  'pink':      $pale-pink,
+  'purple':    $pale-purple,
+  'brown':     $pale-brown,
+  'cyan':      $pale-cyan,
+  'yellow':    $pale-yellow,
+  'gray':      $pale-gray,
+  'dark':      $pale-dark,
+), $pale-colors);
+
+
 $social-colors: (
   'facebook':    $facebook,
   'google':      $google-plus,
@@ -104,4 +138,12 @@ $social-colors: (
   'instagram':   $instagram,
 );
 
+// navbar-text
+$navbar-height: 60px !default;
+
+// hover
 $enable-hover-media-query:  false !default;
+
+// sidebar
+
+$sidebar-width: 260px !default;
