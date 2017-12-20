@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  devise_for :users, skip: [:sessions, :registrations]
+  devise_for :users, skip: [:sessions, :registrations],
+              controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   as :user do
     get 'login',      to: 'devise/sessions#new',        as: :new_user_session
     post 'login',     to: 'devise/sessions#create',     as: :user_session
@@ -22,18 +23,4 @@ Rails.application.routes.draw do
     root 'dashboard#index'
   end
 
-  resources :answer_lists
-  resources :simulation_answers
-  resources :tickets
-  resources :alternatives
-  resources :images
-  resources :solutions
-  resources :exam_questions
-  resources :comments
-  resources :profiles
-  resources :memberships
-  resources :simulations
-  resources :questions
-  resources :exams
-  resources :plans
 end
