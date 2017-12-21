@@ -1,10 +1,33 @@
+<% @array = ['Usuários', 'Planos', 'Provas', 'Questões' ]%>
 <div class="container">
-  <div class="card">
+  <div class="card p-2">
     <div class="card-block">
-      <h1>Dashboard Layout Admin</h1>
+      <h1>Overview</h1>
+
       <p>
-        Hello <%= current_user.profile.first_name %>, ainda falta muito para terminar...
+        Hello <%= current_user.profile ? current_user.profile.first_name : current_user.email %>, here some 
       </p>
+    </div>
+    <div class="row">
+    <% @array.each do |element| %>
+      <div class="col-2 col-sm-3 placeholder text-center">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+        <h4> <%= element %> </h4>
+        <div class="text-muted">Gráfico <%= element.index %></div>
+      </div>
+    <% end %>
+    </div>
+    <div class="card-block">
+      <ul>
+        <% @array.each do |element| %>
+          <li class="nav-item">
+            <h4 class="title-label">  <%= element %> </h4>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="50" aria-valuemin="50" aria-valuemax="100"></div>
+            </div>
+          </li>
+        <% end %>
+      <ul>
     </div>
   </div>
 </div>

@@ -1,0 +1,9 @@
+<% @array = ['Usuários', 'Planos', 'Provas', 'Questões' ]%>
+  <% @array.each do |element| %>
+  <li class="nav-item">
+  <%= link_to "#", class: "nav-link" do %>
+  <i class="icon ti-receipt"></i>
+  <span class="title-label">  <%= element %> </span>
+  <% end %>
+  </li>
+<% end %>
