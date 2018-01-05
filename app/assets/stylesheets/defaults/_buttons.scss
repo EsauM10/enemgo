@@ -2,3 +2,11 @@
   font-family: $font-family-sans-serif;
   font-weight: 600;
 }
+
+.facebook{
+  @include btn-colors($facebook, 10);
+}
+
+.google{
+  @include btn-colors($google-plus, 5);
+}
