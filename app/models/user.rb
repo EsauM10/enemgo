@@ -6,6 +6,11 @@ class User < ApplicationRecord
          :validatable, :omniauthable
 
   has_one :profile, dependent: :destroy
+  has_one :membership
+  has_many :exams
+  has_many :simulations
+  has_many :simulation_answers
+
   enum kind: %i[student evaluator admin]
 
   def self.from_omniauth(auth)
