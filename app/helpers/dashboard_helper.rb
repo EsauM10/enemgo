@@ -2,9 +2,9 @@ module DashboardHelper
   def render_options_menu
     case current_user.kind
     when 'student'
-      render 'shared/dashboard/menu_student'
+      render 'admin/dashboard/menu'
     when 'admin'
-      render 'shared/dashboard/menu_admin'
+      render 'student/dashboard/menu'
     end
   end
 end
