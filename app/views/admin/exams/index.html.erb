@@ -20,9 +20,9 @@
         <td><%= exam.kind %></td>
         <td><%= exam.status %></td>
         <td><%= exam.user %></td>
-        <td><%= link_to 'Show', exam %></td>
-        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
-        <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_exam_path(exam) %></td>
+        <td><%= link_to 'Edit', edit_admin_exam_path(exam) %></td>
+        <td><%= link_to 'Destroy', admin_exam_path(exam), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Exam', new_exam_path %>
+<%= link_to 'New Exam', new_admin_exam_path %>

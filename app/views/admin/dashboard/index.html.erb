@@ -5,15 +5,15 @@
       <h1>Overview</h1>
 
       <p>
-        Hello <%= current_user.profile ? current_user.profile.first_name : current_user.email %>, here some 
+        Hello <%= current_user.profile ? current_user.profile.first_name : current_user.email %>, here some
       </p>
     </div>
     <div class="row">
-    <% @array.each do |element| %>
+    <% @array.each_with_index do |element, index| %>
       <div class="col-2 col-sm-3 placeholder text-center">
         <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
         <h4> <%= element %> </h4>
-        <div class="text-muted">Gráfico <%= element.index %></div>
+        <div class="text-muted">Gráfico <%= index %></div>
       </div>
     <% end %>
     </div>
