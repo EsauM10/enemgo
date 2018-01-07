@@ -11,4 +11,7 @@
 
 class Plan < ApplicationRecord
   has_many :memberships
+
+  validates :price, presence: true
+  validates :name, presence: true
 end

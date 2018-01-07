@@ -19,4 +19,6 @@
 
 class Solution < ApplicationRecord
   belongs_to :question
+
+  validates :statement, presence: true
 end
