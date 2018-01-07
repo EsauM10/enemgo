@@ -24,4 +24,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
   mount_uploader :avatar, AvatarUploader
+
+  validates :user, :first_name, :last_name, :birthday, presence: true
 end

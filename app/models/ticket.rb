@@ -23,4 +23,6 @@
 
 class Ticket < ApplicationRecord
   belongs_to :user
+
+  validates :user, :message, :motive, presence: true
 end

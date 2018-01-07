@@ -24,4 +24,6 @@
 class Membership < ApplicationRecord
   belongs_to :user
   belongs_to :plan
+
+  validates :user, :plan, presence: true
 end
