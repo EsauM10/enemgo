@@ -21,5 +21,5 @@
 class Alternative < ApplicationRecord
   belongs_to :question
 
-  validates :statement, presence: true
+  validates :question, :statement, presence: true
 end

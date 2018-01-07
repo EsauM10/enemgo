@@ -22,4 +22,6 @@
 class ExamQuestion < ApplicationRecord
   belongs_to :question
   belongs_to :exam
+
+  validates :question, :exam, presence: true
 end

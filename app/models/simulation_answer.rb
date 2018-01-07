@@ -30,4 +30,6 @@ class SimulationAnswer < ApplicationRecord
   belongs_to :user
   belongs_to :question
   belongs_to :alternative
+
+  validates :answerlist, :user, :question, :alternative, presence: true
 end

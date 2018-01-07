@@ -17,5 +17,5 @@
 class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
 
-  validates :text, presence: true
+  validates :commentable, :text, presence: true
 end

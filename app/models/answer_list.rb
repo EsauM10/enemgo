@@ -18,4 +18,6 @@
 
 class AnswerList < ApplicationRecord
   belongs_to :simulation
+
+  validates :simulation, presence: true
 end

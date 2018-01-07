@@ -25,5 +25,5 @@ class Exam < ApplicationRecord
   has_many :questions, through: :exam_questions
   has_many :simulations
 
-  validates :year, presence: true
+  validates :user, :year, presence: true
 end

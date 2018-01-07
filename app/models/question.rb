@@ -27,6 +27,5 @@ class Question < ApplicationRecord
   has_many :alternatives, dependent: :destroy
   has_one :solution, dependent: :destroy
 
-  validates :statement, presence: true
-  validates :area, presence: true  
+  validates :user, :statement, :area, presence: true
 end
