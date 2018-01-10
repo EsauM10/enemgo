@@ -43,6 +43,13 @@ a.text-success    { @include link-colors-important($success); }
 a.text-warning   { @include link-colors-important($warning); }
 a.text-danger    { @include link-colors-important($danger); }
 
+// buttons
+@each $name, $color in $colors {
+  .btn-outline-#{$name} {
+    @include btn-outline($color, 1);
+  }
+}
+
 // Hover on Hover
 
 @each $name, $color in $colors {

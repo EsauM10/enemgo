@@ -1,12 +1,11 @@
 <header class="navbar navbar-expand-lg navbar-light bg-white main-navbar brd-b-1">
 
+  <button href="#" id="btn-preview" class="btn btn-outline-primary border-0">
+    <i class="ti-menu"></i>
+  </button>
   <div class="container">
-
     <ul class="navbar-nav mr-auto font-weight-bold">
       <li class="nav-item">
-        <button href="#" id="btn-preview" class="btn btn-primary">
-          <i class="ti-menu"></i>
-        </button>
       </li>
     </ul>
 
@@ -34,14 +33,16 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <div class="img-rounded profile-img"></div>
-          <%= current_user.email %> <span class="caret"></span>
+          <div class="avatar bg-secondary">
+            <%= select_profile_avatar(current_user)  %>
+          </div>
+
         </a>
-        <div class="dropdown-menu">
-          <a class="nav-item dropdown-item" href="#">
+        <div class="dropdown-menu dropdown-menu-right">
+          <%= link_to profile_path(current_user.kind), class: "nav-item dropdown-item" do %>
             <i class="ti-user"></i>
             Perfil
-          </a>
+          <% end %>
           <%= link_to "#", class: "dropdown-item" do %>
           <i class="ti-settings"></i> Configurações
           <% end %>

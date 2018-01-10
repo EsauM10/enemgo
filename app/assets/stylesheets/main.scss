@@ -1,5 +1,5 @@
 @import "mixins";
-@import "vars";
+@import "variables";
 @import "bootstrap";
 
 @import "defaults/buttons";
@@ -10,6 +10,9 @@
 @import "defaults/dropdown";
 @import "defaults/sidebar-menu";
 @import "defaults/sidebar";
+@import "defaults/img-avatar";
+
+@import "defaults/form-file";
 
 @import "base/globals";
 @import "styles/home";
