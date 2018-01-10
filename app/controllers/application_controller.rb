@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def paper_trail_enabled_for_controller
-    user_signed_in? && current_user.admin?
-  end
+    def paper_trail_enabled_for_controller
+      user_signed_in? && current_user.admin?
+    end
 end

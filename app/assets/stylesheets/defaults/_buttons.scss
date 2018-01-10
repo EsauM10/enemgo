@@ -11,6 +11,10 @@
   font-weight: 600;
 }
 
+.btn-round {
+  border-radius: 10rem;
+}
+
 .facebook{
   @include btn-colors($facebook, 10);
 }

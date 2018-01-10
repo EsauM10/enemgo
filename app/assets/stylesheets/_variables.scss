@@ -1,3 +1,24 @@
+// Sizing
+
+// Elements height
+$elements-height: (
+  "xs": 24px,
+  "sm": 29px,
+  "md": 36px,
+  "lg": 48px,
+  "xl": 64px,
+  "xxl": 96px,
+  "xxxl": 128px
+) !default;
+
+$height-xs:   24px;
+$height-sm:   29px;
+$height-md:   36px;
+$height-lg:   48px;
+$height-xl:   64px;
+$height-xxl:  96px;
+$height-xxxl: 128px;
+
 // Fonts
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Catamaran",
                         "Segoe UI", Arial, sans-serif !default;
@@ -141,9 +162,15 @@ $social-colors: (
 // navbar-text
 $navbar-height: 60px !default;
 
-// hover
-$enable-hover-media-query:  false !default;
+// options
+$enable-hover-media-query: false !default;
+$enable-shadows: false !default;
 
 // sidebar
-
 $sidebar-width: 260px !default;
+
+// form
+$input-focus-box-shadow: none !default;
+
+// buttons + form_with
+$btn-focus-box-shadow: rgba($gray, .25) !default;

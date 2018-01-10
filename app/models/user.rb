@@ -48,4 +48,5 @@ class User < ApplicationRecord
       user.build_profile(first_name: auth.info.name)
     end
   end
+
 end

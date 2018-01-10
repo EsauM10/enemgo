@@ -1,0 +1,21 @@
+.file-group {
+  position: relative;
+  overflow: hidden;
+
+  input[type="file"],
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: 20px;
+  }
+}
+
+.file-group-inline {
+  display: inline-block;
+}
+
+
+.form-control.file-value {
+  cursor: text;
+}

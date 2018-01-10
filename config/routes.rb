@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     get 'cancel',     to: 'devise/registrations#cancel',  as: :cancel_user_registration
     post 'cadastro',  to: 'devise/registrations#create'
     patch 'cadastro', to: 'devise/registrations#update', as: :user_registration
-
+    put 'cadastro',   to: 'devise/registrations#update'
+    constraints(Constraints::RestrictedUserKind) do
+      get '*user_kind/conta/editar',  to: 'users/registrations#edit', as: :edit_user_registration
+    end
   end
 
   namespace :admin do
@@ -24,5 +27,11 @@ Rails.application.routes.draw do
   namespace :student do
     root 'dashboard#index'
   end
+
+  scope module: 'users' do
+    scope '*user_kind' do
+      resource :profile, except: [:index, :destroy], constraints: Constraints::RestrictedUserKind
+    end
+  end 
 
 end
