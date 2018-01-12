@@ -1,0 +1,121 @@
+.nav-process-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+
+  .nav-title {
+    font-weight: 400;
+  }
+
+  .nav-item {
+    align-items: center;
+  }
+
+  .nav-link {
+    padding: 0;
+  }
+
+}
+
+$height-for-process: 30px;
+.nav-process-steps-icons {
+
+  .nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: $clr-text-secondary;
+    padding: 0 12px;
+
+    &:first-child .nav-link::before {
+      display: none;
+    }
+
+    &.finished,
+    &.current {
+
+      .nav-link {
+
+        &,
+        &::before {
+          background-color: $pale-primary;
+        }
+
+        &::after {
+          background-color: $primary;
+          width: $height-for-process;
+          height: $height-for-process;
+          transform: translateX(0);
+          color: #fff;
+        }
+      }
+    }
+
+    &.finished .nav-link::after {
+      width: $height-for-process;
+      height: $height-for-process;
+      transform: translateX(0);
+      color: #fff;
+    }
+
+    &.current {
+      color: $clr-text;
+
+      .nav-link::after {
+        width: $height-for-process - 16px;
+        height: $height-for-process - 16px;
+        margin-top: 8px;
+        transform: translateX(8px);
+        color: transparent;
+      }
+    }
+  }
+
+
+
+  .nav-link {
+    display: inline-flex;
+    margin: 10px 0;
+    width: $height-for-process;
+    height: $height-for-process;
+    max-height: $height-for-process;
+    border-radius: 50%;
+    background-color: $pale-secondary;
+    transition: .5s;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-50% + #{$height-for-process/2});
+      right: calc(50% + #{$height-for-process/2});
+      height: 10px;
+      margin-top: 10px;
+      background-color: $pale-secondary;
+      cursor: default;
+      transition: .5s;
+    }
+
+    &::after {
+      content: "\e64c";
+      font-family: "themify";
+      width: 0;
+      height: 0;
+      text-align: center;
+      font-size: 15px;
+      position: absolute;
+      border-radius: 50%;
+      background-color: transparent;
+      color: transparent;
+      transform: translate($height-for-process/2, $height-for-process/2);
+      transition: .5s;
+      z-index: 1;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

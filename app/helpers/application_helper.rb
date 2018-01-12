@@ -1,9 +1,13 @@
 module ApplicationHelper
-  def select_profile_avatar(user, options = {})
-    if user.profile && user.profile.avatar?
-      image_tag user.profile.avatar, id: options[:id]
+  def select_profile_path
+    if current_user.kind == 'evaluator'
+      profile_path('admin')
     else
-      user.initial_full_name
+      profile_path(current_user.kind)
     end
+  end
+
+  def present_controllers?(controllers = [])
+    controllers.include? controller_name || devise_controller?
   end
 end

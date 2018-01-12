@@ -1,0 +1,19 @@
+<% locals ||= locals %>
+<div class="row justify-content-md-center my-auto mx-0">
+  <div class="col-lg-4">
+    <div class="card text-center">
+      <div class="card-header">
+        <h2><%= locals[:title] %></h2>
+      </div>
+
+      <div class="card-body">
+        <%= render 'devise/shared/social_links' if locals[:social_links] %>
+        <%= yield %>
+      </div>
+
+      <div class="card-footer">
+        <%= yield :card_footer %>
+      </div>
+    </div>
+  </div>
+</div>

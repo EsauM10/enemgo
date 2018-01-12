@@ -1,4 +1,6 @@
-// Sizing
+// Fonts
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Catamaran",
+                        "Segoe UI", Arial, sans-serif !default;
 
 // Elements height
 $elements-height: (
@@ -10,18 +12,6 @@ $elements-height: (
   "xxl": 96px,
   "xxxl": 128px
 ) !default;
-
-$height-xs:   24px;
-$height-sm:   29px;
-$height-md:   36px;
-$height-lg:   48px;
-$height-xl:   64px;
-$height-xxl:  96px;
-$height-xxxl: 128px;
-
-// Fonts
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Catamaran",
-                        "Segoe UI", Arial, sans-serif !default;
 
 // Colors
 $white:    #fff !default;

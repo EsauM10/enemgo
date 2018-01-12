@@ -1,48 +1,35 @@
-<div class="row py-5 justify-content-md-center">
-  <div class="col-lg-g4">
-      <div class="container-fluid">
-        <div class="card text-center">
-          <div class="card-header">
-            <h2>Change your password</h2>
-          </div>
+<%= render 'devise/shared/layout', locals: { title: 'Recuperar Senha' } do %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
 
-          <div class="card-body">
-            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-              <%= devise_error_messages! %>
-              <%= f.hidden_field :reset_password_token %>
-
-              <div class="form-group">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="ti ti-lock"></i></span>
-                  <%= f.password_field :password, autofocus: true, autocomplete: "off",
-                  placeholder: "New password", class: "form-control" %>
-                </div>
-              </div>
-              <p class="text-left" style="margin-top: -18px;">
-                <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-                <% end %>
-              </p>
-
-              <div class="form-group">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="ti ti-arrow-circle-down"></i></span>
-                  <%= f.password_field :password_confirmation, autocomplete: "off",
-                  placeholder: "Confirm new password", class: "form-control" %>
-                </div>
-              </div>
-
-              <div class="actions">
-                <%= f.submit "Change my password", class: "btn btn-primary form-control" %>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="card-footer">
-            <%= render "devise/shared/links" %>
-          </div>
-
-        </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="ti ti-lock"></i></span>
+        <%= f.password_field :password, autofocus: true, autocomplete: "off",
+        placeholder: "New password", class: "form-control" %>
       </div>
-  </div>
-</div>
+      <span class="d-flex justify-content-end">
+        <% if @minimum_password_length %>
+          <small>(<%= @minimum_password_length %> characters minimum)</small><br />
+        <% end %>
+      </span>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-append pr-1"><i class="ti ti-arrow-circle-down"></i></span>
+        <%= f.password_field :password_confirmation, autocomplete: "off",
+        placeholder: "Confirm new password", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Change my password", class: "btn btn-primary form-control" %>
+    </div>
+  <% end %>
+
+  <% content_for :card_footer do %>
+    <%= render "devise/shared/links" %>
+  <% end %>
+<%= end %>

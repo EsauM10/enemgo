@@ -1,34 +1,23 @@
-<div class="row py-5 justify-content-md-center">
-  <div class="col-lg-g4">
-      <div class="container-fluid">
-        <div class="card text-center">
-          <div class="card-header">
-            <h2>Forgot your password?</h2>
-          </div>
+<%= render 'devise/shared/layout', locals: { title: 'Recuperar Senha' } do %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
 
-          <div class="card-body">
-            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-              <%= devise_error_messages! %>
-
-              <div class="form-group">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="ti ti-email"></i></span>
-                  <%= f.email_field :email, autofocus: true, placeholder: "Email",class: "form-control" %>
-                </div>
-              </div>
-
-              <div class="actions">
-                <%= f.submit "Send me reset password instructions",
-                class: "btn btn-primary form-control" %>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="card-footer">
-            <%= render "devise/shared/links" %>
-          </div>
-
-        </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-append pr-1">
+          <i class="ti ti-email"></i>
+        </span>
+        <%= f.email_field :email, autofocus: true, placeholder: "Email",class: "form-control" %>
       </div>
-  </div>
-</div>
+    </div>
+
+    <br>
+    <div>
+      <%= f.submit "Enviar instruções para redefinir senha",
+      class: "btn btn-primary form-control" %>
+    </div>
+  <% end %>
+  <% content_for :card_footer do %>
+    <%= render "devise/shared/links" %>
+  <% end %>
+<% end %>

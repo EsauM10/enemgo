@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      profile:
+        one: "Perfil"
+        other: "Perfis"
+    attributes:
+      profile:
+        first_name: Nome
+        last_name: Sobrenome
+        phone: Telefone
+        birthday: Aniversário

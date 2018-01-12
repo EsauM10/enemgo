@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Enemgo</title>
+    <title>Enem GO!</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    </head>
 
   <body>
-    <%= render 'shared/navbar' unless devise_controller? %>
+    <% controllers = ['registration_steps'] %>
+    <%= render 'shared/navbar' unless present_controllers? controllers %>
     <main>
       <%= yield %>
     </main>
-    <%= render 'shared/footer' unless devise_controller? %>
+    <%= render 'shared/footer' unless present_controllers? controllers %>
   </body>
 </html>

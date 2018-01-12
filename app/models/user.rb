@@ -39,6 +39,8 @@ class User < ApplicationRecord
   has_many :simulations
   has_many :simulation_answers
 
+  accepts_nested_attributes_for :profile
+
   enum kind: %i[student evaluator admin]
 
   def self.from_omniauth(auth)
@@ -47,6 +49,13 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.build_profile(first_name: auth.info.name)
     end
+  end
+
+  after_create :default_profile
+
+  def default_profile
+    prof = Profile.new(user_id: self.id)
+    prof.save(validate: false)
   end
 
 end

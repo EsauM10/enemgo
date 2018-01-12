@@ -1,7 +1,6 @@
 class Users::ProfilesController < ApplicationController
   layout 'dashboard'
-  before_action :set_profile, only: [:show, :edit, :update]
-  decorates_assigned :profile
+  before_action :set_profile, only: [:show, :edit, :update]  
 
   def show
   end

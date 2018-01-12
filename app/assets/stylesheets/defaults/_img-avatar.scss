@@ -22,7 +22,7 @@
   border-radius: 0;
 }
 
-$font-sizes: (0.75, 0.75, 1, 1.125, 1.25, 1.375, 1.5);
+$font-sizes: (0.75, 0.75, 1, 1.25, 1.5, 2, 2.25);
 $i: 1;
 @each $name, $size in $elements-height {
   .avatar-#{$name} {

@@ -1,0 +1,52 @@
+<div class="card-body">
+  <div class="d-flex justify-content-center">
+    <div class="avatar avatar-xxl mr-2 bg-secondary" id="content-avatar">
+      <%= current_user.avatar({id: 'avatar-img'}) %>
+    </div>
+
+    <div class="flex-grow">
+      <h5><%= current_user.profile.full_name %></h5>
+      <div class="d-flex mt-16">
+        <label class="file-group file-group-inline">
+          <button class="btn btn-sm btn-outline-gray btn-round file-browser" type="button">
+            Mudar Foto
+          </button>
+          <%= form.file_field :avatar, id: :profile_avatar %>
+        </label>
+        <label class="file-group mx-1">
+          <button class="btn btn-sm btn-outline-danger btn-round remove-avatar">
+            Deletar Foto
+          </Button>
+          <%= form.check_box :remove_avatar, id: :remove_avatar %>
+        </label>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, id: :profile_first_name, class: "form-control",
+        required: true %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, id: :profile_last_name, class: "form-control",
+        required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, id: :profile_phone, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :birthday %>
+      <%= form.date_field :birthday, id: :profile_birthday,
+        max: Date.new(2006, 01, 01), class: "form-control", required: true %>
+    </div>
+  </div>
+</div>

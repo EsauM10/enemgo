@@ -1,0 +1,8 @@
+<%= render "wizard_form", data: { readonly: true } do |form| %>
+  <h2 class="text-center text-muted font-weight-light">
+    Conte-nos sobre <strong class="text-primary">você</strong>
+  </h2>
+  <%= form.fields_for :profile do |f| %>
+    <%= render 'users/profiles/form_fields', form: f %>
+  <% end %>
+<% end %>

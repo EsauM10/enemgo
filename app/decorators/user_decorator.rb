@@ -1,13 +1,24 @@
 class UserDecorator < Draper::Decorator
   delegate_all
+  decorates_association :profile
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def avatar(options = {})
+    return initial_email unless profile
+    define_avatar options
+  end
+
+  def initial_email
+    email.first.upcase
+  end
+
+  private
+
+    def define_avatar(options)
+      if profile.avatar?
+        h.image_tag profile.avatar, id: options[:id]
+      else
+        profile.initial_full_name
+      end
+    end
 
 end

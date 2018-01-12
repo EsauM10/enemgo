@@ -1,0 +1,46 @@
+<div class="row justify-content-center my-auto mx-0">
+  <div class="col-lg-8">
+    <div class="card p-3">
+      <div class="card-title brd-b-1">
+        <h4 class="text-default">Complete seu cadastro</h4>
+      </div>
+      
+      <%= progress_bar %>
+      <h2 class="text-center text-muted font-weight-light">
+        Tudo pronto?
+      </h2>
+      <div class="card-body">
+
+        <div class="d-flex justify-content-center">
+          <div class="avatar avatar-xl mr-2 bg-secondary" id="content-avatar">
+            <%= current_user.avatar({id: 'avatar-img'}) %>
+          </div>
+
+          <div class="align-self-center">
+            <h5><%= current_user.profile.full_name %></h5>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="" class="d-block"> <strong>Telefone</strong> </label>
+            <span class="d-block">
+              <i class="icon ti-mobile"></i> <%= current_user.profile.phone %>
+            </span>
+
+          </div>
+          <div class="col-md-6">
+            <label for="" class="d-block"> <strong>Data de Nascimento</strong> </label>
+            <span class="d-block">
+              <i class="icon ti-calendar"></i> <%= current_user.profile.birth %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-right">
+        <%= link_to 'Finalizar', next_wizard_path, class: "btn btn-round btn-outline-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

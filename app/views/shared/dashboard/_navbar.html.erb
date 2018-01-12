@@ -34,12 +34,12 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <div class="avatar bg-secondary">
-            <%= select_profile_avatar(current_user)  %>
+            <%= current_user.avatar  %>
           </div>
 
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-          <%= link_to profile_path(current_user.kind), class: "nav-item dropdown-item" do %>
+          <%= link_to select_profile_path, class: "nav-item dropdown-item" do %>
             <i class="ti-user"></i>
             Perfil
           <% end %>
