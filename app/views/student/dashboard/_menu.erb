@@ -1,31 +1,42 @@
 <li class="nav-item">
-  <%= link_to "#", class: "nav-link" do %>
-    <i class="icon ti-receipt"></i>
-    <span class="title-label">Simulado</span>
-  <% end %>
-</li>
-<li class="nav-item">
-  <%= link_to "#", class: "nav-link" do %>
-    <i class="icon ti-shortcode"></i>
-    <span class="title-label">Planos</span>
-  <% end %>
-</li>
-<li class="nav-item">
   <%= link_to "#", class: "nav-link", data: { toggle: 'submenu' } do %>
-    <i class="icon ti-briefcase"></i>
-    <span class="title-label">Dropdown</span>
+    <i class="icon ti-clipboard"></i>
+    <span class="title-label">Simulados</span>
     <span class="arrow"></span>
   <% end %>
 
   <ul class="sidebar-submenu collapse" id="sidebar-submenu">
-    <li class="nav-item active">
+    <li class="nav-item">
       <%= link_to "#", class: "nav-link" do %>
-        <span class="title-label">
-          Example 1
-        </span>
+        <span class="title-label">Enem</span>
         <span class="dot"></span>
-
+      <% end %>
+    </li>
+    <p></p>
+    <li class="nav-item">
+      <%= link_to "#", class: "nav-link" do %>
+        <span class="title-label">Customizar Simulado</span>
+        <span class="dot"></span>
       <% end %>
     </li>
   </ul>
+</li>
+
+<li class="nav-item">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="icon ti-shopping-cart-full"></i>
+    <span class="title-label">Planos</span>
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="icon ti-cup"></i>
+    <span class="title-label">Ranking</span>
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="icon ti-cloud-up"></i>
+    <span class="title-label">Enviar Questões</span>
+  <% end %>
 </li>

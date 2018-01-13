@@ -58,4 +58,10 @@ class User < ApplicationRecord
     prof.save(validate: false)
   end
 
+  def score
+    scores = simulations.collect {|s| s.score}
+    sum = scores.reduce(:+)
+    if sum.nil? then 0 else (sum / scores.size.to_f) end
+  end
+
 end

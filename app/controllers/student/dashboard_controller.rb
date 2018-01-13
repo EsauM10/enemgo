@@ -1,5 +1,5 @@
 class Student::DashboardController < Student::BaseController
   def index
-    #code
+    @students = User.all.sort_by(&:score)
   end
 end
