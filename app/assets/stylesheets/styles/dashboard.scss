@@ -3,37 +3,39 @@
   flex: 1 0 auto;
 }
 
-.no-padding{
-  padding: 0;
-  margin: 0;
+.student-dashboard {
+  .row {padding-top: 10px;}
+
+  .no-padding{
+    padding: 0;
+    margin: 0;
+  }
+
+  .widget {
+    padding: 10px 0px;
+    position: relative;
+    box-shadow: none;
+    background: none;
+    text-align: center;
+  }
+
+  .large {font-size: 2em;}
+
+  .text-purple {color: $purple;}
+
+  .panel {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .panel-container {
+    padding: 20px 0px;
+    background: $white;
+  }
+
+  .border-right {border-right: 1px solid #dadbda; }
+
+  .grow {transition: all .2s easy;}
+
+  .grow:hover{transform: scale(1.1);}
 }
-
-.widget {
-  padding: 10px 0px;
-  position: relative;
-  box-shadow: none;
-  background: none;
-  text-align: center;
-}
-
-.large {font-size: 2em;}
-
-.text-purple {color: $purple;}
-
-.panel {
-  border: 0;
-  border-radius: 0;
-}
-
-.panel-container {
-  padding: 20px 0px;
-  background: $white;
-}
-
-.border-right {border-right: 1px solid #dadbda; }
-
-.grow {transition: all .2s easy;}
-
-.grow:hover{transform: scale(1.1);}
-
-#user-dashboard .row{padding-top: 10px;}
