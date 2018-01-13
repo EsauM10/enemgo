@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   protect_from_forgery with: :exception, prepend: true
   before_action :authenticate_user!
-  decorates_assigned :user
+  # decorates_assigned :user
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protected
 
@@ -13,4 +15,10 @@ class ApplicationController < ActionController::Base
       user_signed_in? && current_user.admin?
     end
 
+  private
+
+    def user_not_authorized
+      flash[:alert] = 'Você não tem permissões para executar esta ação.'
+      redirect_to(request.referrer || root_path)
+    end
 end

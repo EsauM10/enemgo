@@ -11,6 +11,11 @@ class UserDecorator < Draper::Decorator
     email.first.upcase
   end
 
+  def module_kind
+    return kind if kind == 'student'
+    'admin'
+  end
+
   private
 
     def define_avatar(options)

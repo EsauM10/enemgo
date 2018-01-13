@@ -1,5 +1,6 @@
 class Admin::HistoryController < Admin::BaseController
   def index
+    authorize [:admin, :history]
     @versions = PaperTrail::Version.where('whodunnit IS NOT ?', nil)
                                     .order('created_at DESC')
                                     .includes(:item)
