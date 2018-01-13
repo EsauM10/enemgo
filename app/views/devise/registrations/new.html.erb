@@ -4,7 +4,7 @@
 
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-append pr-1">
+        <span class="input-group-addon">
           <i class="ti ti-email"></i>
         </span>
         <%= f.email_field(:email, autofocus: true,
@@ -14,7 +14,7 @@
 
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-append pr-1"><i class="ti ti-lock"></i></span>
+        <span class="input-group-addon"><i class="ti ti-lock"></i></span>
         <%= f.password_field :password, autocomplete: "off",
         placeholder: "Password", class: "form-control" %>
       </div>
@@ -27,7 +27,7 @@
 
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-append pr-1"><i class="ti ti-arrow-circle-down"></i></span>
+        <span class="input-group-addon"><i class="ti ti-arrow-circle-down"></i></span>
         <%= f.password_field :password_confirmation, autocomplete: "off",
          placeholder: "Confirm password", class: "form-control" %>
       </div>
