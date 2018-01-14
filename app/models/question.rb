@@ -28,4 +28,7 @@ class Question < ApplicationRecord
   has_one :solution, dependent: :destroy
 
   validates :user, :statement, :area, presence: true
+
+  accepts_nested_attributes_for :alternatives
+  accepts_nested_attributes_for :solution
 end
