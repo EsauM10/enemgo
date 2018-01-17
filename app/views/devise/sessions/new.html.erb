@@ -2,18 +2,20 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon">
-          <i class="ti ti-email"></i>
-        </span>
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="ti ti-email"></i></span>
+        </div>
         <%= f.email_field(:email, autofocus: true, placeholder: "Email", class: "form-control") %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon">
-          <i class="ti ti-lock"></i>
-        </span>
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="ti ti-lock"></i>
+          </span>
+        </div>
         <%= f.password_field :password, autocomplete: "off",
         placeholder: "Password", class: "form-control" %>
 

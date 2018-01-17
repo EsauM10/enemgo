@@ -1,0 +1,25 @@
+.history{
+  padding: 10px;
+
+  .card{border-radius: 0;}
+
+  .container{
+    padding-top: 5px;
+    border: 1px solid $gray-500;
+    border-radius: 5px;
+    background: #f3f3f3;
+    color: $purple;
+
+    h5 {border-bottom: 1px solid $gray-500;}
+    strong {color: $gray-700;}
+  }
+
+  .container:hover {
+    background: #ebebeb;
+    transition: all .2s easy;
+  }
+
+  .panel{
+    margin-bottom: 30px;
+  }
+}

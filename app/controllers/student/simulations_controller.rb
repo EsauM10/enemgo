@@ -1,10 +1,12 @@
-class SimulationsController < ApplicationController
+class Student::SimulationsController < ApplicationController
+  layout 'dashboard'
   before_action :set_simulation, only: [:show, :edit, :update, :destroy]
+  decorates_assigned :simulation
 
   # GET /simulations
   # GET /simulations.json
   def index
-    @simulations = Simulation.all
+    @simulations = current_user.simulations
   end
 
   # GET /simulations/1
