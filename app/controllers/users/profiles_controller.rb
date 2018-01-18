@@ -1,6 +1,6 @@
 class Users::ProfilesController < ApplicationController
   layout 'dashboard'
-  before_action :set_profile, only: [:show, :edit, :update]  
+  before_action :set_profile, only: [:show, :edit, :update]
 
   def show
   end
@@ -17,7 +17,7 @@ class Users::ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to profile_path(current_user.kind), notice: 'Profile was successfully created.' }
+        format.html { redirect_to profile_path, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
@@ -29,7 +29,7 @@ class Users::ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to profile_path(current_user.kind), notice: 'Profile was successfully updated.' }
+        format.html { redirect_to profile_path, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }

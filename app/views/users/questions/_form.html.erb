@@ -1,0 +1,47 @@
+<%= form_for(question) do |form| %>
+  <% if question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(question.errors.count, "error") %> prohibited this plan from being saved:</h2>
+
+      <ul>
+      <% question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h4 class="card-title">Questão</h4>
+
+  <div class="form-group">
+    <%= form.label :statement %>
+    <%= form.text_area :statement, id: :question_statement, autofocus: true,
+      placeholder: "Enunciado", rows: 4, class: "form-control" %>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= form.label :source %>
+      <%= form.text_field :source, id: :question_source,
+      placeholder: "Fonte", class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :area %>
+      <%= form.select :area, QuestionDecorator.t_areas.invert, {},
+      {id: :question_area, class: "form-control", required: true} %>
+    </div>
+  </div>
+
+  <%= form.fields_for :alternatives do |ff| %>
+    <%= render 'fields_alternatives', form: ff %>
+  <% end %>
+
+  <%= form.fields_for :solution do |fff| %>
+    <%= render 'fields_solution', form: fff %>
+  <% end %>
+
+  <div class="card-footer text-right">
+    <%= form.submit class: "btn btn-round btn-outline-primary" %>
+  </div>
+<% end %>

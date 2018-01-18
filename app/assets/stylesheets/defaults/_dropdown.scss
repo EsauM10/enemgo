@@ -3,3 +3,12 @@
     margin-right: 0.5rem;
   }
 }
+
+.dropdown-menu {
+  .dropdown-menu-right .align {
+    position: absolute;
+    top: 24px;
+    left: -134px;
+    will-change: top, left;
+  }
+}

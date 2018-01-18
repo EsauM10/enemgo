@@ -21,7 +21,7 @@
             style="position: absolute; top: 45px; left: -300px; will-change: top, left;"
         >
           <a rel="nofollow" href="#" class="media" style="width: 350px; font-size: 12px">
-            <img class="align-self-center mr-3" src="..." alt="...">
+            <!-- <img class="align-self-center mr-3" src="..." alt="..."> -->
             <div class="media-body">
               <p>Lorem Ipsum</p>
               <time datetime="2017-07-14 20:00">Just now</time>
@@ -39,16 +39,16 @@
 
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-          <%= link_to select_profile_path, class: "nav-item dropdown-item" do %>
+          <%= link_to profile_path(current_user.module_kind), class: "nav-item dropdown-item" do %>
             <i class="ti-user"></i>
             Perfil
           <% end %>
           <%= link_to "#", class: "dropdown-item" do %>
-          <i class="ti-settings"></i> Configurações
+            <i class="ti-settings"></i> Configurações
           <% end %>
           <div class="dropdown-divider"></div>
           <%= link_to destroy_user_session_path, class: 'dropdown-item', method: :delete  do %>
-          <i class="ti-power-off"></i> Sair
+            <i class="ti-power-off"></i> Sair
           <% end %>
         </div>
       </li>

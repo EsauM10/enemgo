@@ -1,0 +1,40 @@
+.card-menu {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 0;
+  li > a {
+    font-family: 'themify';
+    font-size: 12px;
+    display: inline-block;
+    padding: 0 4px;
+    margin: 0 4px;
+    color: $clr-text-secondary;
+    opacity: .8;
+    transition: 0.3s linear;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  li:first-child > a {
+    margin-right: 0;
+    i {
+      display: inline-block;
+      transform: rotate(90deg);
+    }
+  }
+
+  .dropdown.show > a {
+    color: $primary;
+  }
+
+  [data-toggle="dropdown"],
+  .card-btn-reload {
+    font-size: 14px;
+  }
+
+}

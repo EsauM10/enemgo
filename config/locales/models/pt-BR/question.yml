@@ -1,0 +1,26 @@
+pt-BR:
+  activerecord:
+    models:
+      question:
+        one: "Questão"
+        other: "Questões"
+    attributes:
+      question:
+        statement: Enunciado
+        source: Fonte
+        areas:
+          math: Matemática e suas Tecnologias
+          human_sciences: Ciências Humanas
+          languagens: Linguagens, Códigos e suas Tecnologias
+          natural_sciences: Ciência da Natureza e suas Tecnologias
+        statuses:
+          pending: pendente
+          rejected: rejeitada
+          approved: aprovada
+          inactive: inativa
+        alternatives: Alternativas
+        solution: 'Solução'
+    errors:
+      models:
+        question:
+          only_one_true_alternative: apenas uma pode ser verdadeira
