@@ -1,0 +1,15 @@
+var elementRender =
+  "<h1 class='text-secondary'>" +
+    "<i class='ti-check'></i>" +
+  "</h1>" +
+  "<h5 class='text-purple'>" +
+    "Sua mensagem foi enviada com sucesso!" +
+  "</h5>";
+
+<% if @contact.errors.any? %>
+  $('#container-form').prepend(
+    "<p><%= j render 'shared/form_errors', messages: @contact.errors.full_messages %></p>"
+    ).hide().fadeIn(1500);
+<% else %>
+	$('#container-form').html(elementRender).hide().fadeIn(1500);
+<% end %>
