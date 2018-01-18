@@ -4,7 +4,7 @@
       <div class="card-title brd-b-1">
         <h4 class="text-default">Complete seu cadastro</h4>
       </div>
-      
+
       <%= progress_bar %>
       <h2 class="text-center text-muted font-weight-light">
         Tudo pronto?
@@ -12,8 +12,8 @@
       <div class="card-body">
 
         <div class="d-flex justify-content-center">
-          <div class="avatar avatar-xl mr-2 bg-secondary" id="content-avatar">
-            <%= current_user.avatar({id: 'avatar-img'}) %>
+          <div id="content-avatar" class="mr-2">
+            <%= current_user.profile.avatar_thumb({id: 'avatar-img', size: 'xl'}) %>
           </div>
 
           <div class="align-self-center">

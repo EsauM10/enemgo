@@ -14,7 +14,8 @@ $(function () {
       file.trigger('click');
     }
   });
-
+  var originalNode = $('#content-avatar');
+  var firstElem = originalNode.children(':first');
   // Event to change file name after file selection
   $(document).on('change', '.file-group [type="file"]', function() {
 
@@ -23,15 +24,17 @@ $(function () {
     if (file) {
       reader.readAsDataURL(file)
     }
-    reader.onloadend = function () {
+    reader.onloadend = function() {
       if (avatarExists()) {
         $('#avatar-img').fadeOut('fast', function() {
           $(this).attr('src', reader.result).fadeIn('fast')
         })
       } else {
-        $('#content-avatar').empty()
-                            .append("<img src='" + reader.result + "' id='avatar-img' />")
-                            .fadeIn('fast');
+        $('#content-avatar').html(
+          "<div class='"+ firstElem[0].className +"'>" +
+          "<img src='" + reader.result + "' id='avatar-img' />" +
+          "</div>"
+        ).fadeIn('fast');
       }
       $('#remove_avatar')[0].checked = false;
     }
@@ -41,10 +44,16 @@ $(function () {
     event.preventDefault();
     if (avatarExists()) {
       $('#remove_avatar')[0].checked = true;
-      $('#content-avatar').empty().fadeOut('fast', function() {
-        $(this).append('VS').fadeIn();
-      });
 
+      $('#content-avatar').fadeOut('fast', function() {
+        $(this).html(
+          originalNode.children(':first').html(
+            "<span>"+ firstElem.data('text') +"</span>")[0]
+          )
+        )
+      }).fadeIn()
+    } else {
+      $('#content-avatar').fadeOut('fast').html(firstElem[0]).fadeIn()
     }
   })
 

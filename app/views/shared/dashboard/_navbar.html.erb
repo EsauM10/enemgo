@@ -33,10 +33,7 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <div class="avatar bg-secondary">
-            <%= current_user.avatar  %>
-          </div>
-
+          <%= current_user.profile.avatar_thumb  %>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <%= link_to profile_path(current_user.module_kind), class: "nav-item dropdown-item" do %>

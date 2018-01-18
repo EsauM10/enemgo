@@ -4,8 +4,8 @@
       <h4 class="card-title">Seu Perfil</h4>
       <div class="card-body">
         <div class="d-flex">
-          <div class="avatar avatar-xxl mr-2 bg-secondary" id="content-avatar">
-            <%= current_user.avatar({id: 'avatar-img'}) %>
+          <div class="mr-2" id="content-avatar">
+            <%= current_user.profile.avatar_thumb({id: 'avatar-img', size: 'xxl'}) %>
           </div>
 
           <div class="flex-grow">
