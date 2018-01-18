@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
       user_signed_in? && current_user.admin?
     end
 
+    def after_sign_in_path_for(resource)
+      send("#{current_user.module_kind}_root_url")
+    end
+
   private
 
     def user_not_authorized
