@@ -48,9 +48,9 @@ $(function () {
       $('#content-avatar').fadeOut('fast', function() {
         $(this).html(
           originalNode.children(':first').html(
-            "<span>"+ firstElem.data('text') +"</span>")[0]
-          )
-        )
+            "<span>"+ firstElem.data('text') +"</span>"
+          )[0]
+        )        
       }).fadeIn()
     } else {
       $('#content-avatar').fadeOut('fast').html(firstElem[0]).fadeIn()
