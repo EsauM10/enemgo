@@ -1,0 +1,16 @@
+
+<div class="text-default">
+  <strong><%= t Alternative.model_name.human %> <%= form.index + 1 %></strong>
+</div>
+
+<div class="form-group col-md-8">
+  <%= form.label :statement %>
+  <%= form.text_field :statement, id: :alternative_statement,
+  class: "form-control" %>
+
+  <div class="custom-control custom-checkbox mb-2 mx-sm-2">
+    <%= form.check_box :veracity,
+    class: "custom-control-input" %>
+    <%= form.label :veracity, class: "custom-control-label" %>
+  </div>
+</div>

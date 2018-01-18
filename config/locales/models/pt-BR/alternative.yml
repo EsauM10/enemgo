@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      alternative:
+        one: "Alternativa"
+        other: "Alternativas"
+    attributes:
+      alternative:
+        statement: Texto
+        veracity: Veracidade

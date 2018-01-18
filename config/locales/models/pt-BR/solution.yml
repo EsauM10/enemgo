@@ -1,0 +1,6 @@
+pt-BR:
+  activerecord:
+    models:
+      solution:
+        one: 'Solução'
+        other: 'Soluções'

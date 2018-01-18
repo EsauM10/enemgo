@@ -1,0 +1,56 @@
+<div class="card my-2">
+  <div class="card-header">
+    <div class="d-flex justify-content-between">
+      <h4 class="card-title">Questão #<%= question.id %></h4>
+      <ul class="card-menu">
+        <li class="dropdown">
+          <a data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="ti-more-alt"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right align" x-placement="bottom-end">
+            <%= link_to question_path(current_user.module_kind, question),
+              class: "dropdown-item" do %>
+              <i class="ti-eye"></i> Visualizar
+            <% end %>
+            <% if policy(:question).edit? && policy(:question).destroy? %>
+              <%= link_to edit_question_path(current_user.module_kind, question),
+                class: "dropdown-item" do %>
+                <i class="ti-pencil"></i> Editar
+              <% end %>
+              <%= link_to question_path(current_user.module_kind, question),
+                method: :delete, data: { confirm: 'Are you sure?' },
+                class: "dropdown-item" do %>
+                <i class="ti-trash"></i> Deletar
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span class="text-muted">Criada em: <%= question.created %> / </span>
+    <span class="text-muted">status: <%= question.t_status %></span>
+  </div>
+  <div class="card-body">
+    <div class="card-text text-justify">
+      <%= action_name == 'show' ? question.statement : question.statement.truncate(280) %>
+    </div>
+    <small><%= question.source %></small>
+    <h6 class="card-title mt-1">
+      <a class="dropdown-toggle" data-toggle="collapse" href="#collapseAlternatives[<%= question.id %>]"
+        aria-expanded="false" aria-controls="collapseAlternatives[<%= question.id %>]">
+        Alternativas
+      </a>
+    </h6>
+    <hr>
+    <div class="collapse" id="collapseAlternatives[<%= question.id %>]">
+      <% question.alternatives.each_with_index do |alt, index| %>
+        <span class="d-block">
+          <%= alt.display_option index %>
+          <% if alt.veracity %>
+            <i class="text-success ti-check"></i>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>

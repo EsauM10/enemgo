@@ -31,10 +31,9 @@ Rails.application.routes.draw do
     root 'dashboard#index'
   end
 
-  scope module: 'users' do
-    scope '*user_kind' do
-      resource :profile, except: [:index, :destroy], constraints: Constraints::RestrictedUserKind
-    end
+  scope '*user_kind', module: 'users' do
+    resource :profile, except: [:index, :destroy]
+    resources :questions
   end
 
 end
