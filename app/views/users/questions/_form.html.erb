@@ -1,15 +1,5 @@
 <%= form_for(question) do |form| %>
-  <% if question.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(question.errors.count, "error") %> prohibited this plan from being saved:</h2>
-
-      <ul>
-      <% question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/form_errors', messages: question.errors.full_messages if question.errors.any? %>
 
   <h4 class="card-title">Questão</h4>
 
