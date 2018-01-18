@@ -26,4 +26,6 @@ class Exam < ApplicationRecord
   has_many :simulations
 
   validates :user, :year, presence: true
+
+  enum kind: [:enem, :customized]
 end

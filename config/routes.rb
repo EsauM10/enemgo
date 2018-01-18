@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :registration_steps, path: '/cadastro/informacoes'
 
+
   namespace :admin do
     root 'dashboard#index'
     resources :history, only: :index
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
 
   namespace :student do
     root 'dashboard#index'
+    resources :simulations, only: :index
   end
 
   scope module: 'users' do
