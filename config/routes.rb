@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     patch 'cadastro', to: 'users/registrations#update', as: :user_registration
     put 'cadastro',   to: 'users/registrations#update'
 
+    resources :contacts, only: [:new, :create]
+
     constraints(Constraints::RestrictedUserKind) do
       get '*user_kind/conta/editar',  to: 'users/registrations#edit', as: :edit_user_registration
     end
