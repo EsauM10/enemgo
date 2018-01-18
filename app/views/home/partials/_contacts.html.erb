@@ -1,0 +1,23 @@
+<section id="contact" class="bg-white py-5">
+  <div class="container">
+    <%= render 'home/partials/header_section',
+    title: 'Contato',
+    subtitle: 'Entre em contato conosco!'
+    %>
+    <div class="row py-5">
+      <div class="container">
+        <div class="row col align-self-center">
+          <div class="col-md-6 text-justify">
+            <h4>
+              Se você tem alguma dúvida sobre o EnemGO ou precisa de mais informações, entre em
+              contato conosco utilizando o formulário ao lado e nós teremos prazer em atendê-lo.
+            </h4>
+          </div>
+          <div id="container-form" class="col-md-6 text-center">
+            <%= render 'contacts/form', contact: Contact.new %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
