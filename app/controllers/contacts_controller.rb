@@ -10,7 +10,9 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-    @contact.save
+    if @contact.save
+      ContactsMailer.send_email(@contact).deliver_now
+    end
     respond_to do |format|
       format.js
     end
