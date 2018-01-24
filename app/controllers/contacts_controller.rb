@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      ContactsMailer.send_email(@contact).deliver_now
+      ContactsMailer.send_email(@contact).deliver_later
     end
     respond_to do |format|
       format.js

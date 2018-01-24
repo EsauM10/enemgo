@@ -20,5 +20,7 @@ module Enemgo
 			g.stylesheets false
 		end
 
+    # Active Job
+    config.active_job.queue_adapter = :sidekiq
   end
 end

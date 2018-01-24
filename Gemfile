@@ -25,6 +25,7 @@ gem 'omniauth-facebook'
 gem 'paper_trail'
 gem 'mini_magick'
 gem 'wicked'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
