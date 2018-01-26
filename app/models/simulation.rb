@@ -10,6 +10,7 @@
 #  exam_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  status     :integer          default("doing")
 #
 # Indexes
 #
@@ -25,7 +26,26 @@
 class Simulation < ApplicationRecord
   belongs_to :user
   belongs_to :exam
-  has_one :answerlist
+  has_many :questions, through: :exam
+  has_many :simulation_answers
+
+  enum status: [:doing, :finished]
 
   validates :user, :exam, presence: true
+
+  before_save :finalize,
+    if: Proc.new { |simulation| simulation.doing? && simulation.time_expired?}
+
+  def finalize(end_time = expires_at)
+    self.end_time = end_time
+    self.status = :finished
+  end
+
+  def expires_at
+    self.start_time + 4.hours
+  end
+
+  def time_expired?
+    (expires_at - Time.now).to_i <= 0
+  end
 end

@@ -7,16 +7,16 @@
 
       <div class="card-body">
         <div class="row">
-          <% @simulations.each do |simulation| %>
+          <% simulations.each do |simulation| %>
             <div class="col-sm-6 col-md-6 col-lg-3 panel">
               <div class="container block">
-                <h5><%= simulation.exam.name %></h5>
+                <h5><%= simulation.exam.title %></h5>
                 <p></p>
                 <div>
                   <i class="ti ti-calendar"></i><strong> <%= simulation.date %></strong><br>
                   <i class="ti ti-time"></i><strong> <%= simulation.time_spent %></strong><br>
                   <i class="ti ti-cup"></i><strong> <%= simulation.score %></strong><br>
-                  <i class="ti ti-pencil"></i><strong> <%= simulation.answerlist.size %> Questões</strong>
+                  <i class="ti ti-pencil"></i><strong> <%= simulation.questions.size %> Questões</strong>
                 </div>
               </div>
             </div>

@@ -1,6 +1,10 @@
 @import "mixins";
 @import "variables";
 @import "bootstrap";
+@import "base/globals";
+
+@import "bootstrap-select/sass/bootstrap-select";
+@import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 @import "defaults/buttons";
 @import "defaults/colors";
@@ -15,8 +19,9 @@
 
 @import "defaults/process-steps";
 @import "defaults/form-file";
+@import "defaults/picker";
 
-@import "base/globals";
 @import "styles/home";
 @import "styles/dashboard";
 @import "styles/history";
+@import "styles/simulation";

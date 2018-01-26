@@ -1,5 +1,9 @@
 {
   "name": "enemgo",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-select": "^1.12.4",
+    "jquery.countdown": "^1.2.8",
+    "perfect-scrollbar": "^1.3.0"
+  }
 }

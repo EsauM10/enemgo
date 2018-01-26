@@ -69,6 +69,6 @@ class Admin::ExamsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exam_params
-      params.require(:exam).permit(:year, :kind, :status, :user_id)
+      params.require(:exam).permit(:year, :kind, :status).merge(user_id: current_user.id)
     end
 end

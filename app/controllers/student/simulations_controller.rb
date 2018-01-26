@@ -1,76 +1,91 @@
-class Student::SimulationsController < ApplicationController
-  layout 'dashboard'
-  before_action :set_simulation, only: [:show, :edit, :update, :destroy]
-  decorates_assigned :simulation
+class Student::SimulationsController < Student::BaseController
+  layout Proc.new { |controller| controller.action_name == 'answering' ? 'answer_simulation' : 'dashboard' }
+  before_action :set_simulation, only: [:show, :answering, :finished]
+  before_action :authorize_simulation, except: [:index, :new, :create]
+  respond_to :html, :js
+  decorates_assigned :simulation, :simulations
 
-  # GET /simulations
-  # GET /simulations.json
   def index
-    @simulations = current_user.simulations
+    @simulations = Simulation.where(user: current_user).includes(:exam)
   end
 
-  # GET /simulations/1
-  # GET /simulations/1.json
+  def new
+    @exam = Exam.find(params[:exam_id])
+  end
+
   def show
   end
 
-  # GET /simulations/new
-  def new
-    @simulation = Simulation.new
-  end
-
-  # GET /simulations/1/edit
-  def edit
-  end
-
-  # POST /simulations
-  # POST /simulations.json
   def create
-    @simulation = Simulation.new(simulation_params)
+    if current_simulation
+      redirect_to exams_path, notice: 'Você já está realizando um simulado'
+    else
+      @exam = Exam.find(params[:exam_id])
 
-    respond_to do |format|
+      @simulation = @exam.simulations.build(
+        user: current_user,
+        start_time: Time.now,
+        score: 0.0
+      )
+
       if @simulation.save
-        format.html { redirect_to @simulation, notice: 'Simulation was successfully created.' }
-        format.json { render :show, status: :created, location: @simulation }
+        session[:simulation_id] = @simulation.id
+        redirect_to answering_student_simulation_url(@simulation)
       else
-        format.html { render :new }
-        format.json { render json: @simulation.errors, status: :unprocessable_entity }
+        redirect_to exams_path, notice: 'Ocorreu um erro, simulado não gerado'
       end
     end
+
   end
 
-  # PATCH/PUT /simulations/1
-  # PATCH/PUT /simulations/1.json
-  def update
-    respond_to do |format|
-      if @simulation.update(simulation_params)
-        format.html { redirect_to @simulation, notice: 'Simulation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @simulation }
-      else
-        format.html { render :edit }
-        format.json { render json: @simulation.errors, status: :unprocessable_entity }
+  def answering
+    @questions = @simulation.questions
+                            .includes(:alternatives)
+                            .page(params[:current_question] || 1)
+                            .per(1)
+    if @questions
+      @question = @questions.take.decorate
+
+      find_or_create = {
+        user_id: current_user.id,
+        question_id: @question.id,
+        simulation_id: @simulation.id
+      }
+
+      @simulation_answer = SimulationAnswer.where(find_or_create).first
+
+      if @simulation_answer.nil?
+        @simulation_answer = SimulationAnswer.create(find_or_create)
       end
+
+    else
+      redirect_to :back, notice: 'Essa questão não existe neste simulado'
     end
+
   end
 
-  # DELETE /simulations/1
-  # DELETE /simulations/1.json
-  def destroy
-    @simulation.destroy
-    respond_to do |format|
-      format.html { redirect_to simulations_url, notice: 'Simulation was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def finished
+    @simulation.finalize Time.now
+    @simulation.save
+    session[:simulation_id] = nil
+    redirect_to exams_path(:student), flash: {success: "Parabéns, você finalizou o simulado em #{@simulation.decorate.time_spent}"}
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_simulation
-      @simulation = Simulation.find(params[:id])
+      if current_simulation
+        @simulation = current_simulation
+      else
+        @simulation = Simulation.find(params[:id])
+      end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def authorize_simulation
+      authorize @simulation
+    end
+
     def simulation_params
-      params.require(:simulation).permit(:start_time, :end_time, :user_id, :score, :exam_id)
+      params.require(:simulation).permit(:exam_id, :current_question)
     end
 end

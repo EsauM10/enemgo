@@ -10,6 +10,7 @@
 #  area       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  official   :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -27,17 +28,18 @@ class Question < ApplicationRecord
   has_many :alternatives, dependent: :destroy
   has_one :solution, dependent: :destroy
 
+  has_paper_trail if: Proc.new { |t| t.user.admin? }
+
+  enum area: %i[math human_sciences languages natural_sciences]
+  enum status: %i[pending rejected approved inactive]
+
   validates :user, :statement, :area, presence: true
-  validates :alternatives, length: { is: 5,
-    wrong_length: "não possui a quantidade mínima, deve ter #{count}" }
+  validates :alternatives, length: { is: 5 }
 
   validates_with QuestionAlternativesValidator
 
   accepts_nested_attributes_for :alternatives
   accepts_nested_attributes_for :solution
-
-  enum area: %i[math human_sciences languages natural_sciences]
-  enum status: %i[pending rejected approved inactive]
 
   scope :active, -> { where.not(status: :inactive).includes(:alternatives) }
 end

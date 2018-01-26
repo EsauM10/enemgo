@@ -1,0 +1,18 @@
+<%= form_for([:student, simulation, question, simulation_answer], remote: true) do |form| %>
+  <% question.alternatives.each_with_index do |alt, index| %>
+    <div class="custom-control pl-0 d-flex align-items-center my-3">
+      <div class="answer-question">
+        <%= form.radio_button :alternative_id, alt.id %>
+        <%= form.label "alternative_id_#{alt.id}" do %>
+        <span><%= alt.display_letter index %></span>
+        <% end %>
+      </div>
+      <span><%= alt.statement %></span>
+    </div>
+  <% end %>
+
+  <hr>
+  <div class="row">
+    <%= yield %>
+  </div>
+<% end %>

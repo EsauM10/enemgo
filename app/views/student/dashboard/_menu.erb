@@ -1,5 +1,5 @@
-<li class="nav-item">
-  <%= link_to "#", class: "nav-link", data: { toggle: 'submenu' } do %>
+<li class="nav-item <%= active_for(path: student_root_path) %>">
+  <%= link_to "#", class: "nav-link", data: { toggle: 'submenu' }, aria: { expanded: false } do %>
     <i class="icon ti-clipboard"></i>
     <span class="title-label">Simulados</span>
     <span class="arrow"></span>
@@ -8,14 +8,14 @@
   <ul class="sidebar-submenu collapse" id="sidebar-submenu">
     <li class="nav-item">
       <%= link_to "#", class: "nav-link" do %>
-        <span class="title-label">Enem</span>
+        <span class="title-label">Histórico</span>
         <span class="dot"></span>
       <% end %>
     </li>
     <p></p>
-    <li class="nav-item">
-      <%= link_to "#", class: "nav-link" do %>
-        <span class="title-label">Customizar Simulado</span>
+    <li class="nav-item <%= active_for(controller: 'exams', action: 'index') %> ">
+      <%= link_to exams_path(current_user.kind), class: "nav-link" do %>
+        <span class="title-label">Fazer Simulado</span>
         <span class="dot"></span>
       <% end %>
     </li>

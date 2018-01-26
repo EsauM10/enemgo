@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @exam.year %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @exam.kind %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @exam.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @exam.user %>
+</p>
+
+<%= link_to 'Edit', edit_exam_path(current_user.module_kind, @exam) %> |
+<%= link_to 'Back', exams_path %>
