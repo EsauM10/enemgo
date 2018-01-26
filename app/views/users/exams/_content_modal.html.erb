@@ -1,0 +1,39 @@
+<%= render 'shared/modal', title: 'Confirme antes de realizar simulado' do %>
+  <div class="container text-center my-2">
+    <h4 class="font-weight-light">
+      Ao clicar em <b>"Continuar"</b> você não poderá parar a prova até que a finalize.
+      É importante que você esteja ciente disto. Assim, só clique em <b>"Continuar"</b> quando
+      realmente quiser começar o simulado.
+    </h4>
+    <br>
+    <small class="d-block text-left">
+      * Caso você saia da página por quaisquer motivos, o simulado ainda estará aberto. <br>
+      * Você receberá avisos enquanto não finalizar o simulado.
+    </small>
+    <br>
+    <br>
+    <div class="row my-3">
+      <div class="col-lg-6">
+        <h4>
+          <i class="text-purple ti-time"></i>
+          <span>Tempo de Prova</span>
+          <h2 class="text-purple"><%= exam.enem? ? '04' : '--' %> horas</h2>
+        </h4>
+      </div>
+      <div class="col-lg-6">
+        <h4>
+          <i class="text-purple ti-pencil-alt"></i>
+          <span>Número de questões</span>
+          <h2 class="text-purple"><%= exam.questions.count %></h2>
+        </h4>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+  <%= content_for :modal_footer do %>
+    <%= link_to "Cancelar", "#", class: "btn btn-outline-secondary text-uppercase text-dark w-50" %>
+    <%= link_to "Continuar", exam_simulations_path(current_user.module_kind, exam),
+      method: :post, class: "btn btn-outline-primary text-uppercase w-50" %>
+  <% end %>
+<% end %>

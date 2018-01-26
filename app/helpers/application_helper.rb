@@ -12,4 +12,17 @@ module ApplicationHelper
     when 'alert'    then 'alert-warning'
     end
   end
+
+  def active_for(options = {})
+    controller    = options[:controller] || nil
+    action        = options[:action]     || nil
+    request_path  = options[:path]       || nil
+
+    if request_path.nil?
+      'active' if (action.nil? || action == action_name) && controller == controller_name
+    else
+      'active' if request_path == request.path
+    end
+  end
+
 end

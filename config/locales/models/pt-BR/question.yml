@@ -24,3 +24,4 @@ pt-BR:
       models:
         question:
           only_one_true_alternative: apenas uma pode ser verdadeira
+          wrong_length: não possui a quantidade mínima, deve ter %{count}

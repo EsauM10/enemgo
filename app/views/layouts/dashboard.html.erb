@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>EnemGO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#0E64CA">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,15 +16,9 @@
     <%= render 'shared/dashboard/navbar' %>
     <main>
       <div class="page-content">
-        <% flash.each do |key, value| %>
-          <div class="alert <%= flash_class(key) %> alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <%= value %>
-          </div>
-        <% end %>
+        <%= render 'shared/dashboard/flash_messages' %>
         <%= yield %>
+        <div id="modal-holder"></div>
       </div>
       <%= render 'shared/dashboard/footer' %>
     </main>

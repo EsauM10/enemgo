@@ -1,0 +1,59 @@
+.bootstrap-select > .dropdown-toggle.bs-placeholder {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    color: $clr-text;
+  }
+}
+
+
+.bootstrap-select {
+  .dropdown-toggle {
+    // @extend .btn-outline-dark;
+    background-color: white;
+    border: 1px solid #ced4da;
+    .pull-left {
+      float: none;
+    }
+
+    &:focus, &:active {
+      outline: none !important;
+      border: 1px solid rgba($primary, .4);
+    }
+
+    .filter-option {
+      color: $gray-700;
+      vertical-align: middle;
+      i {
+        margin-right: 8px;
+      }
+    }
+
+  }
+
+  .dropdown-menu.inner {
+    display: block;
+
+    .selected {
+      color: $clr-text;
+      background-color: $light;
+    }
+
+    > li > a {
+      @extend .dropdown-item;
+
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $light;
+        color: $clr-text;
+      }
+
+      .ti {
+        color: $secondary;
+      }
+    }
+
+  }
+}

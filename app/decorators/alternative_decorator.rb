@@ -6,4 +6,8 @@ class AlternativeDecorator < Draper::Decorator
     "#{ALPH[index]}) #{statement}"
   end
 
+  def display_letter(index)
+    "#{ALPH[index]}"
+  end
+
 end

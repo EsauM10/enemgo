@@ -1,0 +1,10 @@
+$("#question_answer").html(
+  "<%= j render 'question', questions: @questions, question: @question, simulation_answer: @simulation_answer %>"
+).hide().fadeIn();
+
+$("li[data-page]").each(function() {
+  $(this).toggleClass('active', $(this).data('page') == "<%= params[:current_question] || 1 %>");
+});
+
+
+history.pushState({question_id: "<%= @question.id %>"}, '', '<%= j "?current_question=#{params[:current_question] || 1}" %>')

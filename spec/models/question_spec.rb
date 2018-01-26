@@ -10,6 +10,7 @@
 #  area       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  official   :boolean          default(FALSE)
 #
 # Indexes
 #

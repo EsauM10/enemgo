@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap
+//= require bootstrap-select
+//= require perfect-scrollbar/dist/perfect-scrollbar.js
+//= require jquery.countdown/jquery.countdown.js
 //= require_tree .

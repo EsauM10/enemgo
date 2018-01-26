@@ -1,0 +1,44 @@
+<div class="row my-2 p-3 mx-auto bg-white">
+  <div class="container">
+    <h2 class="card-title text-purple">
+      <%= current_simulation.exam.title %>
+    </h2>
+    <div class="d-flex justify-content-between">
+      <h5 class="font-weight-light">
+        <i class="text-purple ti-pencil-alt"></i>
+
+        <span id="number_questions" class="ml-3" data-total-questions="<%= @questions.total_pages %>">
+          <b>
+          <%= "#{@simulation.simulation_answers.count} / #{@questions.total_pages}" %>
+          </b> questões
+        </span>
+      </h5>
+      <h5 class="font-weight-light">
+        <i class="text-purple ti-time"></i>
+        <time datetime="<%= current_simulation.decorate.time_left %>" class="ml-3">
+          2 horas
+        </time>
+      </h5>
+    </div>
+  </div>
+</div>
+<div class="row my-3 mx-auto bg-white">
+
+  <div class="card p-4 mx-auto border-0">
+    <div class="container text-right mb-3">
+      <%= link_to "Reportar questão", "#", class: "btn btn-bold hover-danger mx-1" %>
+      <%= link_to "Finalizar simulado", finished_student_simulation_path,
+        method: :post, class: "btn btn-bold text-purple hover-primary" %>
+    </div>
+
+    <div class="content-pagination container position-relative">
+      <%= paginate @questions, param_name: 'current_question', left: 45, right: 45,
+        theme: 'paginator_simulation', remote: true %>
+    </div>
+
+    <div id="question_answer">
+      <%= render 'question', questions: @questions, question: @question, simulation_answer: @simulation_answer %>
+    </div>   
+
+  </div>
+</div>

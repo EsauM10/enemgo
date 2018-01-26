@@ -23,21 +23,30 @@ Rails.application.routes.draw do
 
   resources :registration_steps, path: '/cadastro/informacoes'
 
-
   namespace :admin do
     root 'dashboard#index'
     resources :history, only: :index
-    resources :exams
   end
 
   namespace :student do
     root 'dashboard#index'
-    resources :simulations, only: :index
+    resources :simulations, only: [:index, :answering] do
+      get 'answering', on: :member
+      post 'finished', on: :member
+      resources :questions, only: [] do
+        resources :simulation_answers, only: [:create, :update]
+      end
+
+    end
   end
 
   scope '*user_kind', module: 'users' do
     resource :profile, except: [:index, :destroy]
     resources :questions
+    resources :exams do
+      post 'generate', on: :member
+      resources :simulations, only: [:new, :create], controller: '/student/simulations'
+    end
   end
 
 end

@@ -26,7 +26,26 @@ class Exam < ApplicationRecord
   has_many :questions, through: :exam_questions
   has_many :simulations
 
-  validates :user, :year, presence: true
+  has_paper_trail if: Proc.new { |t| t.user.admin? }
 
   enum kind: [:enem, :customized]
+
+  validates :user, :year, presence: true
+  # validates :kind, numericality: { only_integer: true }
+
+  # after_initialize :set_defaults
+
+  scope :official, -> { where(kind: :enem) }
+
+  scope :custom, -> (user) do
+    where(kind: :customized, user: user)
+  end
+
+  private
+
+    def set_defaults
+      self.kind = :customized
+      self.year = Time.now.year
+    end
+
 end
