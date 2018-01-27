@@ -40,38 +40,24 @@
     </div>
   </div><!-- end panel-container -->
 
-  <!-- Ranking -->
-  <div class="row">
-    <div class="col-md-12 col-lg-12 col-sm-12 no-border">
+  <div class="row padding-top">
+    <div class="col-md-8 col-lg-8 col-sm-8 no-border">
       <div class="card panel text-left card-block">
         <div class="card-header">
-          <h4 class="text-purple">Melhores Pontuações</h4>
+          <h4 class="text-purple"><i class="ti ti-bar-chart"></i> Desempenho</h4>
         </div>
-
         <div class="card-body">
+          <div class="container">
+            
+          </div>
 
-          <table class="table" id="table-id">
-            <thead class="thead-light">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Usuário</th>
-                  <th scope="col">Score</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <% @students.each_with_index do |student, index| %>
-                    <tr>
-                      <td><%= index + 1 %></td>
-                      <td><%= student.username %></td>
-                      <td><%= student.score %></td>
-                    </tr>
-                <% end %>
-            </tbody>
-          </table>
-          <br>
         </div>
       </div>
+    </div>
+
+    <!-- Ranking -->
+    <div class="col-md-4 col-lg-4 col-sm-4 no-border">
+      <%= render "student/shared/ranking" %>
     </div>
   </div>
 
