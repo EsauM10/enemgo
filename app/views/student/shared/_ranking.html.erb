@@ -6,13 +6,7 @@
   <div class="card-body">
 
     <table class="table" id="table-id">
-      <thead class="text-muted">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Usuário</th>
-            <th scope="col">Score</th>
-          </tr>
-      </thead>
+      <%= yield %>
 
       <tbody>
           <% @students.each_with_index do |student, index| %>
