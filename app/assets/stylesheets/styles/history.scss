@@ -1,25 +1,43 @@
 .history{
-  padding: 10px;
+  .nav-header{
+    margin-top: -17px;
+    background: white;
+    border-bottom: 3px solid $purple;
 
-  .card{border-radius: 0;}
+    .page-title{padding-top: 12px;
+      h5 {
+        color: $purple;
+        font-weight: bold;
+      }
+    }
+  }
 
-  .container{
-    padding-top: 5px;
-    border: 1px solid $gray-500;
-    border-radius: 5px;
-    background: #f3f3f3;
+  .content{
+    padding: 20px 0;
+    margin: 10px 0;
+  }
+
+  .col-sm-6{
+    > .card{margin-bottom: 30px;}
+  }
+
+  .card-body{
     color: $purple;
 
-    h5 {border-bottom: 1px solid $gray-500;}
-    strong {color: $gray-700;}
+    > strong {
+      margin-left: 8px;
+      color: $gray-700;}
   }
 
-  .container:hover {
-    background: #ebebeb;
-    transition: all .2s easy;
+  .no-border{
+    border: 0;
+    border-radius: 0;
   }
 
-  .panel{
-    margin-bottom: 30px;
+  .no-background{background: none;}
+
+  ol{
+    background: none;
+    margin: 0;
   }
 }

@@ -4,7 +4,10 @@
 }
 
 .student-dashboard {
-  .row{padding-top: 10px;}
+  .row{
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
 
   .no-padding{
     padding: 0;
@@ -36,4 +39,7 @@
   .grow {transition: all .2s easy;}
 
   .grow:hover{transform: scale(1.1);}
+
+  td:first-child{font-size: 1.2em;}
+  td:last-child{text-align: center;}
 }
