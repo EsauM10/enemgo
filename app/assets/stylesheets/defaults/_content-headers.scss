@@ -1,0 +1,27 @@
+@include mq-down(md) {
+  html {
+    font-size: 16px;
+  }
+
+  h1, .h1 { font-size: 31px; }
+  h2, .h2 { font-size: 26px; }
+  h3, .h3 { font-size: 22px; }
+  h4, .h4 { font-size: 18px; }
+  h5, .h5 { font-size: 15px; }
+  h6, .h6 { font-size: 13px; }
+}
+
+@include mq-down(sm) {
+  html {
+    font-size: 15px;
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+
+  h1, .h1 { font-size: 24px; }
+  h2, .h2 { font-size: 22px; }
+  h3, .h3 { font-size: 20px; }
+  h4, .h4 { font-size: 16px; }
+}

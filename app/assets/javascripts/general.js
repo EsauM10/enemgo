@@ -1,7 +1,4 @@
-$(document).on('turbolinks:load', function() {
-  $('#btn-preview').on('click', function () {
-    $('body').toggleClass('sidebar-closed');
-  });
+$(document).on('turbolinks:load', function() {  
 
   $('.selectpicker').selectpicker({
     iconBase: 'ti',

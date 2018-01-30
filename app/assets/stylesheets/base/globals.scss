@@ -1,20 +1,43 @@
  // @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900');
 
- body {
-   background-color: #ededed;
-   > .navbar + main {
-      padding-top: 60px;
-   }
+body {
+  background-color: #ededed;
+  > .navbar + main {
+    padding-top: 60px;
+  }
 
-   > main {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      transition: margin-left .3s ease-out;
-   }
+  > main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-left .3s ease-out;
+  }
 
  }
+
+ .back-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.7);
+  z-index: 997;
+  cursor: pointer;
+
+  &::after {
+    content: "\e646";
+    font-family: themify;
+    font-size: 24px;
+    font-weight: bold;
+    color: $dark;
+    opacity: .7;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+  }
+}
 
 .title-section {
   font-size: 3.1em;

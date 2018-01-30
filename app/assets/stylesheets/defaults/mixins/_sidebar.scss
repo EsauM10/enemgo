@@ -1,0 +1,28 @@
+@mixin sidebar-expand-mq-up() {
+
+  ~ .navbar .sidebar-btn-toggle {
+    display: none;
+  }
+
+}
+
+@mixin sidebar-expand-mq-down() {
+
+  ~ .navbar .sidebar-btn-toggle {
+    display: inline-block;
+  }
+
+  ~ .navbar .btn-preview {
+    display: none;
+  }
+
+  &.sidebar {
+    box-shadow: none;
+    left: -$sidebar-width;
+
+    ~ .navbar,
+    ~ main {
+      margin-left: 0;
+    }
+  }
+}

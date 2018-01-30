@@ -1,0 +1,58 @@
+@mixin mq-up($point) {
+
+  $break-point-xs: "(min-width: 0)";      // < 576px
+  $break-point-sm: "(min-width: 576px)";  // >= 576px
+  $break-point-md: "(min-width: 768px)";  // >= 768px
+  $break-point-lg: "(min-width: 992px)";  // >= 992px and up
+  $break-point-xl: "(min-width: 1200px)"; // full desktops
+
+
+  @if $point == xs {
+    @media #{$break-point-xs} { @content; }
+  }
+  @else if $point == sm {
+    @media #{$break-point-sm} { @content; }
+  }
+  @else if $point == md {
+    @media #{$break-point-md} { @content; }
+  }
+  @else if $point == lg {
+    @media #{$break-point-lg}  { @content; }
+  }
+  @else if $point == xl {
+    @media #{$break-point-xl}  { @content; }
+  }
+  @else {
+    @media (min-width: #{$point}px) { @content; }
+  }
+
+}
+
+@mixin mq-down($point) {
+
+  $break-point-xs: "(max-width: 575px)";
+  $break-point-sm: "(max-width: 767px)";  // < 768px
+  $break-point-md: "(max-width: 991px)";  // < 992px
+  $break-point-lg: "(max-width: 1199px)"; // < 1200px
+  $break-point-xl: "(max-width: 5000px)";
+
+  @if $point == xs {
+    @media #{$break-point-xs} { @content; }
+  }
+  @else if $point == sm {
+    @media #{$break-point-sm} { @content; }
+  }
+  @else if $point == md {
+    @media #{$break-point-md} { @content; }
+  }
+  @else if $point == lg {
+    @media #{$break-point-lg}  { @content; }
+  }
+  @else if $point == xl {
+    @media #{$break-point-xl}  { @content; }
+  }
+  @else {
+    @media (max-width: #{$point}px) { @content; }
+  }
+
+}

@@ -4,11 +4,11 @@
   }
 }
 
-.dropdown-menu {
-  .dropdown-menu-right .align {
-    position: absolute;
-    top: 24px;
-    left: -134px;
-    will-change: top, left;
+.dropdown-menu.dropdown-menu-right  {
+  &.align {
+    position: absolute !important;
+    top: 58px !important;
+    left: -108px !important;
+    will-change: top, left !important;
   }
 }

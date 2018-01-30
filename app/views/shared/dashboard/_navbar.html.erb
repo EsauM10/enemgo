@@ -1,15 +1,17 @@
 <header class="navbar navbar-expand-lg navbar-light bg-white main-navbar brd-b-1">
 
-  <button href="#" id="btn-preview" class="btn btn-outline-primary border-0">
-    <i class="ti-menu"></i>
-  </button>
-  <div class="container">
-    <ul class="navbar-nav mr-auto font-weight-bold">
-      <li class="nav-item">
-      </li>
-    </ul>
+  <div class="main-navbar-left">
+    <button class="btn btn-outline-primary border-0 btn-preview">
+      <i class="ti-menu"></i>
+    </button>
 
-    <ul class="nav-menu navbar-nav list-unstyled d-flex flex-md-row align-items-md-center mb-0">
+    <span class="btn sidebar-btn-toggle">
+      <i class="ti-menu"></i>
+    </span>
+  </div>
+
+  <div class="main-navbar-right d-flex align-items-md-center">
+    <ul class="nav-menu navbar-nav d-flex align-items-md-center mb-0">
       <!--  example -->
       <li class="nav-item dropdown">
         <a id="notifications" rel="nofollow" data-target="#" href="#"
@@ -35,7 +37,7 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <%= current_user.profile.avatar_thumb  %>
         </a>
-        <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-right align">
           <%= link_to profile_path(current_user.module_kind), class: "nav-item dropdown-item" do %>
             <i class="ti-user"></i>
             Perfil
@@ -50,8 +52,6 @@
         </div>
       </li>
     </ul>
-
   </div>
-
 
 </header>

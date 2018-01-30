@@ -148,12 +148,20 @@
   }
 
   .nav-item {
-
     &.active > .nav-link,
     &:hover > .nav-link {
       opacity: 1;
       background-color: transparent;
     }
   }
+}
 
+.sidebar-expand {
+  @include mq-down(md) {
+    @include sidebar-expand-mq-down();
+  }
+
+  @include mq-up(lg) {
+    @include sidebar-expand-mq-up();
+  }
 }

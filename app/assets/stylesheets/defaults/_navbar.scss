@@ -5,6 +5,25 @@
   right: 0;
   z-index: 99;
   height: $navbar-height;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-navbar {
+
+  .btn-preview,
+  .sidebar-btn-toggle {
+    font-size: 20px;
+  }
+
+  .sidebar-btn-toggle {
+    color: $primary;
+    @include link-colors-important($purple);
+  }
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .navbar-default {
