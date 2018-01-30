@@ -8,9 +8,10 @@
 #  phone      :string
 #  birthday   :date
 #  user_id    :integer
-#  avatar     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  avatar     :string
+#  sex        :string
 #
 # Indexes
 #
@@ -25,5 +26,5 @@ class Profile < ApplicationRecord
   belongs_to :user
   mount_uploader :avatar, AvatarUploader
 
-  validates :user, :first_name, :last_name, :birthday, presence: true
+  validates :user, :first_name, :last_name, :birthday, :sex, presence: true
 end

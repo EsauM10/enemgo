@@ -27,7 +27,7 @@ class RegistrationStepsController < ApplicationController
 
     def user_params
       params.require(:user).permit(:username,
-        profile_attributes: [:first_name, :last_name, :phone, :birthday, :avatar, :remove_avatar]
+        profile_attributes: [:first_name, :last_name, :phone, :birthday, :avatar, :remove_avatar, :sex]
       )
     end
 end
