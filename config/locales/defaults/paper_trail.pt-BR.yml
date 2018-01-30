@@ -1,0 +1,16 @@
+pt-BR:
+  paper_trail:
+    create: "Criar"
+    update: "Atualizar"
+    destroy: "Apagar"
+    
+    Alternative: Alternativa
+    Comment: Comentário
+    Contact: Contato
+    Exam: Prova
+    Plan: Plano
+    Profile: Perfil
+    Question: Questão
+    Simulation: Simulado
+    Solution: Resolução
+    User: Usuário
