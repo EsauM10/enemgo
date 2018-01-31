@@ -1,2 +1,2 @@
 bundle check || bundle install
-bundle exec puma -C config/puma.rb
+bundle exec rails server -b 0.0.0.0
