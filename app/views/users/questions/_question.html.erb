@@ -7,7 +7,7 @@
           <a data-toggle="dropdown" href="#" aria-expanded="false">
             <i class="ti-more-alt"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-right align" x-placement="bottom-end">
+          <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
             <%= link_to question_path(current_user.module_kind, question),
               class: "dropdown-item" do %>
               <i class="ti-eye"></i> Visualizar
@@ -44,7 +44,7 @@
     <hr>
     <div class="collapse" id="collapseAlternatives[<%= question.id %>]">
       <% question.alternatives.each_with_index do |alt, index| %>
-        <span class="d-block">
+        <span class="d-block my-1">
           <%= alt.display_option index %>
           <% if alt.veracity %>
             <i class="text-success ti-check"></i>
