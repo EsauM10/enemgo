@@ -12,7 +12,7 @@
           <% @students.each_with_index do |student, index| %>
               <tr class="text-muted">
                 <td><%= index + 1 %>º</td>
-                <td><%= student.profile.avatar_thumb %> <%= student.username %></td>
+                <td><%= student.profile.avatar_thumb %> <%= student.profile.full_name %></td>
                 <td><%= student.score %></td>
               </tr>
           <% end %>
