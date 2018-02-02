@@ -28,7 +28,6 @@
             <span class="d-block">
               <i class="icon ti-mobile"></i> <%= current_user.profile.phone %>
             </span>
-
           </div>
           <div class="col-md-6">
             <label for="" class="d-block"> <strong>Data de Nascimento</strong> </label>
@@ -37,6 +36,16 @@
             </span>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="" class="d-block"> <strong>Sexo</strong> </label>
+            <span class="d-block">
+              <i class="icon ti-id-badge"></i> <%= current_user.profile.sex %>
+            </span>
+          </div>
+        </div>
+
       </div>
       <div class="card-footer text-right">
         <%= link_to 'Finalizar', next_wizard_path, class: "btn btn-round btn-outline-primary" %>

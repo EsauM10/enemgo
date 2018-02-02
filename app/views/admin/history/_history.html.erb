@@ -1,0 +1,20 @@
+<% @versions.each do |version| %>
+<% user = @version_users.select { |u| u.id == version.whodunnit.to_i }.first %>
+  <tr id="<%= "heading#{version.id}" %>" data-toggle="collapse" data-target="<%= "#collapse#{version.id}" %>" aria-expanded="false" aria-controls="<%= "collapse#{version.id}" %>">
+    <th scope="row"><%= version.id %></th>
+    <td><%= user.profile.decorate.full_name %></td>
+    <td><%= t("paper_trail.#{version.event}") %></td>
+    <td><%= t("paper_trail.#{version.item_type}") %></td>
+    <td><%= time_ago_in_words(version.created_at) %></td>
+  </tr>
+  <tr id="<%= "collapse#{version.id}" %>" class="collapse" aria-labelledby="<%= "heading#{version.id}" %>" data-parent="#accordion">
+    <td colspan="5" class="text-justify">
+      <b>ID do Item:</b> <%= version.item_id %><br>
+      <% version.changeset.each do |key, value| %>
+        <% unless key.eql?("id") or key.eql?("created_at") or key.eql?("updated_at") or key.eql?("avatar") %>
+          <b><%= version.item_type.constantize.human_attribute_name(key) %>:</b> <%= value[0].nil? ? "#{value[1]}" : "#{value[0]} -> #{value[1]}" %><br>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

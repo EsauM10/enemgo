@@ -1,6 +1,5 @@
 user = User.create(
   kind: :admin,
-  username: 'testador',
   email: 'admin@teste.com',
   password: '123456',
   password_confirmation: '123456'
@@ -8,7 +7,6 @@ user = User.create(
 
 student = User.create(
   kind: :student,
-  username: 'student1',
   email: 'test@test.com',
   password: '123456',
   password_confirmation: '123456'
@@ -16,7 +14,6 @@ student = User.create(
 
 User.create!(
   kind: :evaluator,
-  username: 'evaluator',
   email: 'evaluator@test.com',
   password: '123456',
   password_confirmation: '123456'
@@ -25,7 +22,8 @@ User.create!(
 student.build_profile(
   first_name: FFaker::Name.first_name,
   last_name: FFaker::Name.last_name,
-  birthday: Time.at(Time.now - 15.years)
+  birthday: Time.at(Time.now - 15.years),
+  sex: 'M'
 )
 
 student.save

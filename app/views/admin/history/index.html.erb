@@ -1,27 +1,23 @@
-<div class="container">
-  <div class="card p-3">
-    <h1>History</h1>
-    <table class="table">
+<div class="row my-2 p-2 mx-auto bg-white">
+  <div class="container">
+    <h2 class="card-title text-purple">Registros de Log</h2>
+  </div>
+</div>
+
+<div class="row mx-auto my-2 bg-white">
+  <div class="card p-3 w-100">
+    <table class="table table-bordered text-center" id="accordion">
       <thead>
         <tr>
-          <th>#</th>
-          <th>User</th>
-          <th>Action</th>
-          <th>Item Type</th>
-          <th>Time Ago</th>
+          <th class="w-5">#</th>
+          <th class="w-25">Usuário</th>
+          <th class="w-10">Ação</th>
+          <th class="w-35">Item</th>
+          <th class="w-25">Aconteceu em</th>
         </tr>
       </thead>
       <tbody>
-        <% @versions.each do |version| %>
-        <% user = @version_users.select { |u| u.id == version.whodunnit.to_i }.first %>
-          <tr>
-            <th scope="row"><%= version.id %></th>
-            <td><%= user.email %></td>
-            <td><%= version.event %></td>
-            <td><%= version.item_type %></td>
-            <td><%= time_ago_in_words(version.created_at) %></td>
-          </tr>
-        <% end %>
+        <%= render 'history' %>
       </tbody>
     </table>
   </div>

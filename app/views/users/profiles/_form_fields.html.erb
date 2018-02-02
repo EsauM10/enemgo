@@ -48,4 +48,16 @@
         max: Date.new(2006, 01, 01), class: "form-control", required: true %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= form.label :sex %>
+      <%= form.select :sex,
+        options_for_select([["Masculino", "M"],
+                            ["Feminino", "F"]],
+                            current_user.profile.sex),
+        {}, {id: :profile_sex, class: "form-control", required: true} %>
+    </div>
+  </div>
+
 </div>
