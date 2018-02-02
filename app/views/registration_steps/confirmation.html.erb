@@ -45,6 +45,46 @@
             </span>
           </div>
         </div>
+        <hr>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="" class="d-block"> <strong>Estado</strong> </label>
+            <span class="d-block">
+              <i class="icon ti-location-pin"></i> <%= current_user.address.state %>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <label for="" class="d-block"> <strong>Cidade</strong> </label>
+            <span class="d-block">
+              <i class="icon ti-location-pin"></i> <%= current_user.address.city %>
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="" class="d-block"> <strong>Bairro</strong> </label>
+            <span class="d-block">
+              <i class="icon ti-location-pin"></i> <%= current_user.address.district %>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <label for="" class="d-block"> <strong>Rua</strong> </label>
+            <span class="d-block">
+              <i class="icon ti-location-pin"></i> <%= current_user.address.street %>
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="" class="d-block"> <strong>CEP</strong> </label>
+            <span class="d-block">
+              <i class="icon ti-location-pin"></i> <%= current_user.address.cep %>
+            </span>
+          </div>
+        </div>
 
       </div>
       <div class="card-footer text-right">
