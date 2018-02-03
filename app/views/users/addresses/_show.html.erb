@@ -1,0 +1,42 @@
+<div class="row justify-content-center my-3">
+  <div class="col-lg-9">
+    <div class="card p-3 border-0">
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-6">
+            <span><strong>Estado: </strong><%= address.state %></span>
+          </div>
+          <div class="col-md-6">
+            <span><strong>Cidade: </strong><%= address.city %></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <span><strong>Bairro: </strong><%= address.district %></span>
+          </div>
+          <div class="col-md-6">
+            <span><strong>Rua: </strong><%= address.street %></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <span><strong>CEP: </strong><%= address.cep %></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="d-flex mt-16 justify-content-center">
+        <label class="file-group file-group-inline">
+          <%= link_to edit_address_path, class: "btn btn-outline-info" do %>
+            Editar Endereço <i class="ti ti-pencil"></i>
+          <% end %>
+        </label>
+      </div>
+
+    </div>
+  </div>
+</div>

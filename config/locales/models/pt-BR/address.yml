@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      address:
+        one: "Endereço"
+        other: "Endereços"
+    attributes:
+      address:
+        state: Estado
+        city: Cidade
+        cep: CEP
+        district: Bairro
+        street: Rua

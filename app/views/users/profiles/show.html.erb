@@ -1,41 +1,23 @@
 <div class="row justify-content-center my-3">
   <div class="col-lg-9">
-    <div class="card p-3">
-      <h4 class="card-title">Seu Perfil</h4>
-      <div class="card-body">
-        <div class="d-flex">
-          <div class="mr-2" id="content-avatar">
-            <%= current_user.profile.avatar_thumb({id: 'avatar-img', size: 'xxl'}) %>
-          </div>
-
-          <div class="flex-grow">
-            <h5><%= current_user.profile.full_name %></h5>
-            <div class="d-flex mt-16">
-              <label class="file-group file-group-inline">
-                <%= link_to edit_profile_path, class: "btn btn-outline-info" do %>
-                  Editar Perfil <i class="ti ti-pencil"></i>
-                <% end %>
-              </label>
-            </div>
-          </div>
+    <div class="card">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">
+            <h4>Perfil</h4>
+          </a>
+          <a class="nav-item nav-link" id="nav-address-tab" data-toggle="tab" href="#nav-address" role="tab" aria-controls="nav-address" aria-selected="false">
+            <h4>Endereço</h4>
+          </a>
         </div>
-        <hr>
-
-        <div class="row">
-          <div class="col-md-6">
-            <span><strong>Telefone: </strong><%= @profile.phone %></span>
-          </div>
-          <div class="col-md-6">
-            <span><strong>Aniversário: </strong><%= @profile.birthday %></span>
-          </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <%= render 'profile' %>
         </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <span><strong>Sexo: </strong><%= @profile.sex %></span>
-          </div>
+        <div class="tab-pane fade" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab">
+          <%= render 'users/addresses/show', address: current_user.address %>
         </div>
-
       </div>
     </div>
   </div>

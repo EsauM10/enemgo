@@ -33,12 +33,14 @@ class User < ApplicationRecord
          :validatable, :omniauthable
 
   has_one :profile, dependent: :destroy
+  has_one :address, dependent: :destroy
   has_one :membership
   has_many :exams
   has_many :simulations
   has_many :simulation_answers
 
   accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :address
 
   enum kind: %i[student evaluator admin]
 

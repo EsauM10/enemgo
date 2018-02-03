@@ -6,7 +6,7 @@ class RegistrationStepsController < ApplicationController
   def show
     case wizard_value(step)
     when 'address'
-      skip_step
+      @user.build_address
     end
     render_wizard
   end
@@ -27,7 +27,8 @@ class RegistrationStepsController < ApplicationController
 
     def user_params
       params.require(:user).permit(:username,
-        profile_attributes: [:first_name, :last_name, :phone, :birthday, :avatar, :remove_avatar, :sex]
+        profile_attributes: [:first_name, :last_name, :phone, :birthday, :avatar, :remove_avatar, :sex],
+        address_attributes: [:state, :city, :cep, :district, :street]
       )
     end
 end
