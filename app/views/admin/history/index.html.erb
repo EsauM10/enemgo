@@ -20,5 +20,10 @@
         <%= render 'history' %>
       </tbody>
     </table>
+
+    <div class="row justify-content-center">
+      <%= paginate @versions, window: 2 %>
+    </div>
+
   </div>
 </div>

@@ -5,10 +5,11 @@ class Users::QuestionsController < ApplicationController
 
   def index
     if params[:filter]
-      @questions = policy_scope(Question).where(status: params[:filter][:status])
+      @filter = policy_scope(Question).where(status: params[:filter][:status])
     else
-      @questions = policy_scope(Question)
+      @filter = policy_scope(Question)
     end
+    @questions = @filter.order(:id).page(params[:page]).per(10)
   end
 
   def show
