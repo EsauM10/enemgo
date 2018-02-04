@@ -5,6 +5,15 @@ user = User.create(
   password_confirmation: '123456'
 )
 
+user.build_profile(
+  first_name: FFaker::Name.first_name,
+  last_name: FFaker::Name.last_name,
+  birthday: Time.at(Time.now - 15.years),
+  sex: 'M'
+)
+
+user.save
+
 student = User.create(
   kind: :student,
   email: 'test@test.com',

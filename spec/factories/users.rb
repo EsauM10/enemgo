@@ -18,6 +18,7 @@
 #  kind                   :integer          default("student")
 #  provider               :string
 #  uid                    :string
+#  banned                 :boolean          default(FALSE)
 #
 # Indexes
 #
