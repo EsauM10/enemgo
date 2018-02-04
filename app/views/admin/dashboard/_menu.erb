@@ -10,3 +10,11 @@
     <span class="title-label">Log de Atividades</span>
   <% end %>
 </li>
+<% if policy(User).index? %>
+<li class="nav-item">
+  <%= link_to admin_users_path, class: "nav-link" do %>
+    <i class="icon ti-user"></i>
+    <span class="title-label">Usuários</span>
+  <% end %>
+</li>
+<% end %>

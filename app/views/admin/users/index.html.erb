@@ -1,0 +1,58 @@
+<div class="row my-2 p-2 mx-auto bg-white">
+  <div class="container">
+    <h2 class="card-title text-purple">Usuários</h2>
+  </div>
+</div>
+
+<div class="row mx-auto my-2 bg-white">
+  <div class="card p-3 w-100">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Usuário</th>
+          <th>Email</th>
+          <th>Tipo</th>
+          <th>Criado em</th>
+          <th>Status</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.profile.full_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.kind %></td>
+            <td><%= user.created_at %></td>
+            <td class="text-center">
+              <% unless (current_user == user) %>
+                <%= link_to "#" do %>
+                  <i class="ti ti-<%= user.banned? ? 'lock': 'unlock' %>"></i>
+                <% end %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to admin_user_path(user) do %>
+                <i class="ti ti-eye"></i>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to edit_admin_user_path(user) do %>
+                <i class="ti ti-pencil"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="card-footer text-right">
+      <%= link_to 'New User', new_admin_user_path, class: "btn btn-round btn-outline-primary" %>
+    </div>
+
+  </div>
+</div>
