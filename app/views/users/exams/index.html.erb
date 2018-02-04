@@ -18,3 +18,6 @@
 <div class="row mx-auto my-2">
   <%= render @exams %>
 </div>
+<div class="row justify-content-center">
+  <%= paginate @exams, window: 2 %>
+</div>

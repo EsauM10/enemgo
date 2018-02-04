@@ -2,6 +2,6 @@ class Student::RankingController < ApplicationController
   layout 'dashboard'
 
   def index
-    @students = User.students
+    @students = Kaminari.paginate_array(User.students).page(params[:page]).per(10)
   end
 end

@@ -4,7 +4,7 @@ class Users::ExamsController < ApplicationController
   before_action :authorize_exam, except: [:index, :create]
 
   def index
-    @exams = policy_scope(Exam)
+    @exams = policy_scope(Exam).page(params[:page]).per(6)
   end
 
   def show
