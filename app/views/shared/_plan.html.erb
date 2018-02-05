@@ -1,0 +1,17 @@
+<div class="card text-center plan">
+  <h4 class="text-uppercase text-<%= get_uniq_color plan.id %>"><%= plan.name %></h4>
+  <br>
+
+  <% plan.options_plans.each do |option| %>
+    <p><%= option.text %></p>
+  <% end %>
+  <br>
+  <h3 class="price text-muted">
+    <sup>R$</sup><%= plan.price %>
+    <span class="period">
+      Mês
+    </span>
+  </h3>
+  <br>
+  <%= yield %>
+</div>

@@ -1,0 +1,23 @@
+.plan {
+  padding: 60px;
+
+  .price {
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 60px;
+    padding: 10px 0;
+
+    sup {
+      font-size: 28px;
+      vertical-align: super;
+    }
+
+    .period {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 25px;
+      color: #788394;
+    }
+  }
+}

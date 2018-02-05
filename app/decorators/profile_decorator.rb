@@ -2,9 +2,6 @@ class ProfileDecorator < Draper::Decorator
   delegate_all
   decorates_association :user
 
-  AVATAR_BG_COLORS = %w[primary secondary success info warning
-    danger pink purple brown cyan yellow gray dark]
-
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -23,10 +20,6 @@ class ProfileDecorator < Draper::Decorator
     define_avatar options
   end
 
-  def avatar_color
-    AVATAR_BG_COLORS[Zlib.crc32("#{user.id}").modulo(AVATAR_BG_COLORS.length)]
-  end
-
   private
 
     def empty_fields?(fields)
@@ -37,8 +30,8 @@ class ProfileDecorator < Draper::Decorator
     def define_avatar(options)
       size = options[:size] ? "avatar-#{options[:size]}" : ''
 
-      h.content_tag(:div, data: { text: initial_full_name }, 
-        class: "avatar bg-#{avatar_color} #{size} #{options[:class]}") do
+      h.content_tag(:div, data: { text: initial_full_name },
+        class: "avatar bg-#{h.get_uniq_color user.id} #{size} #{options[:class]}") do
         if avatar?
           h.image_tag(avatar, id: options[:id])
         else

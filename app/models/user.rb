@@ -18,6 +18,7 @@
 #  kind                   :integer          default("student")
 #  provider               :string
 #  uid                    :string
+#  stripe_id              :string
 #
 # Indexes
 #
@@ -33,8 +34,8 @@ class User < ApplicationRecord
          :validatable, :omniauthable
 
   has_one :profile, dependent: :destroy
+  has_one :subscription, dependent: :destroy
   has_one :address, dependent: :destroy
-  has_one :membership
   has_many :exams
   has_many :simulations
   has_many :simulation_answers
@@ -47,18 +48,11 @@ class User < ApplicationRecord
   scope :students, -> { where(kind: :student).decorate.sort_by(&:score) }
 
   def self.from_omniauth(auth)
+    puts auth
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.build_profile(first_name: auth.info.name)
     end
-  end
-
-  after_create :default_profile
-
-  def default_profile
-    prof = Profile.new(user_id: self.id)
-    prof.save(validate: false)
   end
 
   def score
@@ -66,5 +60,19 @@ class User < ApplicationRecord
     sum = scores.reduce(:+)
     if sum.nil? then 0 else (sum / scores.size.to_f) end
   end
+
+  def premium?
+    return false if subscription.nil?
+    subscription.status == 'active' || 'past_due' || 'trialing'
+  end
+
+  after_create :defaults
+
+  private
+
+    def defaults
+      profile = Profile.new(user_id: self.id)
+      profile.save(validate: false)
+    end
 
 end

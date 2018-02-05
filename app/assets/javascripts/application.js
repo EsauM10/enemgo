@@ -18,4 +18,6 @@
 //= require bootstrap-select
 //= require perfect-scrollbar/dist/perfect-scrollbar.js
 //= require jquery.countdown/jquery.countdown.js
+//= require card/dist/jquery.card.js
+//= require cocoon
 //= require_tree .

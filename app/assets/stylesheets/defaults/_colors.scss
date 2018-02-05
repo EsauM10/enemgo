@@ -44,7 +44,15 @@ a.text-warning   { @include link-colors-important($warning); }
 a.text-danger    { @include link-colors-important($danger); }
 
 // buttons
-@each $name, $color in $colors {
+$new-colors: map-remove($colors,
+  (
+    'primary',
+    'secondary',
+    'info',
+    'danger',
+    'success'
+  ));
+@each $name, $color in $new-colors {
   .btn-outline-#{$name} {
     @include btn-outline($color, 1);
   }
