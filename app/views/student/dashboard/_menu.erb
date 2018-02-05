@@ -1,4 +1,4 @@
-<li class="nav-item <%= active_for(path: student_root_path) %>">
+<li class="nav-item">
   <%= link_to "#", class: "nav-link", data: { toggle: 'submenu' }, aria: { expanded: false } do %>
     <i class="icon ti-clipboard"></i>
     <span class="title-label">Simulados</span>
@@ -22,8 +22,8 @@
   </ul>
 </li>
 
-<li class="nav-item">
-  <%= link_to "#", class: "nav-link" do %>
+<li class="nav-item <%= active_for(controller: 'plans', action: 'index') %>">
+  <%= link_to :student_plans, class: "nav-link" do %>
     <i class="icon ti-shopping-cart-full"></i>
     <span class="title-label">Planos</span>
   <% end %>

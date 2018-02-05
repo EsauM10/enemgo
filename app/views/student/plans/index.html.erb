@@ -1,0 +1,20 @@
+<div class="row my-2 p-3 mx-auto bg-white">
+  <div class="container">
+    <h2 class="card-title text-purple">
+      Planos
+    </h2>
+    <h4 class="font-weight-light">Confira nossos planos</h4>
+  </div>
+</div>
+
+<div class="row mx-auto my-2 p-3 justify-content-md-center">
+  <% @plans.each do |plan| %>
+    <div class="col-lg-4">
+      <%= render 'shared/plan', plan: plan do %>
+        <%= link_to "Assinar", new_student_plan_subscription_path(plan),
+          class: "btn font-weight-bold btn-outline-#{get_uniq_color plan.id}", data: { turbolinks: false }  %>
+      <% end %>
+
+    </div>
+  <% end %>
+</div>

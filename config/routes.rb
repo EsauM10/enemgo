@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   root 'home#index'
+
+  post '/webhooks', to: 'stripe#webhooks'
 
   devise_for :users, skip: [:sessions, :registrations],
               controllers: { omniauth_callbacks: 'omniauth_callbacks' }
@@ -26,6 +29,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboard#index'
     resources :history, only: :index
+    resources :plans
   end
 
   namespace :student do
@@ -37,7 +41,9 @@ Rails.application.routes.draw do
       resources :questions, only: [] do
         resources :simulation_answers, only: [:create, :update]
       end
-
+    end
+    resources :plans, only: :index do
+      resources :subscriptions
     end
   end
 

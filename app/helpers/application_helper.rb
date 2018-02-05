@@ -1,5 +1,12 @@
 module ApplicationHelper
 
+  BG_COLORS = %w[primary secondary success info warning
+    danger pink purple brown cyan yellow gray dark]
+
+  def get_uniq_color(str)
+    BG_COLORS[Zlib.crc32("#{str}").modulo(BG_COLORS.length)]
+  end
+
   def present_controllers?(controllers = [])
     controllers.include?(controller_name) || devise_controller?
   end
