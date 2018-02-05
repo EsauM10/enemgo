@@ -1,8 +1,23 @@
-user = User.create(
+plan = Stripe::Plan.create(
+  amount: 2900,
+  name: 'Premium',
+  interval: 'month',
+  currency: 'brl',
+  id: 1
+)
+
+Plan.create!(
+  price: (plan.amount / 100).to_f,
+  name: plan.name,
+  stripe_id: plan.id
+)
+
+
+user = User.create!(
   kind: :admin,
   email: 'admin@teste.com',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
 )
 
 user.build_profile(
@@ -35,7 +50,7 @@ student.build_profile(
   sex: 'M'
 )
 
-student.save
+student.save(validate: false)
 
 exam = user.exams.build(
   kind: :enem,

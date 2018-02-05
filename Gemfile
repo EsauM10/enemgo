@@ -28,6 +28,9 @@ gem 'mini_magick'
 gem 'wicked'
 gem 'sidekiq'
 gem 'kaminari'
+gem 'stripe'
+gem 'cocoon'
+gem 'friendly_id', '~> 5.1.0'
 # gem 'hashid-rails', "~> 1.0"
 
 group :development, :test do
