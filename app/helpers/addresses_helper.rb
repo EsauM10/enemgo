@@ -1,7 +1,8 @@
 module AddressesHelper
 
   ESTADOS_BRASILEIROS =
-    ["Acre",
+    ["",
+    "Acre",
     "Alagoas",
     "Amapá",
     "Amazonas",
