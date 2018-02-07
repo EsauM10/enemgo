@@ -20,4 +20,6 @@
 //= require jquery.countdown/jquery.countdown.js
 //= require card/dist/jquery.card.js
 //= require cocoon
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .

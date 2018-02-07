@@ -14,17 +14,17 @@
 
         <div class="col-6 col-md-3 col-lg-3 no-padding">
           <div class="card panel widget border-right">
-            <i class="ti ti-user large text-purple grow"></i>
-            <span class="large">666</span>
-            <span class="text-muted">Alunos</span>
+            <i class="ti ti-time large text-purple grow"></i>
+            <span class="large">2h34 min</span>
+            <span class="text-muted">Tempo médio</span>
           </div>
         </div>
 
         <div class="col-6 col-md-3 col-lg-3 no-padding">
           <div class="card panel widget border-right">
             <i class="ti ti-write large text-purple grow"></i>
-            <span class="large">1200</span>
-            <span class="text-muted">Banco de Questões</span>
+            <span class="large"><%= current_user.questions.count %></span>
+            <span class="text-muted">Suas Questões</span>
           </div>
         </div>
 
@@ -33,7 +33,7 @@
             <%= link_to student_simulations_path, class: "grow" do %>
               <i class="ti ti-clipboard large text-purple"></i>
             <% end %>
-            <span class="large"><%= current_user.simulations.size %></span>
+            <span class="large"><%= current_user.simulations.count %></span>
             <span class="text-muted">Seus Simulados</span>
           </div>
         </div>
@@ -55,7 +55,9 @@
 
     <!-- Ranking -->
     <div class="col-md-4 col-lg-4 col-sm-4 no-border">
-        <%= render "student/shared/ranking" %>
+        <%= render "student/shared/ranking" do %>
+          <%= render "student/shared/tbody_home" %>
+        <% end %>
     </div>
   </div>
 

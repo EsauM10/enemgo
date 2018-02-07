@@ -3,6 +3,8 @@
     <div class="container">
       <%= render "student/shared/ranking" do %>
         <%= render "student/shared/thead" %>
+        <%= render "student/shared/tbody_ranking" %>
+
         <div class="row justify-content-center">
           <%= paginate @students, window: 2 %>
         </div>
