@@ -1,21 +1,54 @@
-<div class="container">
-  <div class="row">
-      <div class="col-md-6 justify-content-center justify-content-md-start">
-        <p>Copyright © 2017 <a href="http://enemgo.com.br">EnemGO</a>. Todos os direitos reservados.</p>
-      </div>
+<footer class="site-footer pt-3 pb-2">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 justify-content-center justify-content-md-start">
+          <p>Copyright © 2017 <a href="http://enemgo.com.br">EnemGO</a>. Todos os direitos reservados.</p>
+        </div>
 
-      <div class="col-md-6">
-        <ul class="nav nav-secondary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
-          <li class="nav-item">
-            <a class="nav-link hover-gray" href="#">Termos de Uso</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link hover-gray" href="#">Política de Privacidade</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link hover-gray" href="#">Sobre</a>
-          </li>
-        </ul>
-      </div>
+        <div class="col-md-6">
+          <ul class="nav nav-secondary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+            <li class="nav-item">
+              <a class="nav-link hover-gray" href="#" data-toggle="modal" data-target=".bd-terms-modal-lg">
+                Termos de Uso e Política de Privacidade
+              </a>
+              <div class="modal fade bd-terms-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="termsModalLabel">Termos de Uso</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= render 'shared/terms_of_use' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link hover-gray" href="#" data-toggle="modal" data-target=".bd-about-modal-lg">
+                Sobre
+              </a>
+              <div class="modal fade bd-about-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="aboutModalLabel">Sobre</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= render 'shared/about' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </div>
   </div>
-</div>
+</footer>
