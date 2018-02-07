@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      ticket:
+        one: "Ticket"
+        other: "Tickets"
+    attributes:
+      ticket:
+        motive: Motivo
+        message: Mensagem
