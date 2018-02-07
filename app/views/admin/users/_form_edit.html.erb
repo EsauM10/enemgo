@@ -1,0 +1,22 @@
+<%= form_with(url: admin_user_path, model: user, local: true) do |form| %>
+  <%= form.fields_for :profile do |f| %>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <%= form.label :kind %>
+        <%= form.select :kind, options_for_select([:admin, :evaluator, :student], user.kind), {},
+        {class: "form-control"} %>
+      </div>
+    </div>
+    <%= render 'users/profiles/fields', form: f, profile: @user.profile %>
+  <% end %>
+  <hr>
+  <h4>Endereço</h4>
+  <%= form.fields_for :address do |f| %>
+    <%= render 'users/addresses/form_fields', form: f, address: @user.address %>
+  <% end %>
+
+  <div class="card-footer text-right">
+    <%= link_to 'Cancelar', admin_user_path, class: "btn btn-round btn-outline-dark" %>
+    <%= form.submit nil, class: "btn btn-round btn-outline-primary" %>
+  </div>
+<% end %>

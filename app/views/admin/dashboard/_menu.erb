@@ -1,6 +1,6 @@
 <li class="nav-item">
   <%= link_to questions_path(current_user.module_kind), class: "nav-link" do %>
-    <i class="icon ti-receipt"></i>
+    <i class="icon ti-write"></i>
     <span class="title-label">Questões</span>
   <% end %>
 </li>
@@ -12,7 +12,15 @@
 </li>
 <li class="nav-item">
   <%= link_to :admin_plans, class: "nav-link" do %>
-    <i class="icon ti-receipt"></i>
+    <i class="icon ti-shopping-cart-full"></i>
     <span class="title-label">Planos</span>
   <% end %>
 </li>
+<% if policy(User).index? %>
+<li class="nav-item">
+  <%= link_to admin_users_path, class: "nav-link" do %>
+    <i class="icon ti-user"></i>
+    <span class="title-label">Usuários</span>
+  <% end %>
+</li>
+<% end %>

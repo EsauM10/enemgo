@@ -1,7 +1,7 @@
 <%= form_with(url: address_path, model: address, local: true, class: "card p-3") do |form| %>
 
   <h4 class="card-title fw-400">Seu Endereço</h4>
-  <%= render 'form_fields', form: form %>
+  <%= render 'form_fields', form: form, address: current_user.address %>
 
   <div class="card-footer text-right">
     <%= link_to 'Cancelar', :profile, class: "btn btn-round btn-outline-dark" %>
