@@ -5,10 +5,10 @@
   <nav class="">
     <ul class="sidebar-menu list-unstyled pt-3">
       <li class="nav-section">Navegação</li>
-      <li class="nav-item">
+      <li class="nav-item <%= active_for(controller: 'dashboard', action: 'index') %>">
         <%= link_to send("#{current_user.module_kind}_root_path"), class: "nav-link" do %>
           <i class="icon ti-home"></i>
-          <span class="title-label">Dashboard</span>
+          <span class="title-label">Painel de <%= "#{current_user.module_kind}" %></span>
         <% end %>
       </li>
       <%= render "#{current_user.module_kind}/dashboard/menu" %>
