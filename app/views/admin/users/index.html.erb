@@ -30,7 +30,7 @@
             <td><%= user.created_at %></td>
             <td class="text-center">
               <% unless (current_user == user) %>
-                <%= link_to "#" do %>
+                <%= link_to "#", data:{confirm: "Você tem certeza?"} do %>
                   <i class="ti ti-<%= user.banned? ? 'lock': 'unlock' %>"></i>
                 <% end %>
               <% end %>
@@ -51,7 +51,7 @@
     </table>
 
     <div class="card-footer text-right">
-      <%= link_to 'New User', new_admin_user_path, class: "btn btn-round btn-outline-primary" %>
+      <%= link_to 'Criar Usuário', new_admin_user_path, class: "btn btn-round btn-outline-primary" %>
     </div>
 
   </div>

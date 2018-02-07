@@ -12,17 +12,15 @@ class Admin::UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id]).decorate
   end
 
   # GET /users/new
   def new
-    @user = User.new
+    @profile = User.new.build_profile
   end
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id]).decorate
   end
 
   # POST /users
@@ -72,13 +70,14 @@ class Admin::UsersController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(params[:id]).decorate
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user)
         .permit(:email, :password, :password_confirmation, :kind,
-          profile_attributes: [:first_name, :last_name, :phone, :birthday, :avatar, :remove_avatar])
+          profile_attributes: [:first_name, :last_name, :phone, :birthday, :sex, :avatar, :remove_avatar],
+          address_attributes: [:state, :city, :cep, :district, :street])
     end
 end
