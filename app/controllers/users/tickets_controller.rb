@@ -1,8 +1,9 @@
 class Users::TicketsController < ApplicationController
+  layout 'dashboard'
   respond_to :html, :js
 
   def index
-    @tickets = Ticket.all.includes(:ticketable)
+    @tickets = Ticket.all.includes(:ticketable).page(params[:page]).per(10)
   end
 
   def new
@@ -18,6 +19,10 @@ class Users::TicketsController < ApplicationController
     else
       flash[:error] = "Não foi possível gerar um Ticket."
     end
+  end
+
+  def show
+    @ticket = Ticket.find(params[:id])
   end
 
   private
