@@ -3,6 +3,6 @@
     Onde você mora?
   </h2>
   <%= form.fields_for :address do |f| %>
-    <%= render 'users/addresses/form_fields', form: f %>
+    <%= render 'users/addresses/form_fields', form: f, address: current_user.address %>
   <% end %>
 <% end %>
