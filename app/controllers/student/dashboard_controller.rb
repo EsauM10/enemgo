@@ -1,6 +1,5 @@
 class Student::DashboardController < Student::BaseController
   def index
-    @students = User.students
-    @students[0..4]
+    @students = User.students.limit(5).decorate.sort_by(&:score)
   end
 end
