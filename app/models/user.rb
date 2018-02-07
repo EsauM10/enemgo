@@ -68,6 +68,14 @@ class User < ApplicationRecord
     subscription.status == 'active' || 'past_due' || 'trialing'
   end
 
+  def active_for_authentication?
+    super && !self.banned
+  end
+
+  def inactive_message
+    self.banned ? :locked : super
+  end
+
   after_create :defaults
 
   private

@@ -30,7 +30,7 @@
             <td><%= user.created_at %></td>
             <td class="text-center">
               <% unless (current_user == user) %>
-                <%= link_to "#", data:{confirm: "Você tem certeza?"} do %>
+                <%= link_to admin_user_ban_path(user), data:{confirm: "Você tem certeza?"}, method: :post do %>
                   <i class="ti ti-<%= user.banned? ? 'lock': 'unlock' %>"></i>
                 <% end %>
               <% end %>
