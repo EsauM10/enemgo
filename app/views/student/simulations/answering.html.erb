@@ -26,7 +26,8 @@
 
   <div class="card p-4 mx-auto border-0">
     <div class="container text-right mb-3">
-      <%= link_to "Reportar questão", "#", class: "btn btn-bold hover-danger mx-1" %>
+      <%= link_to_if !@question.official?, "Reportar questão", new_question_ticket_path(current_user.module_kind, @question), 
+        remote: true, class: "btn btn-bold hover-danger mx-1" %>
       <%= link_to "Finalizar simulado", finished_student_simulation_path,
         method: :post, class: "btn btn-bold text-purple hover-primary" %>
     </div>
@@ -38,7 +39,7 @@
 
     <div id="question_answer">
       <%= render 'question', questions: @questions, question: @question, simulation_answer: @simulation_answer %>
-    </div>   
+    </div>
 
   </div>
 </div>

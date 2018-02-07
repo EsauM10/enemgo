@@ -52,7 +52,9 @@ Rails.application.routes.draw do
   scope '*user_kind', module: 'users' do
     resource :profile, except: [:index, :destroy]
     resource :address, except: [:index, :destroy]
-    resources :questions
+    resources :questions do
+      resources :tickets, except: [:edit, :update, :destroy], module: 'questions'
+    end
     resources :exams do
       post 'generate', on: :member
       resources :simulations, only: [:new, :create], controller: '/student/simulations'

@@ -23,6 +23,7 @@
 
 class Ticket < ApplicationRecord
   belongs_to :user
+  belongs_to :ticketable, polymorphic: true
 
   validates :user, :message, :motive, presence: true
 end

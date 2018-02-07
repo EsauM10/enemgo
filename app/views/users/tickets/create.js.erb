@@ -1,0 +1,6 @@
+if ("<%= j flash[:success] %>") {
+  alert("<%= j flash[:success] %>");
+  $('#mainModal').modal('hide');
+} else {
+  $('.ticket-errors').html('<%= j flash[:error] %>')
+}
