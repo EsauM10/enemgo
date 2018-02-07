@@ -1,10 +1,10 @@
 <div class="card-body">
   <div class="d-flex justify-content-center">
     <div class="mr-2" id="content-avatar">
-      <%= current_user.profile.avatar_thumb({id: 'avatar-img', size: 'xxl'}) %>
+      <%= user.profile.avatar_thumb({id: 'avatar-img', size: 'xxl'}) %>
     </div>
     <div class="flex-grow">
-      <h5><%= current_user.profile.full_name %></h5>
+      <h5><%= user.profile.full_name %></h5>
       <div class="d-flex mt-16">
         <label class="file-group file-group-inline">
           <button class="btn btn-sm btn-outline-gray btn-round file-browser" type="button">
@@ -22,42 +22,6 @@
     </div>
   </div>
   <hr>
-  <div class="row">
-    <div class="form-group col-md-6">
-      <%= form.label :first_name %>
-      <%= form.text_field :first_name, id: :profile_first_name, class: "form-control",
-        required: true %>
-    </div>
-
-    <div class="form-group col-md-6">
-      <%= form.label :last_name %>
-      <%= form.text_field :last_name, id: :profile_last_name, class: "form-control",
-        required: true %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="form-group col-md-6">
-      <%= form.label :phone %>
-      <%= form.text_field :phone, id: :profile_phone, class: "form-control" %>
-    </div>
-
-    <div class="form-group col-md-6">
-      <%= form.label :birthday %>
-      <%= form.date_field :birthday, id: :profile_birthday,
-        max: Date.new(2006, 01, 01), class: "form-control", required: true %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="form-group col-md-6">
-      <%= form.label :sex %>
-      <%= form.select :sex,
-        options_for_select([["Masculino", "M"],
-                            ["Feminino", "F"]],
-                            current_user.profile.sex),
-        {}, {id: :profile_sex, class: "form-control", required: true} %>
-    </div>
-  </div>
+  <%= render 'fields', form: form, profile: current_user.profile %>
 
 </div>

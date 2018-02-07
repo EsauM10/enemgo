@@ -19,6 +19,7 @@
 #  provider               :string
 #  uid                    :string
 #  stripe_id              :string
+#  banned                 :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -28,6 +29,6 @@
 
 FactoryBot.define do
   factory :user do
-    
+
   end
 end

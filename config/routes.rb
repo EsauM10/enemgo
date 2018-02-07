@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     root 'dashboard#index'
     resources :history, only: :index
     resources :plans
+    resources :users
   end
 
   namespace :student do

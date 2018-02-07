@@ -18,6 +18,7 @@
 #  kind                   :integer          default("student")
 #  provider               :string
 #  uid                    :string
+#  banned                 :boolean          default(FALSE)
 #  stripe_id              :string
 #
 # Indexes
@@ -39,6 +40,7 @@ class User < ApplicationRecord
   has_many :exams
   has_many :simulations
   has_many :simulation_answers
+  has_paper_trail
 
   accepts_nested_attributes_for :profile
   accepts_nested_attributes_for :address

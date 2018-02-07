@@ -1,6 +1,6 @@
 <%= form_with(url: profile_path, model: profile, local: true, class: "card p-3") do |form| %>
   <h4 class="card-title fw-400">Seu Perfil</h4>
-  <%= render 'form_fields', form: form %>
+  <%= render 'form_fields', form: form, user: current_user %>
 
   <div class="card-footer text-right">
     <%= link_to 'Cancelar', :profile, class: "btn btn-round btn-outline-dark" %>
