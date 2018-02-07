@@ -1,6 +1,6 @@
 <div class="card panel text-left card-block">
   <div class="card-header">
-    <h4 class="text-purple">Melhores Pontuações</h4>
+    <h4 class="text-purple">Ranking</h4>
   </div>
 
   <div class="card-body">
@@ -8,15 +8,7 @@
     <table class="table" id="table-id">
       <%= yield %>
 
-      <tbody>
-          <% @students.each_with_index do |student, index| %>
-              <tr class="text-muted">
-                <td><%= index + 1 %>º</td>
-                <td><%= student.profile.avatar_thumb %> <%= student.profile.full_name %></td>
-                <td><%= student.score %></td>
-              </tr>
-          <% end %>
-      </tbody>
+      <% yield %>
     </table>
     <br>
   </div>

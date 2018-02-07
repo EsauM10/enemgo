@@ -40,6 +40,7 @@ class User < ApplicationRecord
   has_many :exams
   has_many :simulations
   has_many :simulation_answers
+  has_many :questions
   has_paper_trail
 
   accepts_nested_attributes_for :profile
