@@ -83,6 +83,8 @@ class User < ApplicationRecord
     def defaults
       profile = Profile.new(user_id: self.id)
       profile.save(validate: false)
+      self.build_address
+      self.address.save(validate: false)
     end
 
 end

@@ -1,9 +1,8 @@
-plan = Stripe::Plan.create(
-  amount: 2900,
-  name: 'Premium',
-  interval: 'month',
-  currency: 'brl',
-  id: 1
+plan = Stripe::Plan.retrieve("1")
+
+Plan.create!(
+  price: 0.0,
+  name: 'Free'
 )
 
 Plan.create!(
@@ -11,7 +10,6 @@ Plan.create!(
   name: plan.name,
   stripe_id: plan.id
 )
-
 
 user = User.create!(
   kind: :admin,
