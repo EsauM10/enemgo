@@ -1,0 +1,2 @@
+namespace :rdoc do
+end

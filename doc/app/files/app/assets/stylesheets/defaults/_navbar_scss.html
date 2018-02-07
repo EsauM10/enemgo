@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>_navbar.scss</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            _navbar.scss
+        </h1>
+        <ul class="files">
+            
+            <li>
+                app/assets/stylesheets/defaults/_navbar.scss
+                
+            </li>
+            <li>Last modified: 2018-01-30 11:04:33 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>.main-navbar {</p>
+
+<pre><code>position: fixed !important;
+top: 0;
+left: 0;
+right: 0;
+z-index: 99;
+height: $navbar-height;
+display: flex;
+justify-content: space-between;
+</code></pre>
+
+<p>}</p>
+
+<p>.main-navbar {</p>
+
+<pre><code>.btn-preview,
+.sidebar-btn-toggle {
+  font-size: 20px;
+}
+
+.sidebar-btn-toggle {
+  color: $primary;
+  @include link-colors-important($purple);
+}
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>.navbar-default {</p>
+
+<pre><code>.navbar-brand {
+  color: $purple;
+
+  @include hover-focus {
+    color: $purple;
+  }
+}
+
+.navbar-nav {
+  .nav-link {
+    color: $purple;
+
+    @include hover-focus {
+      color: $primary;
+    }
+
+    &amp;.disabled {
+      color: $navbar-light-disabled-color;
+    }
+  }
+
+  .show &gt; .nav-link,
+  .active &gt; .nav-link,
+  .nav-link.show,
+  .nav-link.active {
+    color: $primary;
+  }
+}
+
+.navbar-toggler {
+  color: $navbar-light-color;
+  border-color: $navbar-light-toggler-border-color;
+}
+
+.navbar-toggler-icon {
+  background-image: $navbar-light-toggler-icon-bg;
+}
+
+.navbar-text {
+  color: $purple;
+  a {
+    color: $primary;
+
+    @include hover-focus {
+      color: $primary;
+    }
+  }
+}
+</code></pre>
+
+<p>}</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

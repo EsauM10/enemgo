@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>_buttons.scss</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            _buttons.scss
+        </h1>
+        <ul class="files">
+            
+            <li>
+                app/assets/stylesheets/defaults/mixins/_buttons.scss
+                
+            </li>
+            <li>Last modified: 2018-01-09 16:08:07 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@mixin btn-colors($color, $percent) {</p>
+
+<pre><code>background-color: $color;
+border-color: $color;
+color: #fff;
+
+&amp;:hover {
+  background-color: lighten($color, $percent);
+  border-color: lighten($color, $percent);
+  color: #fff;
+}
+
+&amp;:focus,
+&amp;.focus {
+  color: #fff;
+  box-shadow: none;
+}
+
+&amp;.disabled,
+&amp;:disabled {
+  background-color: $color;
+  border-color: $color;
+  opacity: 0.5;
+}
+
+&amp;:active,
+&amp;.active,
+.show &gt; &amp;.dropdown-toggle {
+  background-color: darken($color, $percent);
+  border-color: darken($color, $percent);
+  color: #fff;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>@mixin btn-outline($color, $percent) {</p>
+
+<pre><code>color: $color;
+background-color: transparent;
+border-color: $color;
+
+&amp;:hover  {
+  color: #fff;
+  background-color: $color;
+  border-color: $color;
+}
+
+&amp;:active,
+&amp;.active,
+.show &gt; &amp;.dropdown-toggle {
+  background-color: darken($color, $percent);
+  border-color: darken($color, $percent);
+}
+</code></pre>
+
+<p>}</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

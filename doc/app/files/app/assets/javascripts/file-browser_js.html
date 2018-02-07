@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>file-browser.js</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            file-browser.js
+        </h1>
+        <ul class="files">
+            
+            <li>
+                app/assets/javascripts/file-browser.js
+                
+            </li>
+            <li>Last modified: 2018-01-23 13:45:09 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>$(function () {</p>
+
+<pre><code>$(document).on(&#39;click&#39;, &#39;.file-browser&#39;, function() {
+  var $browser = $(this);
+  if ( $browser.hasClass(&#39;form-control&#39;) ) {
+    setTimeout(function(){
+      $browser.closest(&#39;.file-group&#39;).find(&#39;[type=&quot;file&quot;]&#39;).trigger(&#39;click&#39;);
+    },300);
+  }
+  else {
+    var file = $browser.closest(&#39;.file-group&#39;).find(&#39;[type=&quot;file&quot;]&#39;);
+    file.on( &#39;click&#39;, function(e) {
+     e.stopPropagation();
+    });
+    file.trigger(&#39;click&#39;);
+  }
+});
+var originalNode = $(&#39;#content-avatar&#39;);
+var firstElem = originalNode.children(&#39;:first&#39;);
+// Event to change file name after file selection
+$(document).on(&#39;change&#39;, &#39;.file-group [type=&quot;file&quot;]&#39;, function() {
+
+  var file = $(this).prop(&#39;files&#39;)[0];
+  var reader = new FileReader();
+  if (file) {
+    reader.readAsDataURL(file)
+  }
+  reader.onloadend = function() {
+    if (avatarExists()) {
+      $(&#39;#avatar-img&#39;).fadeOut(&#39;fast&#39;, function() {
+        $(this).attr(&#39;src&#39;, reader.result).fadeIn(&#39;fast&#39;)
+      })
+    } else {
+      $(&#39;#content-avatar&#39;).html(
+        &quot;&lt;div class=&#39;&quot;+ firstElem[0].className +&quot;&#39;&gt;&quot; +
+        &quot;&lt;img src=&#39;&quot; + reader.result + &quot;&#39; id=&#39;avatar-img&#39; /&gt;&quot; +
+        &quot;&lt;/div&gt;&quot;
+      ).fadeIn(&#39;fast&#39;);
+    }
+    $(&#39;#remove_avatar&#39;)[0].checked = false;
+  }
+});
+
+$(document).on(&#39;click&#39;, &#39;.remove-avatar&#39;, function(event) {
+  event.preventDefault();
+  if (avatarExists()) {
+    $(&#39;#remove_avatar&#39;)[0].checked = true;
+
+    $(&#39;#content-avatar&#39;).fadeOut(&#39;fast&#39;, function() {
+      $(this).html(
+        originalNode.children(&#39;:first&#39;).html(
+          &quot;&lt;span&gt;&quot;+ firstElem.data(&#39;text&#39;) +&quot;&lt;/span&gt;&quot;
+        )[0]
+      )        
+    }).fadeIn()
+  } else {
+    $(&#39;#content-avatar&#39;).fadeOut(&#39;fast&#39;).html(firstElem[0]).fadeIn()
+  }
+})
+
+var avatarExists = function () {
+  return $(&#39;#avatar-img&#39;).length &gt; 0
+}
+</code></pre>
+
+<p>});</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

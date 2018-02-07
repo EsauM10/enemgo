@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SimulationPolicy</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="SimulationPolicy">
+
+  
+
+    <meta name="keywords" content="SimulationPolicy class">
+  
+    <meta name="keywords" content="index?, create?, finished?, answering?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            SimulationPolicy
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ApplicationPolicy.html">ApplicationPolicy</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/policies/simulation_policy_rb.html">app/policies/simulation_policy.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="SimulationPolicy/Scope.html">SimulationPolicy::Scope</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-answering-3F">answering?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create-3F">create?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-finished-3F">finished?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-index-3F">index?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-answering-3F">
+            
+              <b>answering?</b>()
+            
+            <a href="../classes/SimulationPolicy.html#method-i-answering-3F" name="method-i-answering-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-answering-3F_source')" id="l_method-i-answering-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-answering-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/simulation_policy.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">answering?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">student?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">user</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">user</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">doing?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">record</span>.<span class="ruby-identifier">time_expired?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create-3F">
+            
+              <b>create?</b>()
+            
+            <a href="../classes/SimulationPolicy.html#method-i-create-3F" name="method-i-create-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-create-3F_source')" id="l_method-i-create-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-create-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/simulation_policy.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">student?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-finished-3F">
+            
+              <b>finished?</b>()
+            
+            <a href="../classes/SimulationPolicy.html#method-i-finished-3F" name="method-i-finished-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-finished-3F_source')" id="l_method-i-finished-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-finished-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/simulation_policy.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finished?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">student?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-index-3F">
+            
+              <b>index?</b>()
+            
+            <a href="../classes/SimulationPolicy.html#method-i-index-3F" name="method-i-index-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-index-3F_source')" id="l_method-i-index-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-index-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/simulation_policy.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">student?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

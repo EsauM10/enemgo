@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>UserPolicy</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="UserPolicy">
+
+  
+
+    <meta name="keywords" content="UserPolicy class">
+  
+    <meta name="keywords" content="ban?, index?, new?, create?, show?, edit?, update?, destroy">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            UserPolicy
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ApplicationPolicy.html">ApplicationPolicy</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/policies/user_policy_rb.html">app/policies/user_policy.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="UserPolicy/Scope.html">UserPolicy::Scope</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ban-3F">ban?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create-3F">create?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-destroy">destroy</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-edit-3F">edit?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-index-3F">index?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-new-3F">new?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-show-3F">show?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-update-3F">update?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-ban-3F">
+            
+              <b>ban?</b>()
+            
+            <a href="../classes/UserPolicy.html#method-i-ban-3F" name="method-i-ban-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-ban-3F_source')" id="l_method-i-ban-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-ban-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/user_policy.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ban?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">admin?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create-3F">
+            
+              <b>create?</b>()
+            
+            <a href="../classes/UserPolicy.html#method-i-create-3F" name="method-i-create-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-create-3F_source')" id="l_method-i-create-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-create-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/user_policy.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">admin?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-destroy">
+            
+              <b>destroy</b>()
+            
+            <a href="../classes/UserPolicy.html#method-i-destroy" name="method-i-destroy" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-destroy_source')" id="l_method-i-destroy_source">show</a>
+                
+              </p>
+              <div id="method-i-destroy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/user_policy.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">admin?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-edit-3F">
+            
+              <b>edit?</b>()
+            
+            <a href="../classes/UserPolicy.html#method-i-edit-3F" name="method-i-edit-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-edit-3F_source')" id="l_method-i-edit-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-edit-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/user_policy.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">admin?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-index-3F">
+            
+              <b>index?</b>()
+            
+            <a href="../classes/UserPolicy.html#method-i-index-3F" name="method-i-index-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-index-3F_source')" id="l_method-i-index-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-index-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/user_policy.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">admin?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-new-3F">
+            
+              <b>new?</b>()
+            
+            <a href="../classes/UserPolicy.html#method-i-new-3F" name="method-i-new-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-new-3F_source')" id="l_method-i-new-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-new-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/user_policy.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">admin?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-show-3F">
+            
+              <b>show?</b>()
+            
+            <a href="../classes/UserPolicy.html#method-i-show-3F" name="method-i-show-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-show-3F_source')" id="l_method-i-show-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-show-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/user_policy.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">admin?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-update-3F">
+            
+              <b>update?</b>()
+            
+            <a href="../classes/UserPolicy.html#method-i-update-3F" name="method-i-update-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-update-3F_source')" id="l_method-i-update-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-update-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/policies/user_policy.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update?</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">admin?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>
