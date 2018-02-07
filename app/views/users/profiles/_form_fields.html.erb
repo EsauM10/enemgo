@@ -1,10 +1,10 @@
 <div class="card-body">
   <div class="d-flex justify-content-center">
     <div class="mr-2" id="content-avatar">
-      <%= user.profile.avatar_thumb({id: 'avatar-img', size: 'xxl'}) %>
+      <%= current_user.profile.avatar_thumb({id: 'avatar-img', size: 'xxl'}) %>
     </div>
     <div class="flex-grow">
-      <h5><%= user.profile.full_name %></h5>
+      <h5><%= current_user.profile.full_name %></h5>
       <div class="d-flex mt-16">
         <label class="file-group file-group-inline">
           <button class="btn btn-sm btn-outline-gray btn-round file-browser" type="button">
@@ -22,6 +22,6 @@
     </div>
   </div>
   <hr>
-  <%= render 'fields', form: form, profile: current_user.profile %>
+  <%= render 'users/profiles/fields', form: form, profile: current_user.profile %>
 
 </div>
