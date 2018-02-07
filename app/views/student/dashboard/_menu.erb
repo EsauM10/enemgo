@@ -6,7 +6,7 @@
   <% end %>
 
   <ul class="sidebar-submenu collapse" id="sidebar-submenu">
-    <li class="nav-item">
+    <li class="nav-item <%= active_for(controller: 'simulations', action: 'index') %> ">
       <%= link_to student_simulations_path, class: "nav-link" do %>
         <span class="title-label">Histórico</span>
         <span class="dot"></span>
@@ -28,13 +28,13 @@
     <span class="title-label">Planos</span>
   <% end %>
 </li>
-<li class="nav-item">
+<li class="nav-item <%= active_for(controller: 'ranking', action: 'index') %> ">
   <%= link_to student_ranking_path, class: "nav-link" do %>
     <i class="icon ti-cup"></i>
     <span class="title-label">Ranking</span>
   <% end %>
 </li>
-<li class="nav-item">
+<li class="nav-item <%= active_for(controller: 'questions') %> ">
   <%= link_to questions_path(current_user.module_kind), class: "nav-link" do %>
     <i class="icon ti-cloud-up"></i>
     <span class="title-label">Questões</span>
