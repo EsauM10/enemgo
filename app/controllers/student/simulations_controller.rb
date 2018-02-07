@@ -1,6 +1,6 @@
 class Student::SimulationsController < Student::BaseController
   layout Proc.new { |controller| controller.action_name == 'answering' ? 'answer_simulation' : 'dashboard' }
-  before_action :set_simulation, only: [:show, :answering, :finished]
+  before_action :set_simulation, only: [:show, :answering, :finished, :answer_list]
   before_action :authorize_simulation, except: [:index, :new, :create]
   respond_to :html, :js
   decorates_assigned :simulation, :simulations
@@ -49,17 +49,13 @@ class Student::SimulationsController < Student::BaseController
     if @questions
       @question = @questions.take.decorate
 
-      find_or_create = {
+      options = {
         user_id: current_user.id,
         question_id: @question.id,
         simulation_id: @simulation.id
       }
 
-      @simulation_answer = SimulationAnswer.where(find_or_create).first
-
-      if @simulation_answer.nil?
-        @simulation_answer = SimulationAnswer.create(find_or_create)
-      end
+      @simulation_answer = SimulationAnswer.where(options).first_or_initialize
 
     else
       redirect_to :back, notice: 'Essa questão não existe neste simulado'
@@ -72,6 +68,11 @@ class Student::SimulationsController < Student::BaseController
     @simulation.save
     session[:simulation_id] = nil
     redirect_to exams_path(:student), flash: {success: "Parabéns, você finalizou o simulado em #{@simulation.decorate.time_spent}"}
+  end
+
+  def answer_list
+    @answers = @simulation.simulation_answers
+    @questions_ids = @simulation.question_ids
   end
 
   private

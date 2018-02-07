@@ -20,4 +20,8 @@ class SimulationPolicy < ApplicationPolicy
   def answering?
     user.student? && record.user == user && record.doing? && !record.time_expired?
   end
+
+  def answer_list?
+    user.student? && record.user == user
+  end
 end

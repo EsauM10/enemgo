@@ -1,0 +1,26 @@
+<table class="table text-center" style="overflow-y: overlay">
+  <thead class="bg-purple text-white">
+    <tr>
+      <th scope="col">Questão</th>
+      <th scope="col">Sua Resposta</th>
+    </tr>
+  </thead>
+  <tbody class="answers-container">
+    <% answers.each do |answer| %>
+      <tr class="text-center">
+        <td>
+          <div class="answer-question bg-secondary mx-auto">
+            <span><%= @questions_ids.index answer.question_id %></span>
+          </div>
+        </td>
+        <td>
+          <div class="answer-question bg-primary mx-auto">
+            <span class="text-white">
+              <%= AlternativeDecorator.display_letter answer.question.alternatives.index answer.alternative %>
+            </span>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

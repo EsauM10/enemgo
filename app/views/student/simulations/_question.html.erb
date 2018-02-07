@@ -1,5 +1,5 @@
 <div class="card-body">
-  <h5 class="card-title mb-0"><%= question.statement %></h5>
+  <h5 class="card-title mb-0 text-justify"><%= question.statement %></h5>
   <small>Fonte: <%= question.source %></small>
   <br><br>
   <%= render 'student/simulation_answers/form', simulation_answer: simulation_answer,
@@ -10,12 +10,18 @@
         class: "btn btn-round btn-primary btn-block btn-lg" %>
     </div>
 
+    <% if questions.last_page? %>
+    <div class="w-100 d-block mx-auto text-center mb-3">
+      <%= render 'student/simulations/link_finish_simulation', btclass: 'btn-block btn-lg' %>
+    </div>
+    <% end %>
     <div class="col-lg-12 text-center">
       <%= link_to_prev_page questions, "< Anterior", { remote: true, param_name: :current_question,
         class: 'mx-1  btn-lg'} %>
 
       <%= link_to_next_page questions, "Próxima >", { remote: true, param_name: :current_question,
           class: 'text-right mx-1 btn-lg'} %>
+
     </div>
   <% end %>
 </div>
