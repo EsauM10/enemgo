@@ -3,6 +3,13 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user
 
+  def ban
+    @user = User.find(params[:id])
+    status = (@user.banned?) ? false : true
+    @user.update_attribute(:banned, status)
+    redirect_to admin_user_path, notice: "User #{(status == true) ? "banned" : "unbound"}."
+  end
+
   # GET /users
   # GET /users.json
   def index

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :registration_steps, path: '/cadastro/informacoes'
+  match 'admin/users/:id/ban', :to => 'admin/users#ban', :as => 'admin_user_ban', :via => :post
 
   namespace :admin do
     root 'dashboard#index'
