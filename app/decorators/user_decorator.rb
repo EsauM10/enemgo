@@ -11,4 +11,9 @@ class UserDecorator < Draper::Decorator
     'admin'
   end
 
+  def t_kind
+    return 'Estudante' if kind == 'student'
+    'Administrador'
+  end
+
 end
