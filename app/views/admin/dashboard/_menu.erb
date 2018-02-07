@@ -24,3 +24,9 @@
   <% end %>
 </li>
 <% end %>
+<li class="nav-item <%= active_for(controller: 'tickets') %>">
+  <%= link_to tickets_path(current_user.module_kind), class: "nav-link" do %>
+    <i class="icon ti-ticket"></i>
+    <span class="title-label">Tickets</span>
+  <% end %>
+</li>

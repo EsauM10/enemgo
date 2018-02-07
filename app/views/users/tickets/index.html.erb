@@ -1,0 +1,41 @@
+<div class="row my-2 p-2 mx-auto bg-white">
+  <div class="container">
+    <h2 class="card-title text-purple">Tickets</h2>
+  </div>
+</div>
+
+<div class="row mx-auto my-2 bg-white">
+  <div class="card p-3 w-100">
+    <table class="table" id="accordion">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Usuário</th>
+          <th>Item</th>
+          <th>Criado em</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tickets.each do |ticket| %>
+          <tr>
+            <th scope="row"><%= ticket.id %></th>
+            <td><%= ticket.user_id %></td>
+            <td><%= ticket.ticketable_type %></td>
+            <td><%= time_ago_in_words(ticket.created_at) %></td>
+            <td>
+              <%= link_to ticket_path(current_user.module_kind, ticket) do %>
+                <i class="ti ti-eye"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="row justify-content-center">
+      <%= paginate @tickets, window: 2 %>
+    </div>
+
+  </div>
+</div>

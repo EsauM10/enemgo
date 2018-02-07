@@ -1,0 +1,28 @@
+<div class="row justify-content-center my-3">
+  <div class="col-lg-9">
+    <div class="card p-3 border-0">
+      <div class="card-body">
+
+        <div class="row">
+            <span><strong>ID do Item: </strong><%= @ticket.ticketable_id %></span>
+        </div>
+
+        <div class="row">
+            <span><strong>Mensagem: </strong><%= @ticket.message %></span>
+        </div>
+
+        <div class="row">
+            <span><strong>Motivo: </strong><%= @ticket.motive %></span>
+        </div>
+
+      </div>
+      <div class="card-footer" style="margin-top: 10px;">
+        <div class="row">
+          <div class="col-lg-6">
+            <%= link_to 'Voltar', tickets_path(current_user.module_kind), class: "btn btn-round btn-outline-dark" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
