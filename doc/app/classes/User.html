@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="User">
+
+  
+    
+    <meta name="description" content="Schema Information  Table name: users  id                     :integer          not null, primary key email                  :string           default(&quot;&quot;), not null encrypted_password     :s.">
+    <meta property="og:description" content="Schema Information  Table name: users  id                     :integer          not null, primary key email                  :string           default(&quot;&quot;), not null encrypted_password     :s.">
+  
+
+    <meta name="keywords" content="User class">
+  
+    <meta name="keywords" content="from_omniauth, score, premium?, active_for_authentication?, inactive_message">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            User
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ApplicationRecord.html">ApplicationRecord</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/user_rb.html">app/models/user.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="class-User-label-Schema+Information">Schema Information</h2>
+
+<p>Table name: users</p>
+
+<pre><code>id                     :integer          not null, primary key
+email                  :string           default(&quot;&quot;), not null
+encrypted_password     :string           default(&quot;&quot;), not null
+reset_password_token   :string
+reset_password_sent_at :datetime
+remember_created_at    :datetime
+sign_in_count          :integer          default(0), not null
+current_sign_in_at     :datetime
+last_sign_in_at        :datetime
+current_sign_in_ip     :inet
+last_sign_in_ip        :inet
+created_at             :datetime         not null
+updated_at             :datetime         not null
+kind                   :integer          default(&quot;student&quot;)
+provider               :string
+uid                    :string
+banned                 :boolean          default(FALSE)
+stripe_id              :string
+</code></pre>
+
+<p>Indexes</p>
+
+<pre><code>index_users_on_email                 (email) UNIQUE
+index_users_on_reset_password_token  (reset_password_token) UNIQUE
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-active_for_authentication-3F">active_for_authentication?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-from_omniauth">from_omniauth</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inactive_message">inactive_message</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-premium-3F">premium?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-score">score</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-from_omniauth">
+            
+              <b>from_omniauth</b>(auth)
+            
+            <a href="../classes/User.html#method-c-from_omniauth" name="method-c-from_omniauth" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-from_omniauth_source')" id="l_method-c-from_omniauth_source">show</a>
+                
+              </p>
+              <div id="method-c-from_omniauth_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/user.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">from_omniauth</span>(<span class="ruby-identifier">auth</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">auth</span>
+  <span class="ruby-identifier">where</span>(<span class="ruby-value">provider:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">provider</span>, <span class="ruby-value">uid:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">uid</span>).<span class="ruby-identifier">first_or_create</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">email</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">password</span> = <span class="ruby-constant">Devise</span>.<span class="ruby-identifier">friendly_token</span>[<span class="ruby-value">0</span>,<span class="ruby-value">20</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-active_for_authentication-3F">
+            
+              <b>active_for_authentication?</b>()
+            
+            <a href="../classes/User.html#method-i-active_for_authentication-3F" name="method-i-active_for_authentication-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-active_for_authentication-3F_source')" id="l_method-i-active_for_authentication-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-active_for_authentication-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/user.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">active_for_authentication?</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">banned</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inactive_message">
+            
+              <b>inactive_message</b>()
+            
+            <a href="../classes/User.html#method-i-inactive_message" name="method-i-inactive_message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-inactive_message_source')" id="l_method-i-inactive_message_source">show</a>
+                
+              </p>
+              <div id="method-i-inactive_message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/user.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inactive_message</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">banned</span> <span class="ruby-operator">?</span> <span class="ruby-value">:locked</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-premium-3F">
+            
+              <b>premium?</b>()
+            
+            <a href="../classes/User.html#method-i-premium-3F" name="method-i-premium-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-premium-3F_source')" id="l_method-i-premium-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-premium-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/user.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">premium?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">subscription</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;active&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;past_due&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;trialing&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-score">
+            
+              <b>score</b>()
+            
+            <a href="../classes/User.html#method-i-score" name="method-i-score" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-score_source')" id="l_method-i-score_source">show</a>
+                
+              </p>
+              <div id="method-i-score_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/user.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">score</span>
+  <span class="ruby-identifier">scores</span> = <span class="ruby-identifier">simulations</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">score</span>}
+  <span class="ruby-identifier">sum</span> = <span class="ruby-identifier">scores</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-value">:+</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">sum</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">then</span> <span class="ruby-value">0</span> <span class="ruby-keyword">else</span> (<span class="ruby-identifier">sum</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">scores</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

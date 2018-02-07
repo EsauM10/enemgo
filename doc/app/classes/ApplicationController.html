@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ApplicationController</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="ApplicationController">
+
+  
+
+    <meta name="keywords" content="ApplicationController class">
+  
+    <meta name="keywords" content="current_user, paper_trail_enabled_for_controller, after_sign_in_path_for, current_simulation">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            ApplicationController
+            
+                <span class="parent">&lt;
+                    
+                    ActionController::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/application_controller_rb.html">app/controllers/application_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="ApplicationController/Pundit.html">ApplicationController::Pundit</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-after_sign_in_path_for">after_sign_in_path_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-current_simulation">current_simulation</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_user">current_user</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-paper_trail_enabled_for_controller">paper_trail_enabled_for_controller</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="ApplicationController/Pundit.html">
+              ApplicationController::Pundit
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-after_sign_in_path_for">
+            
+              <b>after_sign_in_path_for</b>(resource)
+            
+            <a href="../classes/ApplicationController.html#method-i-after_sign_in_path_for" name="method-i-after_sign_in_path_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-after_sign_in_path_for_source')" id="l_method-i-after_sign_in_path_for_source">show</a>
+                
+              </p>
+              <div id="method-i-after_sign_in_path_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_sign_in_path_for</span>(<span class="ruby-identifier">resource</span>)
+  <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{current_user.module_kind}_root_url&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_simulation">
+            
+              <b>current_simulation</b>()
+            
+            <a href="../classes/ApplicationController.html#method-i-current_simulation" name="method-i-current_simulation" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>should be rewritten</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-current_simulation_source')" id="l_method-i-current_simulation_source">show</a>
+                
+              </p>
+              <div id="method-i-current_simulation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">current_simulation</span>
+  <span class="ruby-identifier">simulation</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:simulation_id</span>] <span class="ruby-operator">?</span> <span class="ruby-constant">Simulation</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:simulation_id</span>]) <span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">simulations</span>.<span class="ruby-identifier">last</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">simulation</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">simulation</span>.<span class="ruby-identifier">finished?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">simulation</span>.<span class="ruby-identifier">time_expired?</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:simulation_id</span>] = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">simulation</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:simulation_id</span>] = <span class="ruby-identifier">simulation</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">simulation</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_user">
+            
+              <b>current_user</b>()
+            
+            <a href="../classes/ApplicationController.html#method-i-current_user" name="method-i-current_user" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-current_user_source')" id="l_method-i-current_user_source">show</a>
+                
+              </p>
+              <div id="method-i-current_user_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">current_user</span>
+  <span class="ruby-keyword">super</span>&amp;.<span class="ruby-identifier">decorate</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-paper_trail_enabled_for_controller">
+            
+              <b>paper_trail_enabled_for_controller</b>()
+            
+            <a href="../classes/ApplicationController.html#method-i-paper_trail_enabled_for_controller" name="method-i-paper_trail_enabled_for_controller" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-paper_trail_enabled_for_controller_source')" id="l_method-i-paper_trail_enabled_for_controller_source">show</a>
+                
+              </p>
+              <div id="method-i-paper_trail_enabled_for_controller_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">paper_trail_enabled_for_controller</span>
+  <span class="ruby-identifier">user_signed_in?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">admin?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>_variables.scss</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            _variables.scss
+        </h1>
+        <ul class="files">
+            
+            <li>
+                app/assets/stylesheets/_variables.scss
+                
+            </li>
+            <li>Last modified: 2018-01-30 11:05:31 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>// Fonts $font-family-sans-serif: -apple-system, BlinkMacSystemFont,
+“Catamaran”,</p>
+
+<pre><code>&quot;Segoe UI&quot;, Arial, sans-serif !default;
+</code></pre>
+
+<p>// Elements height $elements-height: (</p>
+
+<pre><code>&quot;xs&quot;: 24px,
+&quot;sm&quot;: 29px,
+&quot;md&quot;: 36px,
+&quot;lg&quot;: 48px,
+&quot;xl&quot;: 64px,
+&quot;xxl&quot;: 96px,
+&quot;xxxl&quot;: 128px
+</code></pre>
+
+<p>) !default;</p>
+
+<p>// Colors $white:    fff !default; $gray-100: f8f9fa !default; $gray-200:
+e9ecef !default; $gray-300: dee2e6 !default; $gray-400: ced4da !default;
+$gray-500: adb5bd !default; $gray-600: #868e96 !default; $gray-700: #495057
+!default; $gray-800: #343a40 !default; $gray-900: #212529 !default; $black:
+#000 !default;</p>
+
+<p>$blue:             #3991ff !default; $indigo:           #6610f2 !default;
+$purple:           #84139e !default; //#7B1FA2 $pink:             e93268
+!default; $red:              db2828 !default; $orange:           f2711c
+!default; $yellow:           fcc525 !default; $green:            #21ba45
+!default; $teal:             #33cabb !default; $cyan:             #57c7d4
+!default; $brown:            #8d6658 !default; $dark:             #465161
+!default;</p>
+
+<p>$gray:             $gray-600 !default; $light:            $gray-100
+!default;</p>
+
+<p>$pale-primary:     fce4ec !default; $pale-secondary:   ecf9fa !default;
+$pale-success:     e7faf2 !default; $pale-info:        e8f1f8 !default;
+$pale-warning:     ffeaea !default; $pale-danger:      fce3e3 !default;
+$pale-purple:      f6f2ff !default; $pale-pink:        fce3ec !default;
+$pale-cyan:        e3fafc !default; $pale-yellow:      fcf8e3 !default;
+$pale-brown:       eddcd5 !default; $pale-dark:        c8c8c8 !default;
+$pale-gray:        f2f2f2 !default;</p>
+
+<p>// Text $clr-title:            #37404d !default; $clr-subtitle:        
+#999999 !default; $clr-text:             #616a78 !default; $clr-text-light:
+#788394 !default; $clr-text-secondary:   #929daf !default;
+$clr-text-placeholder: c9ccce !default; $clr-text-disable:     a5b3c7
+!default;</p>
+
+<p>// defaults $primary:          ff3975  !default; $secondary:        #3afad5
+!default; $success:          $green   !default; $info:             $blue   
+!default; $warning:          $orange  !default; $danger:           $red    
+!default;</p>
+
+<p>// Social $facebook:         #3b5998 !default; $google-plus:      dd4b39
+!default; $twitter:          #00aced !default; $linkedin:         #007bb6
+!default; $pinterest:        cb2027 !default; $git:              #666666
+!default; $tumblr:           #32506d !default; $vimeo:            aad450
+!default; $youtube:          bb0000 !default; $instagram:        #517fa4
+!default;</p>
+
+<p>$grays: () !default; $grays: map-merge((</p>
+
+<pre><code>&quot;100&quot;: $gray-100,
+&quot;200&quot;: $gray-200,
+&quot;300&quot;: $gray-300,
+&quot;400&quot;: $gray-400,
+&quot;500&quot;: $gray-500,
+&quot;600&quot;: $gray-600,
+&quot;700&quot;: $gray-700,
+&quot;800&quot;: $gray-800,
+&quot;900&quot;: $gray-900
+</code></pre>
+
+<p>), $grays);</p>
+
+<p>$colors: () !default;</p>
+
+<p>$colors: map-merge((</p>
+
+<pre><code>&#39;primary&#39;:   $primary,
+&#39;secondary&#39;: $secondary,
+&#39;success&#39;:   $success,
+&#39;info&#39;:      $info,
+&#39;warning&#39;:   $warning,
+&#39;danger&#39;:    $danger,
+&#39;pink&#39;:      $pink,
+&#39;purple&#39;:    $purple,
+&#39;brown&#39;:     $brown,
+&#39;cyan&#39;:      $cyan,
+&#39;yellow&#39;:    $yellow,
+&#39;gray&#39;:      $gray,
+&#39;dark&#39;:      $dark,
+</code></pre>
+
+<p>), $colors);</p>
+
+<p>$pale-colors: () !default;</p>
+
+<p>$pale-colors: map-merge((</p>
+
+<pre><code>&#39;primary&#39;:   $pale-primary,
+&#39;secondary&#39;: $pale-secondary,
+&#39;success&#39;:   $pale-success,
+&#39;info&#39;:      $pale-info,
+&#39;warning&#39;:   $pale-warning,
+&#39;danger&#39;:    $pale-danger,
+&#39;pink&#39;:      $pale-pink,
+&#39;purple&#39;:    $pale-purple,
+&#39;brown&#39;:     $pale-brown,
+&#39;cyan&#39;:      $pale-cyan,
+&#39;yellow&#39;:    $pale-yellow,
+&#39;gray&#39;:      $pale-gray,
+&#39;dark&#39;:      $pale-dark,
+</code></pre>
+
+<p>), $pale-colors);</p>
+
+<p>$social-colors: (</p>
+
+<pre><code>&#39;facebook&#39;:    $facebook,
+&#39;google&#39;:      $google-plus,
+&#39;twitter&#39;:     $twitter,
+&#39;linkedin&#39;:    $linkedin,
+&#39;pinterest&#39;:   $pinterest,
+&#39;git&#39;:         $git,
+&#39;tumblr&#39;:      $tumblr,
+&#39;vimeo&#39;:       $vimeo,
+&#39;youtube&#39;:     $youtube,
+&#39;instagram&#39;:   $instagram,
+</code></pre>
+
+<p>);</p>
+
+<p>// navbar-text $navbar-height: 60px !default;</p>
+
+<p>// options $enable-hover-media-query: false !default; $enable-shadows:
+false !default;</p>
+
+<p>// sidebar $sidebar-width: 260px !default;</p>
+
+<p>// form $input-focus-box-shadow: none !default;</p>
+
+<p>// buttons + form_with $btn-focus-box-shadow: rgba($gray, .25) !default;</p>
+
+<p>$sizes: (</p>
+
+<pre><code>&quot;5&quot;: 5%,
+&quot;10&quot;: 10%,
+&quot;15&quot;: 15%,
+&quot;20&quot;: 20%,
+&quot;25&quot;: 25%,
+&quot;30&quot;: 30%,
+&quot;35&quot;: 35%,
+&quot;40&quot;: 40%,
+&quot;45&quot;: 45%,
+&quot;50&quot;: 50%,
+&quot;55&quot;: 55%,
+&quot;60&quot;: 60%,
+&quot;65&quot;: 65%,
+&quot;70&quot;: 70%,
+&quot;75&quot;: 75%,
+&quot;80&quot;: 80%,
+&quot;85&quot;: 85%,
+&quot;90&quot;: 90%,
+&quot;95&quot;: 95%,
+&quot;100&quot;: 100%
+</code></pre>
+
+<p>);</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>
