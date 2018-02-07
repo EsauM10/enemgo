@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Membership</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="Membership">
+
+  
+    
+    <meta name="description" content="Schema Information  Table name: memberships  id          :integer          not null, primary key start_date  :date expire_date :date user_id     :integer plan_id     :integer created_at  :datetime    .">
+    <meta property="og:description" content="Schema Information  Table name: memberships  id          :integer          not null, primary key start_date  :date expire_date :date user_id     :integer plan_id     :integer created_at  :datetime    .">
+  
+
+    <meta name="keywords" content="Membership class">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            Membership
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ApplicationRecord.html">ApplicationRecord</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/membership_rb.html">app/models/membership.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="class-Membership-label-Schema+Information">Schema Information</h2>
+
+<p>Table name: memberships</p>
+
+<pre><code>id          :integer          not null, primary key
+start_date  :date
+expire_date :date
+user_id     :integer
+plan_id     :integer
+created_at  :datetime         not null
+updated_at  :datetime         not null
+</code></pre>
+
+<p>Indexes</p>
+
+<pre><code>index_memberships_on_plan_id  (plan_id)
+index_memberships_on_user_id  (user_id)
+</code></pre>
+
+<p>Foreign Keys</p>
+
+<pre><code>fk_rails_...  (plan_id =&gt; plans.id)
+fk_rails_...  (user_id =&gt; users.id)
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

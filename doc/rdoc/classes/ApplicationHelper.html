@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ApplicationHelper</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="ApplicationHelper">
+
+  
+
+    <meta name="keywords" content="ApplicationHelper class">
+  
+    <meta name="keywords" content="get_uniq_color, present_controllers?, flash_class, active_for">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            ApplicationHelper
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/helpers/application_helper_rb.html">app/helpers/application_helper.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-active_for">active_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-flash_class">flash_class</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_uniq_color">get_uniq_color</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-present_controllers-3F">present_controllers?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">BG_COLORS</td>
+            <td>=</td>
+            <td class="attr-value">%w[primary secondary success info warning
+danger pink purple brown cyan yellow gray dark]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-active_for">
+            
+              <b>active_for</b>(options = {})
+            
+            <a href="../classes/ApplicationHelper.html#method-i-active_for" name="method-i-active_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-active_for_source')" id="l_method-i-active_for_source">show</a>
+                
+              </p>
+              <div id="method-i-active_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">active_for</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">controller</span>    = <span class="ruby-identifier">options</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">action</span>        = <span class="ruby-identifier">options</span>[<span class="ruby-value">:action</span>]     <span class="ruby-operator">||</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">request_path</span>  = <span class="ruby-identifier">options</span>[<span class="ruby-value">:path</span>]       <span class="ruby-operator">||</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">request_path</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-string">&#39;active&#39;</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">action</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">action</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">action_name</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">controller</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">controller_name</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-string">&#39;active&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">request_path</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-flash_class">
+            
+              <b>flash_class</b>(level)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-flash_class" name="method-i-flash_class" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-flash_class_source')" id="l_method-i-flash_class_source">show</a>
+                
+              </p>
+              <div id="method-i-flash_class_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">flash_class</span>(<span class="ruby-identifier">level</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">level</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;notice&#39;</span>   <span class="ruby-keyword">then</span> <span class="ruby-string">&#39;alert-info&#39;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;success&#39;</span>  <span class="ruby-keyword">then</span> <span class="ruby-string">&#39;alert-success&#39;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;error&#39;</span>    <span class="ruby-keyword">then</span> <span class="ruby-string">&#39;alert-danger&#39;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;alert&#39;</span>    <span class="ruby-keyword">then</span> <span class="ruby-string">&#39;alert-warning&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_uniq_color">
+            
+              <b>get_uniq_color</b>(str)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-get_uniq_color" name="method-i-get_uniq_color" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-get_uniq_color_source')" id="l_method-i-get_uniq_color_source">show</a>
+                
+              </p>
+              <div id="method-i-get_uniq_color_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_uniq_color</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-constant">BG_COLORS</span>[<span class="ruby-constant">Zlib</span>.<span class="ruby-identifier">crc32</span>(<span class="ruby-node">&quot;#{str}&quot;</span>).<span class="ruby-identifier">modulo</span>(<span class="ruby-constant">BG_COLORS</span>.<span class="ruby-identifier">length</span>)]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-present_controllers-3F">
+            
+              <b>present_controllers?</b>(controllers = [])
+            
+            <a href="../classes/ApplicationHelper.html#method-i-present_controllers-3F" name="method-i-present_controllers-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-present_controllers-3F_source')" id="l_method-i-present_controllers-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-present_controllers-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">present_controllers?</span>(<span class="ruby-identifier">controllers</span> = [])
+  <span class="ruby-identifier">controllers</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">controller_name</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">devise_controller?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

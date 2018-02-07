@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simulation</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="Simulation">
+
+  
+    
+    <meta name="description" content="Schema Information  Table name: simulations  id         :integer          not null, primary key start_time :datetime end_time   :datetime user_id    :integer score      :float exam_id    :integer crea.">
+    <meta property="og:description" content="Schema Information  Table name: simulations  id         :integer          not null, primary key start_time :datetime end_time   :datetime user_id    :integer score      :float exam_id    :integer crea.">
+  
+
+    <meta name="keywords" content="Simulation class">
+  
+    <meta name="keywords" content="finalize, expires_at, time_expired?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            Simulation
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ApplicationRecord.html">ApplicationRecord</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/simulation_rb.html">app/models/simulation.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="class-Simulation-label-Schema+Information">Schema Information</h2>
+
+<p>Table name: simulations</p>
+
+<pre><code>id         :integer          not null, primary key
+start_time :datetime
+end_time   :datetime
+user_id    :integer
+score      :float
+exam_id    :integer
+created_at :datetime         not null
+updated_at :datetime         not null
+status     :integer          default(&quot;doing&quot;)
+</code></pre>
+
+<p>Indexes</p>
+
+<pre><code>index_simulations_on_exam_id  (exam_id)
+index_simulations_on_user_id  (user_id)
+</code></pre>
+
+<p>Foreign Keys</p>
+
+<pre><code>fk_rails_...  (exam_id =&gt; exams.id)
+fk_rails_...  (user_id =&gt; users.id)
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-expires_at">expires_at</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-finalize">finalize</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-time_expired-3F">time_expired?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-expires_at">
+            
+              <b>expires_at</b>()
+            
+            <a href="../classes/Simulation.html#method-i-expires_at" name="method-i-expires_at" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-expires_at_source')" id="l_method-i-expires_at_source">show</a>
+                
+              </p>
+              <div id="method-i-expires_at_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/simulation.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expires_at</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_time</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span>.<span class="ruby-identifier">hours</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-finalize">
+            
+              <b>finalize</b>(end_time = expires_at)
+            
+            <a href="../classes/Simulation.html#method-i-finalize" name="method-i-finalize" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-finalize_source')" id="l_method-i-finalize_source">show</a>
+                
+              </p>
+              <div id="method-i-finalize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/simulation.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finalize</span>(<span class="ruby-identifier">end_time</span> = <span class="ruby-identifier">expires_at</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">end_time</span> = <span class="ruby-identifier">end_time</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">status</span> = <span class="ruby-value">:finished</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-time_expired-3F">
+            
+              <b>time_expired?</b>()
+            
+            <a href="../classes/Simulation.html#method-i-time_expired-3F" name="method-i-time_expired-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-time_expired-3F_source')" id="l_method-i-time_expired-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-time_expired-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/simulation.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">time_expired?</span>
+  (<span class="ruby-identifier">expires_at</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

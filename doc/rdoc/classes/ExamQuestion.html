@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ExamQuestion</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="ExamQuestion">
+
+  
+    
+    <meta name="description" content="Schema Information  Table name: exam_questions  id          :integer          not null, primary key exam_id     :integer question_id :integer created_at  :datetime         not null updated_at  :dateti.">
+    <meta property="og:description" content="Schema Information  Table name: exam_questions  id          :integer          not null, primary key exam_id     :integer question_id :integer created_at  :datetime         not null updated_at  :dateti.">
+  
+
+    <meta name="keywords" content="ExamQuestion class">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            ExamQuestion
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ApplicationRecord.html">ApplicationRecord</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/exam_question_rb.html">app/models/exam_question.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="class-ExamQuestion-label-Schema+Information">Schema Information</h2>
+
+<p>Table name: exam_questions</p>
+
+<pre><code>id          :integer          not null, primary key
+exam_id     :integer
+question_id :integer
+created_at  :datetime         not null
+updated_at  :datetime         not null
+</code></pre>
+
+<p>Indexes</p>
+
+<pre><code>index_exam_questions_on_exam_id      (exam_id)
+index_exam_questions_on_question_id  (question_id)
+</code></pre>
+
+<p>Foreign Keys</p>
+
+<pre><code>fk_rails_...  (exam_id =&gt; exams.id)
+fk_rails_...  (question_id =&gt; questions.id)
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

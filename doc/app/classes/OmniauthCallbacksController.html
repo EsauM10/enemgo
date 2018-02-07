@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OmniauthCallbacksController</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="OmniauthCallbacksController">
+
+  
+
+    <meta name="keywords" content="OmniauthCallbacksController class">
+  
+    <meta name="keywords" content="facebook, failure, google_oauth2">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            OmniauthCallbacksController
+            
+                <span class="parent">&lt;
+                    
+                    Devise::OmniauthCallbacksController
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/omniauth_callbacks_controller_rb.html">app/controllers/omniauth_callbacks_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-facebook">facebook</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-failure">failure</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-google_oauth2">google_oauth2</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-facebook">
+            
+              <b>facebook</b>()
+            
+            <a href="../classes/OmniauthCallbacksController.html#method-i-facebook" name="method-i-facebook" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-facebook_source')" id="l_method-i-facebook_source">show</a>
+                
+              </p>
+              <div id="method-i-facebook_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/omniauth_callbacks_controller.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">facebook</span>
+  <span class="ruby-identifier">auth</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;omniauth.auth&#39;</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">persisted?</span>
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">profile</span>.<span class="ruby-identifier">attributes</span> = {
+      <span class="ruby-value">first_name:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">first_name</span>,
+      <span class="ruby-value">last_name:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">last_name</span>,
+      <span class="ruby-value">remote_avatar_url:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">image</span>,
+      <span class="ruby-value">birthday:</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">auth</span>.<span class="ruby-identifier">extra</span>.<span class="ruby-identifier">raw_info</span>.<span class="ruby-identifier">birthday</span>, <span class="ruby-string">&#39;%m/%d/%Y&#39;</span>),
+      <span class="ruby-value">sex:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">extra</span>.<span class="ruby-identifier">raw_info</span>.<span class="ruby-identifier">gender</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">upcase</span>
+    }
+
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">profile</span>.<span class="ruby-identifier">save</span>(<span class="ruby-value">validate:</span> <span class="ruby-keyword">false</span>)
+
+    <span class="ruby-identifier">set_flash_message</span>(<span class="ruby-value">:notice</span>, <span class="ruby-value">:success</span>, <span class="ruby-value">kind:</span> <span class="ruby-string">&#39;Facebook&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_navigational_format?</span>
+    <span class="ruby-identifier">sign_in_and_redirect</span> <span class="ruby-ivar">@user</span>, <span class="ruby-value">event:</span> <span class="ruby-value">:authentication</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-string">&#39;devise.facebook_data&#39;</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;omniauth.auth&#39;</span>]
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">new_user_registration_url</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-failure">
+            
+              <b>failure</b>()
+            
+            <a href="../classes/OmniauthCallbacksController.html#method-i-failure" name="method-i-failure" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-failure_source')" id="l_method-i-failure_source">show</a>
+                
+              </p>
+              <div id="method-i-failure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/omniauth_callbacks_controller.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">failure</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-google_oauth2">
+            
+              <b>google_oauth2</b>()
+            
+            <a href="../classes/OmniauthCallbacksController.html#method-i-google_oauth2" name="method-i-google_oauth2" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-google_oauth2_source')" id="l_method-i-google_oauth2_source">show</a>
+                
+              </p>
+              <div id="method-i-google_oauth2_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/omniauth_callbacks_controller.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">google_oauth2</span>
+    <span class="ruby-identifier">auth</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;omniauth.auth&#39;</span>]
+
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">persisted?</span>
+
+      <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">profile</span>.<span class="ruby-identifier">attributes</span> = {
+        <span class="ruby-value">first_name:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">first_name</span>,
+        <span class="ruby-value">last_name:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">last_name</span>,
+        <span class="ruby-value">remote_avatar_url:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">image</span>,
+        <span class="ruby-value">sex:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">extra</span>.<span class="ruby-identifier">raw_info</span>.<span class="ruby-identifier">gender</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">upcase</span>
+      }
+
+      <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">profile</span>.<span class="ruby-identifier">save</span>(<span class="ruby-value">validate:</span> <span class="ruby-keyword">false</span>)
+
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span> <span class="ruby-string">&#39;devise.omniauth_callbacks.success&#39;</span>, <span class="ruby-value">kind:</span> <span class="ruby-string">&#39;Google&#39;</span>
+      <span class="ruby-identifier">sign_in_and_redirect</span> <span class="ruby-ivar">@user</span>, <span class="ruby-value">event:</span> <span class="ruby-value">:authentication</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">session</span>[<span class="ruby-string">&#39;devise.google_data&#39;</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;omniauth.auth&#39;</span>].<span class="ruby-identifier">except</span>(<span class="ruby-value">:extra</span>)
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">new_user_registration_url</span>, <span class="ruby-value">alert:</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">full_messages</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

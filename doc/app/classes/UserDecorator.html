@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>UserDecorator</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="UserDecorator">
+
+  
+
+    <meta name="keywords" content="UserDecorator class">
+  
+    <meta name="keywords" content="initial_email, module_kind, t_kind">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            UserDecorator
+            
+                <span class="parent">&lt;
+                    
+                    Draper::Decorator
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/decorators/user_decorator_rb.html">app/decorators/user_decorator.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-initial_email">initial_email</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-module_kind">module_kind</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-t_kind">t_kind</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-initial_email">
+            
+              <b>initial_email</b>()
+            
+            <a href="../classes/UserDecorator.html#method-i-initial_email" name="method-i-initial_email" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-initial_email_source')" id="l_method-i-initial_email_source">show</a>
+                
+              </p>
+              <div id="method-i-initial_email_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/decorators/user_decorator.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initial_email</span>
+  <span class="ruby-identifier">email</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">upcase</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-module_kind">
+            
+              <b>module_kind</b>()
+            
+            <a href="../classes/UserDecorator.html#method-i-module_kind" name="method-i-module_kind" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-module_kind_source')" id="l_method-i-module_kind_source">show</a>
+                
+              </p>
+              <div id="method-i-module_kind_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/decorators/user_decorator.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">module_kind</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">kind</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;student&#39;</span>
+  <span class="ruby-string">&#39;admin&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-t_kind">
+            
+              <b>t_kind</b>()
+            
+            <a href="../classes/UserDecorator.html#method-i-t_kind" name="method-i-t_kind" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-t_kind_source')" id="l_method-i-t_kind_source">show</a>
+                
+              </p>
+              <div id="method-i-t_kind_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/decorators/user_decorator.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">t_kind</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;Estudante&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;student&#39;</span>
+  <span class="ruby-string">&#39;Administrador&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

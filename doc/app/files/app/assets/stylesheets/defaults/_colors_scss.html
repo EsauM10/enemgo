@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>_colors.scss</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            _colors.scss
+        </h1>
+        <ul class="files">
+            
+            <li>
+                app/assets/stylesheets/defaults/_colors.scss
+                
+            </li>
+            <li>Last modified: 2018-02-05 22:40:02 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>// Bg with extra colors @each $name, $color in $colors {</p>
+
+<pre><code>.bg-#{$name} {
+  background-color: $color !important;
+  // color: #fff;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>@each $name, $pale-color in $pale-colors {</p>
+
+<pre><code>.bg-p-#{$name} {
+  background-color: $pale-color !important;
+  // color: #fff;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>// Text colors @each $name, $color in $colors {</p>
+
+<pre><code>.text-#{$name} {
+  color: $color !important;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>@each $name, $color in $social-colors {</p>
+
+<pre><code>.text-#{$name} {
+  color: $color !important;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>.text-default     {color: $clr-text !important;} .text-muted       {color:
+$gray !important;} .text-light       {color: $clr-text-light !important;}
+.text-lighter     {color: $clr-text-disable !important;} .text-fade       
+{color: rgba($clr-text, .7) !important;} .text-fader       {color:
+rgba($clr-text, .5) !important;} .text-fadest      {color: rgba($clr-text,
+.4) !important;} .text-transparent {color: transparent !important;}</p>
+
+<p>// Hovers link a.text-primary    { @include
+link-colors-important($primary); } a.text-secondary  { @include
+link-colors-important($secondary); } a.text-info       { @include
+link-colors-important($info); } a.text-success    { @include
+link-colors-important($success); } a.text-warning   { @include
+link-colors-important($warning); } a.text-danger    { @include
+link-colors-important($danger); }</p>
+
+<p>// buttons $new-colors: map-remove($colors,</p>
+
+<pre><code>(
+  &#39;primary&#39;,
+  &#39;secondary&#39;,
+  &#39;info&#39;,
+  &#39;danger&#39;,
+  &#39;success&#39;
+));
+</code></pre>
+
+<p>@each $name, $color in $new-colors {</p>
+
+<pre><code>.btn-outline-#{$name} {
+  @include btn-outline($color, 1);
+}
+</code></pre>
+
+<p>}</p>
+
+<p>// Hover on Hover</p>
+
+<p>@each $name, $color in $colors {</p>
+
+<pre><code>.hover-#{$name} {
+  @include link-colors-important($color);
+}
+</code></pre>
+
+<p>}</p>
+
+<p>@each $name, $color in $social-colors {</p>
+
+<pre><code>.hover-#{$name} {
+  @include link-colors-important($color);
+}
+</code></pre>
+
+<p>}</p>
+
+<p>.hover-white       { @include link-colors-important(#fff); } .hover-muted  
+{ @include link-colors-important($gray); } .hover-light       { @include
+link-colors-important($clr-text-light); } .hover-lighter     { @include
+link-colors-important($clr-text-disable); } .hover-transparent { @include
+link-colors-important(transparent); }</p>
+
+<p>.active.active-white       { background-color: fff !important; }
+.active.active-transparent { background-color: transparent !important; }</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

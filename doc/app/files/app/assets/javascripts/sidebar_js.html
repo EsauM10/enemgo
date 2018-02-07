@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>sidebar.js</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            sidebar.js
+        </h1>
+        <ul class="files">
+            
+            <li>
+                app/assets/javascripts/sidebar.js
+                
+            </li>
+            <li>Last modified: 2018-01-30 11:04:33 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>$(document).on(&#39;turbolinks:load&#39;, function() {</p>
+
+<pre><code>var $navLink = $(&quot;.sidebar .nav-link[data-toggle=&#39;submenu&#39;]&quot;);
+var $parent = $navLink.parent();
+
+if ($parent.find(&#39;li.nav-item.active&#39;).length &gt; 0) {
+  $navLink.attr(&#39;aria-expanded&#39;, true)
+  .next(&#39;.sidebar-submenu&#39;)
+  .show();
+  $parent.addClass(&#39;active&#39;);
+} else {
+  $parent.removeClass(&#39;active&#39;)
+}
+
+$(&#39;.btn-preview&#39;).on(&#39;click&#39;, function() {
+  $(&#39;body&#39;).toggleClass(&#39;sidebar-wrapped&#39;);
+});
+
+var sidebar = {};
+
+$(document).on(&#39;click&#39;, &#39;.back-sidebar&#39;, function(){
+  sidebar.close();
+});
+
+ $(&#39;.sidebar-btn-toggle&#39;).on(&#39;click&#39;, function() {
+   sidebar.open();
+ });
+
+sidebar.open = function() {
+  $(&#39;body&#39;).addClass(&#39;sidebar-open&#39;).prepend(&#39;&lt;div class=&quot;back-sidebar&quot;&gt;&lt;/div&gt;&#39;);
+}
+
+sidebar.close = function(e) {
+  $(&#39;body&#39;).removeClass(&#39;sidebar-open&#39;);
+  $(&#39;.back-sidebar&#39;).remove();
+}
+</code></pre>
+
+<p>});</p>
+
+<p>$(function () {</p>
+
+<pre><code>$(document).on(&#39;click&#39;, &quot;.sidebar .nav-link[data-toggle=&#39;submenu&#39;]&quot;, function(e) {
+  e.preventDefault();
+  var $submenu = $(this).next(&#39;.sidebar-submenu&#39;);
+
+  if ($submenu.length &lt; 1)
+    return;
+
+  $(this).attr(&#39;aria-expanded&#39;, function(i, value) {
+    return value == &#39;true&#39; ? &#39;false&#39; : &#39;true&#39;
+  });
+
+  $submenu.slideToggle(&#39;show&#39;);
+});
+</code></pre>
+
+<p>});</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

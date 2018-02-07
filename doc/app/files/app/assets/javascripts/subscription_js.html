@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>subscription.js</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            subscription.js
+        </h1>
+        <ul class="files">
+            
+            <li>
+                app/assets/javascripts/subscription.js
+                
+            </li>
+            <li>Last modified: 2018-02-05 22:40:02 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>$(document).on(&#39;turbolinks:load&#39;, function() {</p>
+
+<pre><code>var $form = $(&#39;#new_subscription&#39;);
+buildCard();
+
+$form.submit(function(event) {
+  // Disable the submit button to prevent repeated clicks:
+  $form.find(&#39;.submit&#39;).prop(&#39;disabled&#39;, true);
+
+  // Request a token from Stripe:
+  Stripe.card.createToken($form, stripeResponseHandler);
+
+  // Prevent the form from being submitted:
+  return false;
+});
+</code></pre>
+
+<p>});</p>
+
+<p>function buildCard() {</p>
+
+<pre><code>$(&#39;#new_subscription&#39;).card({
+  container: &#39;.card-wrapper&#39;, // *required*
+
+  formSelectors: {
+    numberInput: &#39;input[data-stripe=&quot;number&quot;]&#39;,
+    expiryInput: &#39;input[data-stripe=&quot;exp_month&quot;], input[data-stripe=&quot;exp_year&quot;]&#39;,
+    cvcInput: &#39;input[data-stripe=&quot;cvc&quot;]&#39;,
+    nameInput: &#39;input[data-stripe=&quot;name&quot;]&#39;
+  },
+
+  width: 350, // optional — default 350px
+  formatting: true, // optional - default true
+
+  // Strings for translation - optional
+  messages: {
+    validDate: &#39;valid\ndate&#39;, // optional - default &#39;valid\nthru&#39;
+    monthYear: &#39;mm/yy&#39;, // optional - default &#39;month/year&#39;
+  },
+
+  // Default placeholders for rendered fields - optional
+  placeholders: {
+    number: &#39;•••• •••• •••• ••••&#39;,
+    name: $(&#39;input[data-stripe=&quot;name&quot;]&#39;).val() || &#39;NOME COMPLETO&#39;,
+    expiry: &#39;••/••&#39;,
+    cvc: &#39;•••&#39;
+  },
+
+  // if true, will log helpful messages for setting up Card
+  debug: false // optional - default false
+});
+</code></pre>
+
+<p>}</p>
+
+<p>var errorMessages = {</p>
+
+<pre><code>incorrect_number: &quot;O número do cartão está incorreto.&quot;,
+invalid_number: &quot;The card number is not a valid credit card number.&quot;,
+invalid_expiry_month: &quot;The card&#39;s expiration month is invalid.&quot;,
+invalid_expiry_year: &quot;O ano de validade do cartão é inválido.&quot;,
+invalid_cvc: &quot;The card&#39;s security code is invalid.&quot;,
+expired_card: &quot;O cartão está expirado.&quot;,
+incorrect_cvc: &quot;The card&#39;s security code is incorrect.&quot;,
+incorrect_zip: &quot;The card&#39;s zip code failed validation.&quot;,
+card_declined: &quot;The card was declined.&quot;,
+missing: &quot;There is no card on a customer that is being charged.&quot;,
+processing_error: &quot;An error occurred while processing the card.&quot;,
+rate_limit:  &quot;An error occurred due to requests hitting the API too quickly. Please let us know if you&#39;re consistently running into this error.&quot;
+</code></pre>
+
+<p>};</p>
+
+<p>function stripeResponseHandler(status, response) {</p>
+
+<pre><code>// Grab the form:
+var $form = $(&#39;#new_subscription&#39;);
+
+if (response.error) { // Problem!
+
+  // Show the errors on the form:
+  $form.find(&#39;.payment-errors&#39;).text(errorMessages[response.error.code]);
+  $form.find(&#39;.submit&#39;).prop(&#39;disabled&#39;, false); // Re-enable submission
+
+} else { // Token was created!
+
+  // Get the token ID:
+  var token = response.id;
+
+  // Insert the token ID into the form so it gets submitted to the server:
+  $form.append($(&#39;&lt;input type=&quot;hidden&quot; name=&quot;stripeToken&quot;&gt;&#39;).val(token));
+
+  // Submit the form:
+  $form.get(0).submit();
+}
+</code></pre>
+
+<p>};</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>
