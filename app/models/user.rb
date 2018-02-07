@@ -48,7 +48,7 @@ class User < ApplicationRecord
 
   enum kind: %i[student evaluator admin]
 
-  scope :students, -> { where(kind: :student).decorate.sort_by(&:score) }
+  scope :students, -> { where(kind: :student).includes(:profile)}
 
   def self.from_omniauth(auth)
     puts auth
