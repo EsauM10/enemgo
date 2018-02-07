@@ -1,0 +1,9 @@
+<%= render 'shared/modal', title: 'Folha de Resposta' do %>
+  <%= render 'student/simulations/answer_list', answers: @answers %>    
+  <%= content_for :modal_footer do %>
+    <%= button_tag "Cancelar", class: "btn btn-outline-primary btn-round btn-lg btn-block",
+      data: {dismiss: "modal"}, aria: {label: "Close"} %>
+    <%= link_to "Confirmar", finished_student_simulation_path,
+      method: :post, class: "btn btn-secondary btn-round btn-lg  btn-block" %>
+  <% end %>
+<% end %>

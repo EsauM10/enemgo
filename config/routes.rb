@@ -37,8 +37,9 @@ Rails.application.routes.draw do
   namespace :student do
     root 'dashboard#index'
     get 'ranking', to: 'ranking#index'
-    resources :simulations, only: [:index, :answering] do
+    resources :simulations, only: [:index, :answering, :answer_list] do
       get 'answering', on: :member
+      get 'answer_list', on: :member
       post 'finished', on: :member
       resources :questions, only: [] do
         resources :simulation_answers, only: [:create, :update]

@@ -1,0 +1,5 @@
+<div class="container text-right mb-3">
+  <%= link_to "Reportar questão", new_question_ticket_path(current_user.module_kind, question),
+    remote: true, class: "btn btn-danger btn-round mx-1" if !question.official? %>
+  <%= render 'student/simulations/link_finish_simulation' %>
+</div>
