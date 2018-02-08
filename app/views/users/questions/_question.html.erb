@@ -43,7 +43,7 @@
     </h6>
     <hr>
     <div class="collapse" id="collapseAlternatives[<%= question.id %>]">
-      <% question.alternatives.reverse.each_with_index do |alt, index| %>
+      <% question.alternatives.each_with_index do |alt, index| %>
         <span class="d-block my-1">
           <%= alt.display_option index %>
           <% if alt.veracity %>
