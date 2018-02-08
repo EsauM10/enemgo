@@ -7,7 +7,7 @@
             <%= link_to "#", class: "grow" do %>
               <i class="ti ti-medall large text-purple"></i>
             <% end %>
-            <span class="large"><%= current_user.score %></span>
+            <span class="large"><%= '%.2f' % current_user.score %></span>
             <span class="text-muted">Seu Score</span>
           </div>
         </div>
