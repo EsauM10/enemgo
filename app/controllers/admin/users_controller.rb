@@ -1,19 +1,11 @@
-class Admin::UsersController < ApplicationController
-  layout 'dashboard'
+class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user
-
-  def ban
-    @user = User.find(params[:id])
-    status = (@user.banned?) ? false : true
-    @user.update_attribute(:banned, status)
-    redirect_to admin_user_path, notice: "User #{(status == true) ? "banned" : "unbound"}."
-  end
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.order(:id).decorate
+    @users = User.includes(:profile).order(:id).decorate
   end
 
   # GET /users/1
@@ -68,6 +60,13 @@ class Admin::UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def ban
+    @user = User.find(params[:id])
+    status = (@user.banned?) ? false : true
+    @user.update_attribute(:banned, status)
+    redirect_to admin_user_path, notice: "User #{(status == true) ? "banned" : "unbound"}."
   end
 
   private
