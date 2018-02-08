@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  statement  :text
-#  status     :integer
+#  status     :integer          default("pending")
 #  source     :string
 #  user_id    :integer
 #  area       :integer
