@@ -6,7 +6,7 @@ class Student::SimulationsController < Student::BaseController
   decorates_assigned :simulation, :simulations
 
   def index
-    @simulations = Simulation.where(user: current_user)
+    @simulations = Simulation.where(user: current_user, status: :finished)
                              .includes(:exam)
                              .page(params[:page])
                              .per(8)

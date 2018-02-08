@@ -5,6 +5,7 @@ module Users
     private
 
     def set_ticketable
+      p 'ola mundo'
       @ticketable = Question.find(params[:question_id])
     end
   end

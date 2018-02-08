@@ -1,6 +1,6 @@
 $("#question_answer").html(
   "<%= j render 'question', questions: @questions, question: @question, simulation_answer: @simulation_answer %>"
-).hide().fadeIn();
+).hide().fadeIn('slow');
 
 $('.links-simulation').html("<%= j render 'links', question: @question %>");
 
@@ -9,7 +9,7 @@ $("li[data-page]").each(function() {
 });
 
 history.pushState(
-  {question_id: "<%= @question.id %>"},
+  {question_id: "<%= params[:current_question] %>"},
   '',
   '<%= j "?current_question=#{params[:current_question] || 1}" %>'
 );

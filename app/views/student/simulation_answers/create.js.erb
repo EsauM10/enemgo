@@ -1,9 +1,6 @@
-$("#number_questions").html(function() {
-  return "<%= current_simulation.simulation_answers.count %> / " + $(this).data('total-questions')
-});
-
-if ("<%= j flash[:success] %>") {
-  $("#flash-content").html("<p class='text-center text-success'><%= j flash[:success] %></p>")
+if ("<%= @simulation_answer.persisted? %>") {
+  var $url = $("a.next-question").attr('href');
+  Turbolinks.visit($url, {action: 'replace'} );
 } else {
   $("#flash-content").html("<p class='text-center text-danger'><%= j flash[:error] %></p>")
 }

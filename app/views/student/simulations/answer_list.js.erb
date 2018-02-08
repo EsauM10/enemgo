@@ -1,3 +1,7 @@
 $("#modal-holder").html("<%= j render 'student/simulations/answer_list_modal' %>");
 
 $("#mainModal").modal();
+
+if ($('.answers-container').length > 0) {
+  var ps = new PerfectScrollbar('.answers-container tbody', { suppressScrollX: true });
+}

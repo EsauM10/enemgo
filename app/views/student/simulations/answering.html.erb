@@ -7,7 +7,7 @@
       <h5 class="font-weight-light">
         <i class="text-purple ti-pencil-alt"></i>
 
-        <span id="number_questions" class="ml-3" data-total-questions="<%= @questions.total_pages %>">
+        <span id="number_questions" class="ml-3">
           <b>
           <%= "#{@simulation.simulation_answers.count} / #{@questions.total_pages}" %>
           </b> questões
@@ -27,7 +27,7 @@
   <div class="card p-4 mx-auto border-0">
     <div class="links-simulation">
       <%= render 'student/simulations/links', question: @question %>
-    </div>    
+    </div>
 
     <div class="content-pagination container position-relative">
       <%= paginate @questions, param_name: 'current_question', left: 45, right: 45,

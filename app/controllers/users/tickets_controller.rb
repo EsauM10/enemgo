@@ -3,11 +3,12 @@ class Users::TicketsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @tickets = Ticket.all.includes(:ticketable).page(params[:page]).per(10)
+    @tickets = Ticket.includes(:ticketable).page(params[:page]).per(10)
   end
 
   def new
     @ticket = @ticketable.tickets.new
+    p @ticket.inspect
   end
 
   def create
@@ -27,7 +28,7 @@ class Users::TicketsController < ApplicationController
 
   private
 
-  def ticket_params
-    params.require(:ticket).permit(:motive, :message)
-  end
+    def ticket_params
+      params.require(:ticket).permit(:motive, :message)
+    end
 end

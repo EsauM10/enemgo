@@ -53,10 +53,10 @@ Rails.application.routes.draw do
   scope '*user_kind', module: 'users' do
     resource :profile, except: [:index, :destroy]
     resource :address, except: [:index, :destroy]
-    resources :tickets, only: [:index, :show]
     resources :questions do
       resources :tickets, only: [:new, :create], module: 'questions'
     end
+    resources :tickets, only: [:index, :show]
     resources :exams do
       post 'generate', on: :member
       resources :simulations, only: [:new, :create], controller: '/student/simulations'
