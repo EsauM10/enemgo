@@ -34,11 +34,12 @@ class Simulation < ApplicationRecord
   validates :user, :exam, presence: true
 
   before_save :finalize,
-    if: Proc.new { |simulation| simulation.doing? && simulation.time_expired?}
+    if: Proc.new { |simulation| simulation.doing? && simulation.time_expired? }
 
   def finalize(end_time = expires_at)
     self.end_time = end_time
     self.status = :finished
+    self.score = calc_score
   end
 
   def expires_at
@@ -48,4 +49,11 @@ class Simulation < ApplicationRecord
   def time_expired?
     (expires_at - Time.now).to_i <= 0
   end
+
+  private
+
+    def calc_score
+      answers = simulation_answers.includes(:alternative)
+      answers.map { |a| a.alternative.veracity? }.count(true).to_f
+    end
 end
