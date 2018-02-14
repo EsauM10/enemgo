@@ -1,6 +1,5 @@
-<%= form_with(url: new_admin_user_path, model: user, local: true) do |form| %>
+<%= form_with(model: [:admin, user], local: true) do |form| %>
 
-  <h4 class="card-title">Criar Usuário</h4>
   <div class="row">
     <div class="form-group col-md-6">
         <%= form.label :email %>
@@ -32,17 +31,17 @@
   </div>
   <hr>
   <%= form.fields_for :profile do |f| %>
-    <%= render 'users/profiles/fields', form: f, profile: @profile %>
+    <%= render 'users/profiles/fields', form: f, profile: user.profile %>
   <% end %>
   <hr>
   <h4>Endereço</h4>
-  <%= form.fields_for :address do |f| %>
-
+  <%= form.fields_for :address do |ff| %>
+    <%= render 'users/addresses/form_fields', form: ff, address: user.address %>
   <% end %>
 
   <div class="card-footer text-right">
     <%= link_to 'Cancelar', admin_users_path, class: "btn btn-round btn-outline-dark" %>
-    <%= form.submit 'Criar Usuário', class: "btn btn-round btn-outline-primary" %>
+    <%= form.submit class: "btn btn-round btn-outline-primary" %>
   </div>
 
 <% end %>

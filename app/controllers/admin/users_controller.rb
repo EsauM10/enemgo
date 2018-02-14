@@ -15,7 +15,9 @@ class Admin::UsersController < Admin::BaseController
 
   # GET /users/new
   def new
-    @profile = User.new.build_profile
+    @user = User.new
+    @user.build_profile
+    @user.build_address
   end
 
   # GET /users/1/edit
@@ -43,7 +45,7 @@ class Admin::UsersController < Admin::BaseController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to admin_user_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to [:admin, @user], notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
