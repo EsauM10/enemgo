@@ -1,6 +1,14 @@
-<h1>Editing Exam</h1>
+<div class="row my-2 p-3 mx-auto bg-white">
+  <div class="container">
+    <h2 class="card-title text-purple">
+      Editar Prova
+    </h2>
+  </div>
+</div>
 
-<%= render 'form', exam: @exam %>
+<div class="row mx-auto my-2">
+  <div class="card p-3 w-100">
+    <%= render 'form', exam: @exam %>
+  </div>
 
-<%= link_to 'Show', exam_path(current_user.module_kind, @exam) %> |
-<%= link_to 'Back', exams_path %>
+</div>

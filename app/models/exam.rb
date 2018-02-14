@@ -26,14 +26,16 @@ class Exam < ApplicationRecord
   has_many :questions, through: :exam_questions
   has_many :simulations
 
+  accepts_nested_attributes_for :questions
+
   has_paper_trail if: Proc.new { |t| t.user.admin? }
 
   enum kind: [:enem, :customized]
 
-  validates :user, :year, presence: true
+  validates :title, :year, presence: true
   # validates :kind, numericality: { only_integer: true }
 
-  # after_initialize :set_defaults
+  # before_create :set_defaults
 
   scope :official, -> { where(kind: :enem) }
 

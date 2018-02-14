@@ -1,3 +1,10 @@
+<li class="nav-item <%= active_for(controller: 'exams') %> ">
+  <%= link_to exams_path(current_user.module_kind), class: "nav-link" do %>
+    <i class="icon ti-agenda"></i>
+    <span class="title-label">Provas</span>
+  <% end %>
+</li>
+
 <li class="nav-item <%= active_for(controller: 'questions') %> ">
   <%= link_to questions_path(current_user.module_kind), class: "nav-link" do %>
     <i class="icon ti-write"></i>

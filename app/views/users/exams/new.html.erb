@@ -1,5 +1,13 @@
-<h1>New Exam</h1>
+<div class="row my-2 p-3 mx-auto bg-white">
+  <div class="container">
+    <h2 class="card-title text-purple">
+      Criar Prova
+    </h2>
+  </div>
+</div>
 
-<%= render 'form', exam: @exam %>
-
-<%= link_to 'Back', exams_path %>
+<div class="row mx-auto my-2">
+  <div class="card p-3 w-100">
+    <%= render 'form', exam: @exam %>
+  </div>
+</div>

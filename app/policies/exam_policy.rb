@@ -41,15 +41,13 @@ class ExamPolicy < ApplicationPolicy
     user.student?
   end
 
-  private
-
   def permitted_attributes_for_generate
     [:areas, :kind_questions]
   end
 
   def permitted_attributes
     if user.admin?
-      [:year, :kind, :status]
+      [:year, :kind, :title, question_ids:[]]
     else
       [:id]
     end

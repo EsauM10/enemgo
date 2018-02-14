@@ -1,4 +1,4 @@
-<div class="card card-shadow" style="width: 18rem;">
+<div class="col-lg-4 card card-shadow p-0 mb-1 mx-auto" style="max-width: 20rem">
   <div class="card-header">
     <h5 class="card-title"><%= exam.title %></h5>
     <h6 class="card-subtitle mb-2 text-muted"></h6>
@@ -20,9 +20,10 @@
       <i class="text-purple ti-time"></i>
       <span class="ml-3"><b><%= 2 %></b> horas</span>
     </p>
-    <div class="text-right">
-      <%= link_to "Iniciar Simulado", new_exam_simulation_path(current_user.module_kind, exam),
-        remote: true, class: "btn btn-outline-primary" %>
-    </div>
+
+  </div>
+  <div class="card-footer text-right ">
+    <%= link_to "Iniciar Simulado", new_exam_simulation_path(current_user.module_kind, exam),
+      remote: true, class: "btn btn-outline-primary" %>
   </div>
 </div>

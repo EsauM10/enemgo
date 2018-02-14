@@ -1,24 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @exam.year %>
-</p>
-
-<p>
-  <strong>Kind:</strong>
-  <%= @exam.kind %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @exam.status %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @exam.user %>
-</p>
-
-<%= link_to 'Edit', edit_exam_path(current_user.module_kind, @exam) %> |
-<%= link_to 'Back', exams_path %>
+<div class="card my-2">
+  <div class="card-header">
+    <div class="d-flex justify-content-between">
+      <h4 class="card-title text-purple"><%= @exam.title %></h4>
+      <ul class="card-menu">
+        <li class="dropdown">
+          <a data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="ti-more-alt"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
+            <%= link_to exam_path(current_user.module_kind, exam),
+              class: "dropdown-item" do %>
+              <i class="ti-eye"></i> Visualizar
+            <% end %>
+            <% if policy(:exam).edit? && policy(:exam).destroy? %>
+              <%= link_to edit_exam_path(current_user.module_kind, exam),
+                class: "dropdown-item" do %>
+                <i class="ti-pencil"></i> Editar
+              <% end %>
+              <%= link_to exam_path(current_user.module_kind, exam),
+                method: :delete, data: { confirm: 'Tem certeza?' },
+                class: "dropdown-item" do %>
+                <i class="ti-trash"></i> Deletar
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span class="text-muted">Criada em: <%= exam.created %></span>
+  </div>
+  <div class="card-body">
+    <div class="card-text text-justify">
+      <p>
+        <h5 class="text-dark">Ano: <%= exam.year %> </h5>
+      </p>
+      <p>
+       <h5 class="text-dark">Tipo: <%= exam.kind %> </h5>
+      </p>
+    </div>
+    <hr>
+  </div>
+</div>

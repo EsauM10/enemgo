@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      exam:
+        one: "Prova"
+        other: "Provas"
+    attributes:
+      exam:
+        title: Titulo
+        year: Ano
+        kind: Tipo

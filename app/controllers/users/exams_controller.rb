@@ -1,7 +1,9 @@
 class Users::ExamsController < ApplicationController
   layout 'dashboard'
-  before_action :set_exam, except: [:index, :create]
-  before_action :authorize_exam, except: [:index, :create]
+  before_action :set_exam, except: [:index, :create, :new]
+  before_action :authorize_exam, except: [:index, :create, :new]
+  decorates_assigned :exam, :exams
+  respond_to :html
 
   def index
     @exams = policy_scope(Exam).page(params[:page]).per(6)
@@ -9,6 +11,21 @@ class Users::ExamsController < ApplicationController
 
   def show
     #code
+  end
+
+  def new
+    @exam = Exam.new
+  end
+
+  def create
+    @exam = Exam.new(permitted_attributes(Exam).merge(user: current_user))
+
+    if @exam.save
+      flash[:success] = 'Prova submetida com sucesso.'
+      redirect_to exam_path(:admin, @exam)
+    else
+      render :new
+    end
   end
 
   def generate

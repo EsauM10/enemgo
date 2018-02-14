@@ -1,32 +1,23 @@
 <%= form_with(url: exams_path, model: [current_user.module_kind, exam], local: true) do |form| %>
-  <% if exam.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
 
-      <ul>
-      <% exam.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/form_errors', messages: exam.errors.full_messages if exam.errors.any? %>
 
-  <div class="field">
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :exam_title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :year %>
-    <%= form.number_field :year, id: :exam_year %>
+    <%= form.select :year, (Time.zone.now.year - 20)..(Time.zone.now.year), {},
+      {id: :exam_year, class: 'form-control'} %>
   </div>
 
-  <div class="field">
-    <%= form.label :kind %>
-    <%= form.number_field :kind, id: :exam_kind %>
-  </div>
+  <%= form.hidden_field :kind, id: :exam_kind, value: :enem %>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status, id: :exam_status %>
-  </div>
+  <%= form.collection_check_boxes :question_ids, Question.approved, :id, :statement %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="text-right">
+    <%= form.submit class: 'btn btn-outline-primary btn-round' %>
   </div>
 <% end %>

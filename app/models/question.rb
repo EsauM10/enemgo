@@ -43,4 +43,5 @@ class Question < ApplicationRecord
   accepts_nested_attributes_for :solution
 
   scope :active, -> { where.not(status: :inactive).includes(:alternatives) }
+
 end
