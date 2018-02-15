@@ -50,10 +50,34 @@ class Simulation < ApplicationRecord
     (expires_at - Time.now).to_i <= 0
   end
 
-  private
+  def performance
+    ((questions_where_veracity(true).to_f / total_questions) * 100)
+  end
 
-    def calc_score
+  def questions_where_veracity(correct)
+    calc_score(correct)
+  end
+
+  def hits
+    hits = {}
+    area = %i[math human_sciences languages natural_sciences]
+
+    answers = simulation_answers.joins(:alternative, :question)
+                              .select('questions.area', 'count(alternatives.veracity) AS hits_count')
+                              .where('alternatives.veracity = true').group('questions.area')
+
+    answers.each do |a| hits.merge!({area[a.area] => a.hits_count}) end
+    hits
+  end
+
+  private
+    def calc_score(correct = true)
       answers = simulation_answers.includes(:alternative)
-      answers.map { |a| a.alternative.veracity? }.count(true).to_f
+      answers.map { |a| a.alternative.veracity? }.count(correct)
     end
+
+    def total_questions
+      exam.questions.count
+    end
+
 end

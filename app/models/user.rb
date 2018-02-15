@@ -64,6 +64,23 @@ class User < ApplicationRecord
     if sum.nil? then 0 else (sum / scores.size.to_f) end
   end
 
+  def total_questions(correct)
+    questions = simulations.collect{|s| s.questions_where_veracity(correct)}
+    return 0 if questions.empty?
+    questions.reduce(:+)
+  end
+
+  def performance
+    performance = simulations.collect{|s| s.performance}
+    return 0.0 if performance.empty?
+    (performance.reduce(:+) / performance.size.to_f).round(2)
+  end
+
+  def hits_per_area
+    area = simulations.collect{|s| s.hits unless s.hits.empty?}.compact
+    area.inject {|k,v| k.merge(v) {|key, o, n| o + n}}
+  end
+
   def premium?
     return false if subscription.nil?
     subscription.status == 'active' || 'past_due' || 'trialing'

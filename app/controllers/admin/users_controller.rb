@@ -5,7 +5,8 @@ class Admin::UsersController < Admin::BaseController
   # GET /users
   # GET /users.json
   def index
-    @users = User.includes(:profile).order(:id).decorate
+    @users = Kaminari.paginate_array(User.includes(:profile).order(:id).decorate)
+                     .page(params[:page]).per(10)
   end
 
   # GET /users/1

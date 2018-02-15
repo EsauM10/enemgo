@@ -1,10 +1,10 @@
 <div class="student-dashboard container">
 
-  <div class="panel panel-container" style="margin-top: 20px;">
+  <div class="panel-container no-border" style="margin-top: 20px;">
     <div class="row">
         <div class="col-6 col-md-3 col-lg-3 no-padding">
-          <div class="card panel widget border-right">
-            <%= link_to "#", class: "grow" do %>
+          <div class="card no-border widget border-right">
+            <%= link_to student_ranking_path, class: "grow" do %>
               <i class="ti ti-medall large text-purple"></i>
             <% end %>
             <span class="large"><%= '%.2f' % current_user.score %></span>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="col-6 col-md-3 col-lg-3 no-padding">
-          <div class="card panel widget border-right">
+          <div class="card no-border widget border-right">
             <i class="ti ti-time large text-purple grow"></i>
             <span class="large"><%= current_user.average_time %></span>
             <span class="text-muted">Tempo médio</span>
@@ -21,7 +21,7 @@
         </div>
 
         <div class="col-6 col-md-3 col-lg-3 no-padding">
-          <div class="card panel widget border-right">
+          <div class="card no-border widget border-right">
             <i class="ti ti-write large text-purple grow"></i>
             <span class="large"><%= current_user.questions.count %></span>
             <span class="text-muted">Suas Questões</span>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-6 col-md-3 col-lg-3 no-padding">
-          <div class="card panel widget">
+          <div class="card no-border widget">
             <%= link_to student_simulations_path, class: "grow" do %>
               <i class="ti ti-clipboard large text-purple"></i>
             <% end %>
@@ -40,21 +40,45 @@
     </div>
   </div><!-- end panel-container -->
 
-  <div class="row padding-top">
-    <div class="col-md-8 col-lg-8 col-sm-8 no-border">
-      <div class="card panel text-left card-block">
+  <div class="row py-3">
+    <div class="col-md-8 col-lg-8 col-sm-8">
+      <div class="card text-left no-border">
         <div class="card-body">
-          <h4 class="text-purple"><i class="ti ti-bar-chart"></i> Desempenho</h4>
-          <div class="container">
+          <h4 class="text-purple"><i class="ti ti-bar-chart"></i> Desempenho</h4><hr>
+          <div class="row">
+            <div class="col-md-7">
+              <%= pie_chart current_user.hits_per_area, donut: true,
+                  colors: ["#4087e0", "#822c95", "#d22357"], height: "250px" %>
+            </div>
 
           </div>
+          <div class="row py-3">
+            <div class="col-md-4">
+              <div class="label">
+                <span>Questões acertadas</span>
+                <p><%= current_user.total_questions(true) %></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="label">
+                <span>Questões erradas</span>
+                <p><%= current_user.total_questions(false) %></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="label">
+                <span>Desempenho</span>
+                <p><%= current_user.performance %>%</p>
+              </div>
+            </div>
 
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Ranking -->
-    <div class="col-md-4 col-lg-4 col-sm-4 no-border">
+    <div class="col-md-4 col-lg-4 col-sm-4">
         <%= render "student/shared/ranking" do %>
           <%= render "student/shared/tbody_home" %>
         <% end %>
