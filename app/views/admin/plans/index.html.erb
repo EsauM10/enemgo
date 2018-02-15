@@ -23,8 +23,12 @@
           <td><%= number_to_currency plan.price %></td>
           <td><%= plan.stripe_id %></td>
           <td class="d-inline-flex">
-            <%= link_to 'Show', admin_plan_path(plan), class: 'mx-1' %>
-            <%= link_to 'Destroy', admin_plan_path(plan), method: :delete, data: { confirm: 'Tem certeza?' } %>
+            <%= link_to admin_plan_path(plan), class: 'mx-1' do %>
+              <i class="ti ti-eye"></i>
+            <% end %>
+            <%= link_to admin_plan_path(plan), method: :delete, data: { confirm: 'Tem certeza?' } do %>
+              <i class="ti ti-trash" style="margin-left: 10px;"></i>
+            <% end %>
           </td>
         </tr>
         <% end %>
