@@ -81,6 +81,11 @@ class User < ApplicationRecord
     area.inject {|k,v| k.merge(v) {|key, o, n| o + n}}
   end
 
+  def total_users(role)
+    kinds = User.group(:kind).count
+    kinds["#{role}"]
+  end
+
   def premium?
     return false if subscription.nil?
     subscription.status == 'active' || 'past_due' || 'trialing'

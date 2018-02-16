@@ -25,10 +25,35 @@
       <div class="col-lg-12 col-md-12">
         <div class="container py-2">
           <h4 class="text-purple">Novos Usuários</h4>
-          <%= line_chart User.group_by_day(:created_at).count, colors: ["purple"] %>
+
+          <div class="row py-3">
+            <%= line_chart User.group_by_day(:created_at).count, colors: ["purple"] %>
+          </div>
+
+          <div class="row py-3" style="padding: 0 20px;">
+            <div class="col-md-4">
+              <div class="label-purple">
+                <span>Administradores</span>
+                <p><%= current_user.total_users(:admin) %></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="label-pink">
+                <span>Avaliadores</span>
+                <p><%= current_user.total_users(:evaluator) %></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="label-blue">
+                <span>Alunos</span>
+                <p><%= current_user.total_users(:student) %></p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-
     </div>
+
   </div>
 </div>

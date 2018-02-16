@@ -40,14 +40,36 @@
     </div>
   </div><!-- end panel-container -->
 
-  <div class="row py-3">
+  <div class="row equal py-3">
     <div class="col-lg-8 mb-2">
       <div class="card text-left no-border">
         <div class="card-body">
           <h4 class="text-purple"><i class="ti ti-bar-chart"></i> Desempenho</h4><hr>
             <%= pie_chart current_user.hits_per_area, donut: true,
-                colors: ["#4087e0", "#822c95", "#d22357"], height: "250px" %> 
+                colors: ["#4087e0", "#822c95", "#d22357"], height: "250px" %>
 
+
+          <div class="row equal py-3">
+            <div class="col">
+              <div class="label-blue">
+                <span>Questões acertadas</span>
+                <p><%= current_user.total_questions(true) %></p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="label-blue">
+                <span>Questões erradas</span>
+                <p><%= current_user.total_questions(false) %></p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="label-blue">
+                <span>Desempenho</span>
+                <p><%= current_user.performance %>%</p>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
