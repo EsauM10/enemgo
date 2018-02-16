@@ -54,19 +54,19 @@
           </div>
           <div class="row py-3">
             <div class="col-md-4">
-              <div class="label">
+              <div class="label-blue">
                 <span>Questões acertadas</span>
                 <p><%= current_user.total_questions(true) %></p>
               </div>
             </div>
             <div class="col-md-4">
-              <div class="label">
+              <div class="label-blue">
                 <span>Questões erradas</span>
                 <p><%= current_user.total_questions(false) %></p>
               </div>
             </div>
             <div class="col-md-4">
-              <div class="label">
+              <div class="label-blue">
                 <span>Desempenho</span>
                 <p><%= current_user.performance %>%</p>
               </div>

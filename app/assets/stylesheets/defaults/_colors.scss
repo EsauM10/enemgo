@@ -26,6 +26,24 @@
   }
 }
 
+@each $name, $color in $colors {
+  .label-#{$name} {
+    padding-left: 5px;
+    background: rgba(#e6e6e6, 0.63);
+    border-left: 8px solid $color !important;
+    text-align: center;
+    span{
+      font-size: 15px;
+      color: $gray-600;
+    }
+    p{
+      font-size: 25px;
+      font-weight: bold;
+      color: $gray-600;
+    }
+  }
+}
+
 .text-default     {color: $clr-text !important;}
 .text-muted       {color: $gray !important;}
 .text-light       {color: $clr-text-light !important;}

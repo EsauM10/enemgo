@@ -40,22 +40,6 @@
 
   .grow:hover{transform: scale(1.1);}
 
-  .label{
-    padding-left: 5px;
-    background: rgba(#e6e6e6, 0.63);
-    border-left: 8px solid #4087e0;
-    text-align: center;
-    span{
-      font-size: 15px;
-      color: $gray-600;
-    }
-    p{
-      font-size: 25px;
-      font-weight: bold;
-      color: $gray-600;
-    }
-  }
-
   td:first-child{font-size: 1.2em;}
   td:last-child{text-align: center;}
 }
