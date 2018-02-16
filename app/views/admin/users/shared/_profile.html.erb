@@ -1,9 +1,9 @@
 <div class="d-flex">
   <div class="mr-2" id="content-avatar">
-    <%= @user.profile.avatar_thumb({id: 'avatar-img', size: 'xxl'}) %>
+    <%= user.profile.avatar_thumb({id: 'avatar-img', size: 'xxl'}) %>
     <div class="row justify-content-center py-1">
       <strong class="text-purple">
-        <% if @user.banned? %>
+        <% if user.banned? %>
           Banido <i class="ti ti-lock"></i>
         <% end %>
       </strong>
@@ -11,24 +11,24 @@
   </div>
 
   <div class="flex-grow">
-    <h5><%= @user.profile.full_name %></h5>
-    <%= @user.email %>
+    <h5><%= user.profile.full_name %></h5>
+    <%= user.email %>
   </div>
 </div>
 <hr>
 
 <div class="row">
   <div class="col-md-6">
-    <span><strong>Telefone: </strong><%= @user.profile.phone %></span>
+    <span><strong>Telefone: </strong><%= user.profile.phone %></span>
   </div>
   <div class="col-md-6">
-    <span><strong>Aniversário: </strong><%= @user.profile.birthday %></span>
+    <span><strong>Aniversário: </strong><%= user.profile.birthday %></span>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    <span><strong>Sexo: </strong><%= @user.profile.sex %></span>
+    <span><strong>Sexo: </strong><%= user.profile.sex %></span>
   </div>
 </div>
 <hr>
