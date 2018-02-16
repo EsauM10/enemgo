@@ -99,7 +99,7 @@ class User < ApplicationRecord
     self.banned ? :locked : super
   end
 
-  after_create :defaults
+  after_create :defaults, if: Proc.new { |t| !t.profile.present? && !t.address.present? }
 
   private
 

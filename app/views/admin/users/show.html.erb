@@ -3,7 +3,7 @@
     <div class="card p-3">
       <h4 class="card-title">Perfil</h4>
       <div class="card-body">
-        <%= render 'admin/users/shared/profile' %>
+        <%= render 'admin/users/shared/profile', user: @user %>
         <%= render 'admin/users/shared/address', address: @user.address %>
       </div>
       <%= render 'admin/users/shared/profile_footer' %>

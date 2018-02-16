@@ -13,7 +13,7 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <%= render 'profile' %>
+          <%= render 'profile', profile: @profile %>
         </div>
         <div class="tab-pane fade" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab">
           <%= render 'users/addresses/show', address: current_user.address %>
