@@ -4,3 +4,6 @@ pt-BR:
       solution:
         one: 'Solução'
         other: 'Soluções'
+    attributes:
+      solution:
+        statement: Resolução
