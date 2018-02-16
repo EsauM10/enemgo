@@ -9,6 +9,8 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update -qq
 
 RUN apt-get install -qq -y build-essential libpq-dev yarn nodejs imagemagick
+#Install cron and start
+RUN apt-get install -y cron
 
 RUN mkdir -p /enemgo
 
@@ -23,3 +25,14 @@ ENV BUNDLE_PATH=/enemgo_gems
 ENV RAILS_ENV=development
 
 COPY . /enemgo
+
+RUN gem install backup -v5.0.0.beta.1 --no-ri --no-rdoc
+RUN bundle install --binstubs
+RUN gem install whenever --no-ri --no-rdoc
+
+ADD backup/config.rb /root/Backup/config.rb
+ADD backup/model.rb /root/Backup/models/
+
+VOLUME ["/home/backups", "/etc/backups", "/var/lib/backups", "/var/log/backups"]
+
+RUN bundle exec whenever --update-crontab

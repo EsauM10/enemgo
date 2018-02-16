@@ -51,10 +51,9 @@ class User < ApplicationRecord
   scope :students, -> { where(kind: :student).includes(:profile)}
 
   def self.from_omniauth(auth)
-    puts auth
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+      user.password = user.password_confirmation = Devise.friendly_token[0,20]
     end
   end
 
@@ -99,7 +98,7 @@ class User < ApplicationRecord
     self.banned ? :locked : super
   end
 
-  after_create :defaults, if: Proc.new { |t| !t.profile.present? && !t.address.present? }
+  after_create :defaults, if: Proc.new { |user| user.profile.nil? && user.address.nil? }
 
   private
 

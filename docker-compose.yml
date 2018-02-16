@@ -37,6 +37,13 @@ services:
       - server
       - db
       - redis
+  whenever:
+    build: .
+    volumes:
+      - '.:/enemgo'
+      - './backups:/root/backups/'
+    depends_on:
+      - db
   gems:
     image: busybox
     volumes:
