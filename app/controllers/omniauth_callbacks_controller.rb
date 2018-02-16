@@ -3,6 +3,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     auth = request.env['omniauth.auth']
+    @user = User.from_omniauth(request.env['omniauth.auth'])
 
     if @user.persisted?
       @user.profile.attributes = {
