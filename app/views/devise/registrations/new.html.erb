@@ -1,6 +1,6 @@
 <%= render 'devise/shared/layout', locals: { title: 'Cadastro', social_links: true } do %>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <%= render 'shared/form_errors', messages: resource.errors.full_messages if resource.errors.any? %>
 
     <div class="form-group">
       <div class="input-group">

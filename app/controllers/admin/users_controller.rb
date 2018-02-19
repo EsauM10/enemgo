@@ -27,7 +27,7 @@ class Admin::UsersController < Admin::BaseController
       redirect_to admin_user_path(@user), notice: 'Usuário criado com sucesso.'
     else
       render :new
-    end    
+    end
   end
 
   def update

@@ -17,7 +17,7 @@ class Users::AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to address_path, notice: 'Address was successfully created.' }
+        format.html { redirect_to address_path, notice: 'Endereço criado com sucesso.' }
         format.json { render :show, status: :created, location: @address }
       else
         format.html { render :new }
@@ -29,7 +29,7 @@ class Users::AddressesController < ApplicationController
   def update
     respond_to do |format|
       if @address.update(address_params)
-        format.html { redirect_to profile_path, notice: 'Address was successfully updated.' }
+        format.html { redirect_to profile_path, notice: 'Endereço foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @address }
       else
         format.html { render :edit }
